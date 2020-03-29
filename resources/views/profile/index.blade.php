@@ -10,7 +10,7 @@
 
     <div class="form-group row">
         <label for="name" class="form control">
-            {{ __('ชื่อ') }}
+            {{ __('นาม') }}
         </label>
 
         <div class="col-md-6">
