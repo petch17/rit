@@ -18,6 +18,8 @@ Route::get('profit', 'HomeController@profit')->name('profit');
 Route::get('bill', 'HomeController@bill')->name('bill');
 Route::get('problem', 'HomeController@problem')->name('problem');
 
+Route::resource('profile' , 'ProfileController');
+
 Route::post('engage/addstore', [
     'as' => 'addstore',
     'uses' => 'EngageController@addstore'

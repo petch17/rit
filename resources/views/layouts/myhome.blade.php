@@ -62,9 +62,9 @@
                                 </li>
                                 @endif
                                 @else
-                                {{-- <li>
-                                    <a href="#"> ข้อมูลผู้ใช้งาน </a>
-                                </li> --}}
+                                <li>
+                                <a href="{{ route('profile.index') }}"> ข้อมูลผู้ใช้งาน </a>
+                                </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
