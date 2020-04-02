@@ -24,7 +24,7 @@
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"> {{ $item->working }} </th>
+            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
             <th align="right"> @php echo number_format( $price1 , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -32,8 +32,12 @@
 
         @elseif( $item->working == 'ตัดปาล์ม' )
         <tbody>
+            {{-- {{ $palm = $item->kilo_palm }} --}}
+            {{-- {{ $sum = $item->kilo_palm * 3 }} --}}
+            {{-- {{ $avg = $sum * 0.3 }} --}}
+           {{-- {{ $sum2 = $sum - $avg }} --}}
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"> {{ $item->working }} </th>
+            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
             <th align="right"> @php echo number_format( $price2 , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -42,7 +46,7 @@
         @else
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"> {{ $item->working }} </th>
+            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
             <th align="right"> @php echo number_format( $price3 , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -93,4 +97,5 @@
 @endsection
 
 @section('js')
+
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a3.jpg')}}');">
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -7,13 +7,13 @@
             <div class="card">
                 <div class="card-header">{{ __('ลงทะเบียน') }}</div>
 
-                <div class="card-body">
+                <div class="card-body"> {{-- start --}}
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">
-                                {{ __('ชื่อ') }}
+                                {{ __('ชื่อ(นาย/นาง/นางสาว)') }}
                             </label>
 
                             <div class="col-md-6">
@@ -58,6 +58,23 @@
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">
+                                {{ __('เบอร์โทรศัพท์') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text"
+                                       class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                       name="phone" value="{{ old('phone') }}" required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -114,7 +131,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> {{-- end --}}
             </div>
         </div>
     </div>

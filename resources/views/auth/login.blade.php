@@ -1,13 +1,15 @@
 @extends('layouts.app')
-
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
 @section('content')
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('เข้าสู่ระบบ') }}</div>
+                <div class="card-header" align="center"> <font color="black"><h3>{{ __('สวนปาล์มอินทนินท์ ยินดีต้อนรับ') }}</h3></font></div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -63,6 +65,7 @@
                                     {{ __('ยืนยัน') }}
                                 </button>
 
+
                                 {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('ลืมรหัสผ่าน?') }}
@@ -71,6 +74,16 @@
                             </div>
                         </div>
                     </form>
+                    <table>
+                        <font color="red"><h3> **กรุณาสมัครสมาชิกก่อนการใช้บริการระบบ** </h3></font>
+                        <font color="black"><h3> **ขั้นตอนการสมัครสมาชิก** </h3></font>
+                        <font color="black"><h3> 1.ไปที่เมนูมุมขวาเลือกลงทะเบียน </h3></font>
+                        <font color="black"><h3> 2.กรอกไอดี และ พาสเวิร์ด </h3></font>
+                        <font color="black"><h3> 3.ยืนยัน </h3></font>
+                        <font color="black"><h3> 4.สมัครเสร็จสิ้น </h3></font>
+
+
+                    </table>
                 </div>
             </div>
         </div>

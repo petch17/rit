@@ -7,15 +7,19 @@ use App\Problem;
 
 class HomeController extends Controller
 {
+    public function zervid()
+    {
+        return view('zervid');
+    }
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.

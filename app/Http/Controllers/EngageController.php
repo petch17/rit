@@ -61,6 +61,13 @@ class EngageController extends Controller
         // return view('engage.index' ,['dates' => $date , 'currentday' => $currentday]);
     }
 
+    public function desc()
+    {
+        // return 1;
+        return view('engage.desc');
+
+    }
+
     public function addstore(Request $request)
     {
         // return $request;

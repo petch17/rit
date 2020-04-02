@@ -16,7 +16,10 @@ Route::resource('engage', 'EngageController');
 
 Route::get('profit', 'HomeController@profit')->name('profit');
 Route::get('bill', 'HomeController@bill')->name('bill');
+Route::get('zervid', 'HomeController@zervid')->name('zervid');
 Route::get('problem', 'HomeController@problem')->name('problem');
+
+Route::get('engage/123/desc', 'EngageController@desc')->name('desc');
 
 Route::resource('profile' , 'ProfileController');
 
