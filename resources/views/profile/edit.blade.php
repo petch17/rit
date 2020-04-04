@@ -23,7 +23,8 @@
 
                 {{-- ใส่ ฟอม --}}
                 <div class="card-body"> {{-- start --}}
-
+                    <form method="POST" action="{{ route('profileupdatestore' ) }}">
+                    @csrf
                         {{--  {{ csrf_field() }}
                         {{ method_field('patch') }}  --}}
                         @foreach($profile as $item)
@@ -34,9 +35,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <label for="phone" class="col-md-8 col-form-label">
-                                    {{ __( $item->name ) }}
-                                </label>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $item->name }}">
                             </div>
                         </div>
 
@@ -46,9 +45,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <label for="phone" class="col-md-8 col-form-label">
-                                    {{ __( $item->lastname ) }}
-                                </label>
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ $item->lastname }}">
                             </div>
                         </div>
 
@@ -58,9 +55,7 @@
                             </label>
 
                             <div class="col-md-6">
-                                <label for="phone" class="col-md-8 col-form-label">
-                                    {{ __( $item->address ) }}
-                                </label>
+                                <input id="address" type="text" class="form-control" name="address" value="{{ $item->address }}">
                             </div>
                         </div>
 
@@ -70,28 +65,20 @@
                             </label>
 
                             <div class="col-md-6">
-                                <label for="phone" class="col-md-8 col-form-label">
-                                    {{ __( $item->phone ) }}
-                                </label>
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ $item->phone }}">
                             </div>
                         </div>
 
                         @endforeach
 
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                    <button type="submit" >
-                                        <a href="{{ route('edit' ) }}">
-                                            {{ __('แก้ไข') }}
-                                        </a>
-                                    </button>
-                                    <button type="submit" onclick="window.history.back();">
-                                        {{ __('ย้อนกลับ') }}
-                                    </button>
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('ยืนยัน') }}
+                                </button>
                             </div>
                         </div>
-
+                    </form>
                 </div> {{-- end --}}
             </div>
         </div>

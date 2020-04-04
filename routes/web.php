@@ -25,6 +25,16 @@ Route::get('engage/schedule/workschedule', 'EngageController@workschedule')->nam
 
 Route::resource('profile' , 'ProfileController');
 
+Route::get('profile/update/edit', 'EngageController@edit')->name('edit');
+
+Route::post('profile/profileupdatestore', [
+    'as' => 'profileupdatestore',
+    'uses' => 'ProfileController@profileupdatestore'
+]);
+Route::resource('profileupdatestore', 'ProfileController' , ['except' => 'profileupdatestore']);
+
+
+
 Route::post('engage/addstore', [
     'as' => 'addstore',
     'uses' => 'EngageController@addstore'

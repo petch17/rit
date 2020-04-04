@@ -27,15 +27,35 @@ class ProfileController extends Controller
     {
         // return 1;
         $profiles = User::where('id', Auth::user()->id )->get();
+        // $item = Auth::users();
+        // return view('profile.index' , compact('item') );
         return view('profile.index',['profile' => $profiles]);
 
     }
 
-    public function add( $id )
+    public function edit(  )
     {
-        return $id;
-        $profiles = User::find($id)->get();
-        return view('profile.index',['profile' => $profiles]);
+        // return 1;
+        $profiles = User::where('id', Auth::user()->id )->get();
+        // $item = Auth::users();
+        // return view('profile.index' , compact('item') );
+        return view('profile.edit',['profile' => $profiles]);
+
+    }
+
+    public function profileupdatestore(Request $request)
+    {
+        // return $request;
+
+        User::where( 'id', Auth::user()->id )->update([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'address' => $request->address,
+            'phone' => $request->phone,
+        ]);
+
+        return redirect()->route('profile.index');;
+
 
     }
 
