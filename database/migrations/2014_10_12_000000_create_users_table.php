@@ -15,9 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name'); //ชื่อจริง
-            $table->string('lastname'); //นามสกุล
-            $table->string('username'); //ไอดี
+            $table->string('name')->nullabel(); //ชื่อจริง
+            $table->string('lastname')->nullabel(); //นามสกุล
+            $table->string('username')->nullabel(); //ไอดี
+            $table->string('address')->nullabel(); //ที่อยู่
+            $table->string('phone')->nullabel(); //โทรศัพท์
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); //รหัสผ่าน

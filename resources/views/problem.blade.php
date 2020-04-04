@@ -7,7 +7,7 @@
 @section('content')
 <center>
 
-<h1> แจ้งปัญหา </h1> </br>
+ <font color="black"><h1> แจ้งปัญหา </h1></font> </br>
 
 </center>
 <br>

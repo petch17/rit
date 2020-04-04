@@ -68,6 +68,14 @@ class EngageController extends Controller
 
     }
 
+    public function workschedule()
+    {
+        // return 1;
+        $date = Work::get();
+        return view('engage.workschedule',['dates' => $date ]);
+
+    }
+
     public function addstore(Request $request)
     {
         // return $request;
@@ -163,10 +171,6 @@ class EngageController extends Controller
     public function checkworkstore(Request $request)
     {
         // return $request;
-        // $num = 0 ;
-        // foreach( $requests => $index=>$item){
-
-        // }
         foreach ($request->work as $works){
             $workimg2 = new WorkDetail();
             $workimg2->working = $works;

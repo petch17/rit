@@ -21,6 +21,8 @@ Route::get('problem', 'HomeController@problem')->name('problem');
 
 Route::get('engage/123/desc', 'EngageController@desc')->name('desc');
 
+Route::get('engage/schedule/workschedule', 'EngageController@workschedule')->name('workschedule');
+
 Route::resource('profile' , 'ProfileController');
 
 Route::post('engage/addstore', [

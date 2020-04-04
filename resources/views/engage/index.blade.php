@@ -1,5 +1,4 @@
 @extends('layouts.myhome')
-<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
 
 @section('css')
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
@@ -8,7 +7,7 @@
 
 @section('content')
 {{-- {!! $calendar_details->script() !!} --}}
-<div id='calendar'></div>
+{{-- <div id='calendar'></div> --}}
 <br/><br/><br/>
 <h1 align="center">
     โปรดเลือกใช้บริการ
@@ -122,11 +121,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script> --}}
 
-<script src="{{ asset ('js/jquery-1.11.3.min.js')}}"></script>
+{{-- <script src="{{ asset ('js/jquery-1.11.3.min.js')}}"></script>
 <script src="{{ asset ('js/moment.min.js')}}"></script>
-<script src="{{ asset ('js/fullcalendar.min.js')}}"></script>
+<script src="{{ asset ('js/fullcalendar.min.js')}}"></script> --}}
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         // page is now ready, initialize the calendar...
         $('#calendar').fullCalendar({
@@ -143,7 +142,7 @@
             ]
         })
     });
-</script>
+</script> --}}
 
 <script>
     $(document).ready(function () {

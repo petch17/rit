@@ -33,8 +33,20 @@
                                 <i class="fa fa-home" aria-hidden="true"></i> หน้าหลัก</a>
                         </li>
                         <li id="engage">
-                            <a href="{{ route('engage.index') }}">
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
                                 <i class="fa fa-list-ul" aria-hidden="true"></i> บริการ</a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('engage.index') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานองผุ้รับเหมา') }}</a>
+                                    </li>
+                                </ul>
                         </li>
                         </li>
                         {{-- <li id="bill">
@@ -63,7 +75,7 @@
                                 @endif
                                 @else
                                 <li>
-                                <a href="{{ route('profile.index') }}"> ข้อมูลผู้ใช้งาน </a>
+                                <a href="{{ route('profile.index') }}"> แก้ไขข้อมูลผู้ใช้งาน </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();

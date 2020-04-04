@@ -18,13 +18,27 @@ class UsersTableSeeder extends Seeder
         $user = new User();
 
         $user->insert([
+            [
             'name' => 'ผู้ดูแลระบบ',
             'lastname' => 'ควบคุม',
             'username' => 'admin',
-            // 'email' => 'admin@gmail.com',
+            'phone' => '09',
+            'address' => 'admin@gmail.com',
             'password' => Hash::make('1234567890'),
             'remember_token' => Str::random(10),
-            'type' => '1',
-        ]);
+            'type' => '1'
+        ]
+        ,
+        [
+            'name' => 'ผู้ดูแล',
+            'lastname' => 'คุม',
+            'username' => 'add',
+            'phone' => '00',
+            'address' => 'admin@gmail.com',
+            'password' => Hash::make('12345678'),
+            'remember_token' => Str::random(10),
+            'type' => '0'
+        ]
+    ]);
     }
 }
