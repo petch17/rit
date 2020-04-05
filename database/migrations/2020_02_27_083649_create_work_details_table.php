@@ -16,9 +16,9 @@ class CreateWorkDetailsTable extends Migration
         Schema::create('work_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('working')->nullable(); //งานที่ทำ ตัดหญ้า,ตัดปาล์ม,ใส่ปุ๋ย
-            $table->string('kilo_palm')->nullable(); //สถานะชำระเงิน ชำระ,ค้างชำระ
-            $table->string('unit_fertilizer')->nullable(); //สถานะชำระเงิน ชำระ,ค้างชำระ
-            $table->string('farm_grass')->nullable(); //สถานะชำระเงิน ชำระ,ค้างชำระ
+            $table->string('kilo_palm')->nullable(); //จำนวนปาล์มที่ตัดเป็นกิโล
+            $table->string('unit_fertilizer')->nullable(); //จำนวนต้นปาล์มที่ใส่ปุ๋ย
+            $table->string('farm_grass')->nullable(); //จำนวนไร่ที่ตัดหญ้า
         });
     }
 

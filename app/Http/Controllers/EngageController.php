@@ -78,24 +78,13 @@ class EngageController extends Controller
 
     public function addstore(Request $request)
     {
-        // return $request;
-        // $this->validate($request , [
-        //         'topic' => 'required',
-        //         'edoc_type' => 'required',
-        //         'file' => 'required',
-        //     ] ,
-        //     [
-        //         'topic.required'    => 'กรุณากรอกชื่อเรื่อง',
-        //         'edoc_type.required'  => 'กรุณาเลือกประเภทเอกสาร',
-        //         'file.required'  => 'กรุณาอัพโหลดไฟล์',
-        //     ]
-        // );
-
         $workimg = new Work();
         $workimg->user_id = $request->user_id;
         $workimg->begin_date = $request->begin_date;
         $workimg->end_date = $request->end_date;
+        $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
+        $workimg->status_work = 'รอดำเนินการ';
         $workimg->save();
         // return $workimg;
 
@@ -120,19 +109,6 @@ class EngageController extends Controller
             }
         }
 
-        // $variable = WorkDetail::get();
-        // $variable = DB::table('work_details')->select('work_details.*')->where('work_id','like','90')->get();
-        // return $variable;
-
-        // if ($request->hasFile('file')){
-        //     // File::delete(base_path().'\\public\\workimgfiles\\'.$edoc->file);
-        //     $file = Str::random(10).'.'.$request->file('file')->getClientOriginalExtension(); //random flie name
-        //     $real_filename = $request->file('file')->getClientOriginalName(); //real_filename
-        //     $request->file('file')->move('D://'.'nodeapi'.'/'.'uploads'.'/'.'pdffile'.'/', $file); //ที่เก็บรูปของ serve
-        //     // $request->file('file')->move(base_path().'/public/edocfiles/',$file); //ที่เก็บรูปของ เครื่องตัวเอง
-        //     $edoc->file = $file;
-        //     $edoc->real_filename = $real_filename;
-        // }
         $details =  DB::table('work_details')->select('work_details.*')->where('work_id','like',$workimg->id)->get();
         // return $details;
         $sum = 0;
@@ -159,11 +135,7 @@ class EngageController extends Controller
                 $sack = $sum3 * 600;
             }
         }
-        // $data = DB::table('work_details')->select('work_details.*')->where('working','like',"ตัดหญ้า","and",'work_id','like',$workimg->id)->get();
-        // if( $data == "ตัดหญ้า"){
-            // return $data;
-        // }
-        // return $avg2;
+
         return view('engage.addcreate',[ 'detail' => $details , 'price1' => $sum , 'price2' => $avg1 , 'price3' => $sack ]);
         // return redirect()->route('addcreate');
     }

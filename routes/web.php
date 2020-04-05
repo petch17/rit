@@ -15,8 +15,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('engage', 'EngageController');
 
 Route::get('profit', 'HomeController@profit')->name('profit');
+
 Route::get('bill', 'HomeController@bill')->name('bill');
+
 Route::get('zervid', 'HomeController@zervid')->name('zervid');
+
 Route::get('problem', 'HomeController@problem')->name('problem');
 
 Route::get('engage/123/desc', 'EngageController@desc')->name('desc');
@@ -41,6 +44,18 @@ Route::post('engage/addstore', [
 ]);
 Route::resource('addstore', 'EngageController' , ['except' => 'addstore']);
 
+// Route::post('engage/detailstore', [
+//     'as' => 'detailstore',
+//     'uses' => 'EngageController@detailstore'
+// ]);
+// Route::resource('detailstore', 'EngageController' , ['except' => 'detailstore']);
+
+// Route::post('engage/dayworkstore', [
+//     'as' => 'dayworkstore',
+//     'uses' => 'EngageController@dayworkstore'
+// ]);
+// Route::resource('dayworkstore', 'EngageController' , ['except' => 'dayworkstore']);
+
 Route::post('engage/checkworkstore', [
     'as' => 'checkworkstore',
     'uses' => 'EngageController@checkworkstore'
@@ -55,6 +70,7 @@ Route::post('problemstore', [
     'uses' => 'HomeController@problemstore'
 ]);
 Route::resource('addproblem/problem', 'HomeController' , ['except' => 'problem']);
+
 //Route for user
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home','HomeController@index');

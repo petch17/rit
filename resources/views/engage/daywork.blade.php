@@ -12,12 +12,11 @@
 <h1 align="center">
     โปรดเลือกใช้บริการ
 </h1> </br>
-{!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
+{!! Form::open(['route' => 'dayworkstore', 'method' => 'post', 'files'=>true ]) !!}
 
-<input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
-<center>
-    {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
-</center> </br>
+{{-- <input name="user_id" type="hidden" value="{{Auth::user()->id}}" /> --}}
+@if ( $codes == $codes)
+
 <section id="services">
     <ul class="nospace group">
         <li class="one_quarter">
@@ -51,55 +50,12 @@
     </ul>
 </section>
 
-<section id="services">
-    <ul class="nospace group">
-        <li class="one_quarter">
-            <article>
-                <i class="fa fa-leaf fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutgrass.jpg')}}" width="150" height="150"> --}}
-                <h6 class="heading"> ตัดหญ้า </h6>
-                {{-- <p> ตัดหญ้า </p> --}}
-                <footer>
-                    <center>
-                        {!! Form::checkbox('work[]', 'ตัดหญ้า' ); !!}คลิกเพื่อเลือกรายการ
-                        {!! Form::number('farm_grass', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนไร่'] ); !!}
-                    </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
-                </footer>
-            </article>
-        </li>
-        <li class="one_quarter">
-            <article>
-                <i class="fa fa-tree fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutpalm.png')}}" width="150" height="150"> --}}
-                <h6 class="heading"> ตัดปาล์ม </h6>
-                {{-- <p> ตัดปาล์ม </p> --}}
-                <footer>
-                    <center>
-                        {!! Form::checkbox('work[]', 'ตัดปาล์ม' ); !!}คลิกเพื่อเลือกรายการ
-                        {!! Form::number('kilo_palm', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนกิโลกรัม'] ); !!}
-                    </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
-                </footer>
-            </article>
-        </li>
-        <li class="one_quarter">
-            <article>
-                <i class="fa fa-archive fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/fertilizer.jpg')}}" width="150" height="150"> --}}
-                <h6 class="heading"> ใส่ปุ๋ย </h6>
-                {{-- <p> ใส่ปุ๋ย </p> --}}
-                <footer>
-                    <center>
-                        {!! Form::checkbox('work[]', 'ใส่ปุ๋ย' ); !!}คลิกเพื่อเลือกรายการ
-                        {!! Form::number('unit_fertilizer', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนต้น'] ); !!}
-                    </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
-                </footer>
-            </article>
-        </li>
-    </ul>
-</section>
+@else
+
+error
+
+@endif
+
 </br> </br>
 <div align="center">
     {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}

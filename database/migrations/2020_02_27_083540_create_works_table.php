@@ -18,7 +18,9 @@ class CreateWorksTable extends Migration
             $table->date('begin_date')->nullable(); //วันเริ่มจ้าง
             $table->date('end_date')->nullable(); //วันสิ้นสุดจ้าง
             // $table->string('status_work')->nullable(); //สถานะงาน
+            $table->string('address_work')->nullable(); //ที่อยู่สวนที่ให้ไปตัด
             $table->string('status_bill')->nullable(); //สถานะชำระเงิน ชำระ,ค้างชำระ
+            $table->string('status_work')->nullable(); //สถานะงาน รอดำเนินการ , กำลังดำเนินการ , ดำเนินการเสร็จสิ้น
         });
     }
 

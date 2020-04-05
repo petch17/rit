@@ -2,7 +2,7 @@
 
 @section('css')
 <style>
-    body { background-color: yellowgreen; }
+    body { background-color:#FFE873; }
 </style>
 @endsection
 
@@ -19,12 +19,12 @@
 <img src="{{ asset('images/demo/backgrounds/a7.jpg') }}" height="400" width="400">
 
     <font color="black"><h3>2.บริการตัดหญ้า  </h3></font>
-    <font color="black"><h3>ตัดหญ้าจำนวนไร่ละ 500 (ค่าแรง 400 + 100 ค่าน้ำมัน)  หักค่ามักจำ 30%  (อีก 70 % เป็นของลูกค้า </h3></font>
+    <font color="black"><h3>ตัดหญ้าจำนวนไร่ละ 500 (ค่าแรง 400 + 100 ค่าน้ำมัน)  หักค่ามัดจำ 30%  (อีก 70 % เป็นของลูกค้า </h3></font>
     <br><br><br><br><br>
 <img src="{{ asset('images/demo/backgrounds/a6.jpg') }}" height="400" width="400">
 
     <font color="black"><h3>3.บริการใส่ปุ๋ย  </h3></font>
-    <font color="black"><h3>ใส่ปุ๋ยคิดเป็นกระสอบละ 50 บาท ปุ๋ย1 กระสอบราคา 600  บาท  1กระสอบใส่ได้50ต้น () หักค่ามักจำ 30%  อีก 70 % เป็นของลูกค้า </h3></font>
+    <font color="black"><h3>ใส่ปุ๋ยคิดเป็นกระสอบละ 50 บาท ปุ๋ย1 กระสอบราคา 600  บาท  1กระสอบใส่ได้50ต้น  หักค่ามัดจำ 30%  อีก 70 % เป็นของลูกค้า </h3></font>
 </center>
 @endsection
 

@@ -2,8 +2,9 @@
 
 @section('css')
 <style>
-    body {
-        background-color: skyblue;
+    body
+    {
+        background-color: #FFE873;
     }
 
 </style>

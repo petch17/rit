@@ -1,5 +1,5 @@
-@extends('layouts.app')
-<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a3.jpg')}}');">
+@extends('layouts.app2')
+{{-- <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a3.jpg')}}');"> --}}
 
 @section('content')
 <div class="container">

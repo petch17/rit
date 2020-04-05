@@ -9,97 +9,75 @@
 {{-- {!! $calendar_details->script() !!} --}}
 {{-- <div id='calendar'></div> --}}
 <br/><br/><br/>
-<h1 align="center">
-    โปรดเลือกใช้บริการ
+<h1>
+    กรุณากรอกข้อมูลด้านล่างให้ครบถ้วน
 </h1> </br>
-{!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
+{!! Form::open(['route' => 'detailstore', 'method' => 'post', 'files'=>true ]) !!}
 
-<input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
-<center>
-    {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
-</center> </br>
-<section id="services">
-    <ul class="nospace group">
-        <li class="one_quarter">
-            <article>
-            </article>
-        </li>
+{!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
+</br>
+@foreach ($adddetail as $item)
 
-        <li class="one_quarter">
-            <article>
-                <h6 class="heading"> เลือกวันที่เริ่มงาน : </h6>
-                <footer>
-                    {!! Form::date('begin_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
-                </footer>
-            </article>
-        </li>
-
-        <li class="one_quarter">
-            <article>
-                <h6 class="heading"> เลือกวันที่สิ้นสุดงาน :</h6>
-                <footer>
-                    {!! Form::date('end_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
-                </footer>
-            </article>
-        </li>
-
-        <li class="one_quarter">
-            <article>
-            </article>
-        </li>
-
-    </ul>
-</section>
+@if ( $code == $code )
 
 <section id="services">
     <ul class="nospace group">
+
+        @if ( $item->working == 'ตัดหญ้า' && $item->work_id == $code )
+
         <li class="one_quarter">
             <article>
                 <i class="fa fa-leaf fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutgrass.jpg')}}" width="150" height="150"> --}}
                 <h6 class="heading"> ตัดหญ้า </h6>
-                {{-- <p> ตัดหญ้า </p> --}}
                 <footer>
                     <center>
-                        {!! Form::checkbox('work[]', 'ตัดหญ้า' ); !!}คลิกเพื่อเลือกรายการ
+                        <input name="work[]" type="hidden" value="ตัดหญ้า" />
                         {!! Form::number('farm_grass', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนไร่'] ); !!}
                     </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
             </article>
         </li>
+
+        @elseif( $item->working == 'ตัดปาล์ม' && $item->work_id == $code )
+
         <li class="one_quarter">
             <article>
                 <i class="fa fa-tree fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutpalm.png')}}" width="150" height="150"> --}}
                 <h6 class="heading"> ตัดปาล์ม </h6>
-                {{-- <p> ตัดปาล์ม </p> --}}
                 <footer>
                     <center>
-                        {!! Form::checkbox('work[]', 'ตัดปาล์ม' ); !!}คลิกเพื่อเลือกรายการ
+                        <input name="work[]" type="hidden" value="ตัดปาล์ม" />
                         {!! Form::number('kilo_palm', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนกิโลกรัม'] ); !!}
                     </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
             </article>
         </li>
+
+        @elseif( $item->working == 'ใส่ปุ๋ย' && $item->work_id == $code )
+
         <li class="one_quarter">
             <article>
                 <i class="fa fa-archive fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/fertilizer.jpg')}}" width="150" height="150"> --}}
                 <h6 class="heading"> ใส่ปุ๋ย </h6>
-                {{-- <p> ใส่ปุ๋ย </p> --}}
                 <footer>
                     <center>
-                        {!! Form::checkbox('work[]', 'ใส่ปุ๋ย' ); !!}คลิกเพื่อเลือกรายการ
+                        <input name="work[]" type="hidden" value="ใส่ปุ๋ย" />
                         {!! Form::number('unit_fertilizer', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนต้น'] ); !!}
                     </center>
-                    {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
             </article>
         </li>
+
+        @endif
+
     </ul>
 </section>
+
+@endif
+
+@endforeach
+
+
 </br> </br>
 <div align="center">
     {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}

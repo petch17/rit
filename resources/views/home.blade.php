@@ -1,5 +1,5 @@
 @extends('layouts.myhome')
-<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a1.jpg')}}');">
 
 @section('css')
 

@@ -3,7 +3,7 @@
 @section('css')
 <style>
     body {
-        background-color: skyblue;
+        background-color: #FFE873;
     }
 
 </style>
@@ -86,8 +86,10 @@
                                             {{ __('แก้ไข') }}
                                         </a>
                                     </button>
-                                    <button type="submit" onclick="window.history.back();">
-                                        {{ __('ย้อนกลับ') }}
+                                    <button type="submit" >
+                                        <a href="{{ url('home' ) }}">
+                                            {{ __('หน้าหลัก') }}
+                                        </a>
                                     </button>
                             </div>
                         </div>

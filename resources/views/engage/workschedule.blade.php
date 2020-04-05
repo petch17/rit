@@ -4,9 +4,13 @@
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
 <link rel='stylesheet' href='{{ asset ('css/fullcalendar.min.css')}}' />
 @endsection
+
 @section('content')
-<div id='calendar'></div>
+    <center> <h3> ตารางงานผู้รับเหมา </h3> </center>
+    <div id='calendar'></div>
+
 @endsection
+
 @section('js')
 <!-- Scripts -->
 {{-- <script src="http://code.jquery.com/jquery.js"></script>
@@ -25,7 +29,7 @@
             events : [
                 @foreach($dates as $index)
                 {
-                    title : '{{ $index->user_id }}',
+                    title : 'ไม่ว่าง',
                     start : '{{ $index->begin_date }}',
                     end : '{{ $index->end_date }}',
                     // url : '{{ route('engage.edit', $index->id) }}'
