@@ -68,7 +68,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('แจ้งปัญหา') }}</a>
                         </li>
 
                         @guest
