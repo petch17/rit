@@ -2,7 +2,7 @@
 
 @section('css')
 <style>
-    body { background-color: skyblue; }
+    body { background-color: yellowgreen; }
 </style>
 @endsection
 

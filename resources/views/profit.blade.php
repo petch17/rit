@@ -1,5 +1,7 @@
 @extends('layouts.myhome')
-
+<style>
+    body { background-color: yellowgreen; }
+</style>
 @section('css')
 
 @endsection
