@@ -72,13 +72,21 @@ Route::post('problemstore', [
 Route::resource('addproblem/problem', 'HomeController' , ['except' => 'problem']);
 
 //Route for user
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home','HomeController@index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index');
 });
 //Route for admin
-Route::group(['prefix =>','admin'], function(){
-    Route::group(['middleware'=>['admin']],function(){
-        Route::get('/dashboard','admin\AdminController@index');
+Route::group(['prefix' => 'admin'], function(){
+    Route::group(['middleware' => ['admin']], function(){
+        Route::get('dashboard', 'admin\AdminController@index');
     });
-
 });
+
+
+Route::get('admin/prob/prob', 'admin\AdminController@prob')->name('prob');
+
+Route::get('admin/wk/works', 'admin\AdminController@works')->name('works');
+
+Route::get('admin/detail/details', 'admin\AdminController@details')->name('details');
+
+Route::get('admin/ur/customers', 'admin\AdminController@customers')->name('customers');

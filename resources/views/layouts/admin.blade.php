@@ -12,6 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    @yield('js')
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -63,6 +65,31 @@
 
                                 <a class="dropdown-item" href="{{route('workschedule') }}" >
                                     {{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                             {{ __('ตาราง') }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('customers') }}" >
+                                    {{ __('รายชื่อลูกค้า') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('works') }}" >
+                                    {{ __('ตารางงาน') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('details') }}" >
+                                    {{ __('ตารางรายละเอียดงาน') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{ route('prob') }}" >
+                                    {{ __('ตารางการแจ้งปัญหา') }}
                                 </a>
                             </div>
                         </li>
