@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
 
         $user->insert([
             [
+
+            'titlename' => 'นาย',
             'name' => 'ผู้ดูแลระบบ',
             'lastname' => 'ควบคุม',
             'username' => 'admin',
@@ -30,6 +32,8 @@ class UsersTableSeeder extends Seeder
         ]
         ,
         [
+
+            'titlename' => 'นาย',
             'name' => 'ผู้ดูแล',
             'lastname' => 'คุม',
             'username' => 'add',

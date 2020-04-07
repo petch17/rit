@@ -10,46 +10,13 @@
 {{-- <div id='calendar'></div> --}}
 <br/><br/><br/>
 <h1 align="center">
+    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
+
     โปรดเลือกใช้บริการ
 </h1> </br>
 {!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
 
 <input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
-<center>
-    {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
-</center> </br>
-<section id="services">
-    <ul class="nospace group">
-        <li class="one_quarter">
-            <article>
-            </article>
-        </li>
-
-        <li class="one_quarter">
-            <article>
-                <h6 class="heading"> เลือกวันที่เริ่มงาน : </h6>
-                <footer>
-                    {!! Form::date('begin_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
-                </footer>
-            </article>
-        </li>
-
-        <li class="one_quarter">
-            <article>
-                <h6 class="heading"> เลือกวันที่สิ้นสุดงาน :</h6>
-                <footer>
-                    {!! Form::date('end_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
-                </footer>
-            </article>
-        </li>
-
-        <li class="one_quarter">
-            <article>
-            </article>
-        </li>
-
-    </ul>
-</section>
 
 <section id="services">
     <ul class="nospace group">
@@ -98,6 +65,51 @@
                 </footer>
             </article>
         </li>
+    </ul>
+</section></br></br>
+<h1 align="center">
+    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
+
+    กรุณากรอกที่อยู่สวนปาล์มของท่านให้ละเอียด
+</h1> </br>
+<center>
+    {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
+</center> </br>
+<h1 align="center">
+    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
+
+    กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ
+</h1> </br>
+<section id="services">
+    <ul class="nospace group">
+        <li class="one_quarter">
+            <article>
+            </article>
+        </li>
+
+        <li class="one_quarter">
+            <article>
+                <h6 class="heading"> เลือกวันที่เริ่มงาน : </h6>
+                <footer>
+                    {!! Form::date('begin_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
+                </footer>
+            </article>
+        </li>
+
+        <li class="one_quarter">
+            <article>
+                <h6 class="heading"> เลือกวันที่สิ้นสุดงาน :</h6>
+                <footer>
+                    {!! Form::date('end_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
+                </footer>
+            </article>
+        </li>
+
+        <li class="one_quarter">
+            <article>
+            </article>
+        </li>
+
     </ul>
 </section>
 </br> </br>

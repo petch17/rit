@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> <center> <h1> Dashboard </h1> </center> </div>
+                <div class="card-header"> <center> <h1> รายชื่อ </h1> </center> </div>
 
                         <table id="##example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>

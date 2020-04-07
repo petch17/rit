@@ -14,12 +14,14 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+
             $table->bigIncrements('id');
-            $table->string('name')->nullabel(); //ชื่อจริง
-            $table->string('lastname')->nullabel(); //นามสกุล
-            $table->string('username')->nullabel(); //ไอดี
-            $table->string('address')->nullabel(); //ที่อยู่
-            $table->string('phone')->nullabel(); //โทรศัพท์
+            $table->string('titlename')->nullable(); //คำนำหน้า
+            $table->string('name')->nullable(); //ชื่อจริง
+            $table->string('lastname')->nullable(); //นามสกุล
+            $table->string('username')->nullable(); //ไอดี
+            $table->string('address')->nullable(); //ที่อยู่
+            $table->string('phone')->nullable(); //โทรศัพท์
             // $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password'); //รหัสผ่าน

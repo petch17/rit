@@ -27,10 +27,22 @@
                         {{--  {{ csrf_field() }}
                         {{ method_field('patch') }}  --}}
                         @foreach($profile as $item)
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">
+                                {{ __('คำนำหน้า') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <label for="titlename" class="col-md-8 col-form-label">
+                                    {{ __( $item->titlename ) }}
+                                </label>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">
-                                {{ __('ชื่อ(นาย/นางสาว/นาง)') }}
+                                {{ __('ชื่อ') }}
                             </label>
 
                             <div class="col-md-6">

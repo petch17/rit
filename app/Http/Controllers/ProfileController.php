@@ -48,6 +48,7 @@ class ProfileController extends Controller
         // return $request;
 
         User::where( 'id', Auth::user()->id )->update([
+            'titlename' => $request->titlename,
             'name' => $request->name,
             'lastname' => $request->lastname,
             'address' => $request->address,

@@ -12,8 +12,25 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="titlename" class="col-md-4 col-form-label text-md-right">
+                                {{ __('คำนำหน้า(นาย)(นาง)(นางสาว)') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="titlename" type="text" class="form-control @error('titlename') is-invalid @enderror"
+                                name="titlename" value="{{ old('titlename') }}" required autocomplete="titlename" autofocus>
+
+                                @error('titlename')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">
-                                {{ __('ชื่อ(นาย/นาง/นางสาว)') }}
+                                {{ __('ชื่อ') }}
                             </label>
 
                             <div class="col-md-6">
@@ -45,6 +62,59 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">
+                                {{ __('ที่อยู่') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"
+                                name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">
+                                {{ __('เบอร์โทรศัพท์') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text"
+                                       class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                       name="phone" value="{{ old('phone') }}" required>
+
+                                @if ($errors->has('phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+
+                        </div>
+
+                        {{-- <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div> --}}
                         <div class="form-group row">
                             <label for="username" class="col-md-4 col-form-label text-md-right">
                                 {{ __('ไอดี') }}
@@ -62,38 +132,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">
-                                {{ __('เบอร์โทรศัพท์') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text"
-                                       class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                       name="phone" value="{{ old('phone') }}" required>
-
-                                @if ($errors->has('phone'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        {{-- <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">

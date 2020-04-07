@@ -24,7 +24,7 @@
         {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
     </div>
 
-    button3 {background-color: #f44336;} /* Red */
+
 
     </br> </br>
     <div align="center" >

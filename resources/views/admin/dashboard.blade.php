@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a8.jpg')}}');">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
