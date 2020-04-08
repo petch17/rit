@@ -15,7 +15,7 @@
     โปรดเลือกใช้บริการ
 </h1> </br>
 {!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
-
+@csrf
 <input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
 
 <section id="services">

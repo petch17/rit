@@ -48,6 +48,19 @@
                                     </li>
                                 </ul>
                         </li>
+                        <li id="engage">
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                                <i class="fa fa-list-ul" aria-hidden="true"></i> แจ้งโอนเงิน</a>
+                                <ul>
+                                    <li>
+                                        <a href="{{ route('deposit') }}">{{ __('ชำระค่ามัดจำ') }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('monney') }}">{{ __('ชำระค่าบริการ') }}</a>
+                                    </li>
+                                </ul>
+                        </li>
                         </li>
                         {{-- <li id="bill">
                             <a href="{{ route('bill') }}">
@@ -60,7 +73,7 @@
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
-                                <i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->name }}
+                                <i class="fa fa-user-circle" aria-hidden="true"></i> {{ Auth::user()->titlename }} {{ Auth::user()->name }} {{ Auth::user()->lastname }}
                                 <span class="caret"></span>
                             </a>
                             <ul>

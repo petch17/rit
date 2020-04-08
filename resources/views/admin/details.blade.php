@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('css')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" type="text/css" >
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" >
@@ -12,15 +13,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> <center> <h1> Dashboard </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางรายละเอียดงาน </h1> </center> </div>
 
                         <table id="##example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> # </th>
-                                <th align="center"> รายการ </th>
-                                <th align="center"> จำนวนเงิน </th>
-                                <th align="center"> หน่วย </th>
-                                <th align="center"> รายละเอียด </th>
+                                <th align="center"> รหัส</th>
+                                <th align="center"> คนที่ </th>
+                                <th align="center"> บริการ </th>
+                                <th align="center"> กิโลกรัม </th>
+                                <th align="center"> ต้น </th>
+                                <th align="center"> ไร่ </th>
                             </thead>
 
                             @foreach ( $wdetail as $index=>$item )

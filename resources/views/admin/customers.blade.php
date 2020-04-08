@@ -2,6 +2,8 @@
 
 @section('css')
 
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" type="text/css" >
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" >
 
@@ -12,20 +14,23 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> <center> <h1> รายชื่อ </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางรายชื่อ </h1> </center> </div>
+
 
                         <table id="##example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> # </th>
-                                <th align="center"> รายการ </th>
-                                <th align="center"> จำนวนเงิน </th>
-                                <th align="center"> หน่วย </th>
-                                <th align="center"> รายละเอียด </th>
+                                <th align="center">คำนำหน้า </th>
+                                <th align="center"> ชื่อ </th>
+                                <th align="center"> นามสกุล </th>
+                                <th align="center"> สถานะ </th>
+                                <th align="center"> ที่อยู่ </th>
+                                <th align="center"> เบอร์โทร </th>
                             </thead>
 
                             @foreach ( $customers as $index=>$item )
 
                             <tbody>
+                                <th align="center"> {{ $item->titlename  }} </th>
                                 <th align="center"> {{ $item->name  }} </th>
                                 <th align="right"> {{ $item->lastname  }} </th>
                                 <th align="center"> {{ $item->username  }} </th>
@@ -34,6 +39,7 @@
                             </tbody>
 
                             @endforeach
+
 
                         </table>
 

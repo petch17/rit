@@ -67,6 +67,23 @@
                             </div>
                         </li>
 
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                             {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{  route('deposit') }}" >
+                                    {{ __('ชำระค่ามัดจำ') }}
+                                </a>
+
+                                <a class="dropdown-item" href="{{('monney') }}" >
+                                    {{ __('ชำระค่าบริการ') }}
+                                </a>
+                            </div>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('problem') }}">{{ __('แจ้งปัญหา') }}</a>
                         </li>

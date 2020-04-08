@@ -90,3 +90,20 @@ Route::get('admin/wk/works', 'admin\AdminController@works')->name('works');
 Route::get('admin/detail/details', 'admin\AdminController@details')->name('details');
 
 Route::get('admin/ur/customers', 'admin\AdminController@customers')->name('customers');
+
+
+Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
+
+Route::get('bill/monney', 'BillController@monney')->name('monney');
+
+Route::post('bill/addbillstore', [
+    'as' => 'addbillstore',
+    'uses' => 'BillController@addbillstore'
+]);
+Route::resource('addbillstore','BillController' , ['except' => 'addbillstore']);
+
+Route::post('bill/addmonneystore', [
+    'as' => 'addmonneystore',
+    'uses' => 'BillController@addmonneystore'
+]);
+Route::resource('addmonneystore','BillController' , ['except' => 'addmonneystore']);
