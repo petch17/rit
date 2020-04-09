@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Work;
 use App\WorkDetail;
@@ -160,6 +160,24 @@ class EngageController extends Controller
     {
         //
     }
+
+    public function history()
+    {
+        // return 1;
+        $date = DB::table('works')
+            ->join('work_details', 'works.id', '=', 'work_details.work_id')
+            ->join('users', 'users.id', '=', 'works.user_id')
+            ->select('works.*', 'work_details.working', 'work_details.kilo_palm'
+            , 'work_details.unit_fertilizer', 'work_details.farm_grass','users.*')
+            ->where('users.id',Auth::user()->id )
+            ->orderByDesc('works.begin_date')
+            ->get();
+            // return $date;
+        return view('engage.history',['dates' => $date ]);
+
+    }
+
+
 
     public function destroy($id) {
 

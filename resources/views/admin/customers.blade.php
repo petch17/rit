@@ -12,12 +12,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header"> <center> <h1> ตารางรายชื่อ </h1> </center> </div>
 
 
-                        <table id="##example" class="table table-striped table-bordered" style="width:100%" >
+                        <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center">คำนำหน้า </th>
                                 <th align="center"> ชื่อ </th>
@@ -43,8 +43,8 @@
 
                         </table>
 
-            </div>
-        </div>
+                    </div>
+                </div>
     </div>
 </div>
 
@@ -65,3 +65,27 @@
 </script>
 
 @endsection
+{{-- @php
+function show_tdate($date_in)
+{
+$month_arr = array("มกราคม" , "กุมภาพันธ์" , "มีนาคม" , "เมษายน" , "พฤษภาคม" , "มิถุนายน" , "กรกฏาคม" , "สิงหาคม" ,
+"กันยายน" , "ตุลาคม" ,"พฤศจิกายน" , "ธันวาคม" ) ;
+
+$tok = strtok($date_in, "-");
+$year = $tok ;
+
+$tok = strtok("-");
+$month = $tok ;
+
+$tok = strtok("-");
+$day = $tok ;
+
+$year_out = $year + 543 ;
+$cnt = $month-1 ;
+$month_out = $month_arr[$cnt] ;
+
+if ($day < 10 ) $day_out="" .$day; else $day_out=$day ; $t_date=$day_out." ".$month_out." ".$year_out ;
+
+return $t_date ;
+}
+@endphp --}}

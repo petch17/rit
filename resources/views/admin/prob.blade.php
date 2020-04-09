@@ -12,11 +12,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header"> <center> <h1> ตารางแจ้งปัญหา </h1> </center> </div>
 
-                        <table id="##example" class="table table-striped table-bordered" style="width:100%" >
+                        <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> รหัส </th>
                                 <th align="center"> ชื่อ </th>
@@ -38,7 +39,6 @@
                         </table>
 
             </div>
-        </div>
     </div>
 </div>
 

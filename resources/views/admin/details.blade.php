@@ -11,14 +11,15 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header"> <center> <h1> ตารางรายละเอียดงาน </h1> </center> </div>
 
-                        <table id="##example" class="table table-striped table-bordered" style="width:100%" >
+                        <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> รหัส</th>
-                                <th align="center"> คนที่ </th>
+                                <th align="center"> งานที่ </th>
                                 <th align="center"> บริการ </th>
                                 <th align="center"> กิโลกรัม </th>
                                 <th align="center"> ต้น </th>
@@ -41,7 +42,6 @@
                         </table>
 
             </div>
-        </div>
     </div>
 </div>
 

@@ -41,7 +41,7 @@
                                         <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('engage.index') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
+                                        <a href="{{ route('history') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
                                     </li>
                                     <li>
                                         <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานองผุ้รับเหมา') }}</a>
@@ -144,7 +144,7 @@
     <!-- End Bottom Background Image Wrapper -->
     <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
-    <script src="{{asset('./layout/scripts/jquery.min.js')}}"></script>
+    {{-- <script src="{{asset('./layout/scripts/jquery.min.js')}}"></script> --}}
     <script src="{{asset('./layout/scripts/jquery.backtotop.js')}}"></script>
     <script src="{{asset('./layout/scripts/jquery.mobilemenu.js')}}"></script>
 

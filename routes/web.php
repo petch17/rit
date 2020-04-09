@@ -90,6 +90,7 @@ Route::get('admin/wk/works', 'admin\AdminController@works')->name('works');
 Route::get('admin/detail/details', 'admin\AdminController@details')->name('details');
 
 Route::get('admin/ur/customers', 'admin\AdminController@customers')->name('customers');
+Route::get('admin/hy/history', 'EngageController@history')->name('history');
 
 
 Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
