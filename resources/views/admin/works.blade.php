@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.myhome')
 
 @section('css')
 <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
@@ -26,11 +26,13 @@
                                 <th align="center"> บริการ </th>
                             </thead>
 
-                            @foreach ( $wok as $index=>$item )
+
 
                             <tbody>
-                                <th align="center"> {{ $item->id  }} </th>
-                                <th align="right"> {{ $item->user_id  }} </th>
+                                @foreach ( $wok as $index=>$item )
+                                <tr>
+                                <td align="center"> {{ $item->id  }} </td>
+                                <td align="right"> {{ $item->user_id  }} </td>
                                 <td align="center">
                                     @php
                                         $date_in = $item->begin_date ;
@@ -44,12 +46,14 @@
                                             $date3 = show_tdate($date_in) ;
                                         @endphp
                                         {{ $date3  }} </td>
-                                <th align="center"> {{ $item->address_work  }} </th>
-                                <th align="center"> {{ $item->status_bill  }} </th>
-                                <th align="center"> {{ $item->status_work  }} </th>
-                            </tbody>
+                                <td align="center"> {{ $item->address_work  }} </td>
+                                <td align="center"> {{ $item->status_bill  }} </td>
+                                <td align="center"> {{ $item->status_work  }} </td>
+                            </tr>
 
                             @endforeach
+                            </tbody>
+
 
                         </table>
 

@@ -12,7 +12,7 @@
     @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
                         <center>
@@ -20,45 +20,50 @@
                         </center>
                     </div>
 
-                    <table class="table table-striped table-bordered" style="width:100%">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                     {{-- <table id="example" class="table table-striped table-bordered" style="width:100%"> --}}
                         <thead>
-                            <th align="center"> ชื่อ </th>
-                            <th align="center"> วันที่เริ่ม </th>
-                            <th align="center"> วันที่สิ้นสุด </th>
-                            <th align="center"> บริการ </th>
-                            <th align="center"> กิโลกรัม </th>
-                            <th align="center"> ต้น </th>
-                            <th align="center"> ไร่ </th>
+                            <tr>
+                                <th align="center"> ชื่อ </th>
+                                <th align="center"> วันที่เริ่ม </th>
+                                <th align="center"> วันที่สิ้นสุด </th>
+                                <th align="center"> บริการ </th>
+                                <th align="center"> กิโลกรัม </th>
+                                <th align="center"> ต้น </th>
+                                <th align="center"> ไร่ </th>
+                            </tr>
                         </thead>
-
-                        @foreach ( $dates as $index=>$item )
 
                         <tbody>
 
-                            <td align="center"> {{ $item->name  }} </td>
-                            <td align="center">
-                                @php
-                                    $date_in = $item->begin_date ;
-                                    $date3 = show_tdate($date_in) ;
-                                @endphp
-                                {{ $date3  }} </td>
+                        @foreach ( $dates as $index=>$item )
+                            <tr>
+                                <td align="center"> {{ $item->name  }} </td>
+                                <td align="center">
+                                    @php
+                                        $date_in = $item->begin_date ;
+                                        $date3 = show_tdate($date_in) ;
+                                    @endphp
+                                    {{ $date3  }}
+                                </td>
+                                <td align="center">
+                                    @php
+                                        $date_in = $item->end_date ;
+                                        $date3 = show_tdate($date_in) ;
+                                    @endphp
+                                    {{ $date3  }}
+                                </td>
+                                <td align="center"> {{ $item->working  }} </td>
+                                <td align="center"> {{ $item->kilo_palm  }} </td>
+                                <td align="center"> {{ $item->unit_fertilizer  }} </td>
+                                <td align="center"> {{ $item->farm_grass  }} </td>
 
-                            <td align="center">
-                                @php
-                                    $date_in = $item->end_date ;
-                                    $date3 = show_tdate($date_in) ;
-                                @endphp
-                                {{ $date3  }} </td>
+                            </tr>
 
-                            <td align="center"> {{ $item->working  }} </td>
-                            <td align="center"> {{ $item->kilo_palm  }} </td>
-                            <td align="center"> {{ $item->unit_fertilizer  }} </td>
-                            <td align="center"> {{ $item->farm_grass  }} </td>
+                        @endforeach
 
                         </tbody>
 
-                        @endforeach
 
                     </table>
 
@@ -77,7 +82,8 @@
 
     <script>
         $(document).ready(function () {
-            // document.getElementById('engage').classList.add('active');
+            document.getElementById('activity2').classList.add('active');
+            document.getElementById('history').classList.add('active');
             $('#example').DataTable();
         });
 

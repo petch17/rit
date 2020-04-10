@@ -42,6 +42,7 @@
 
 <script>
     $(document).ready(function () {
+        document.getElementById('activity2').classList.add('active');
         document.getElementById('workschedule').classList.add('active');
         // $('#table1').DataTable();
     });

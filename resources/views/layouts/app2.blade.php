@@ -9,9 +9,6 @@
 
     <title>สวนปาล์ม</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    @yield('js')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -42,7 +39,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item">
+                        <li id="myindex">
                             <a class="nav-link" href="{{  url('/home') }}">{{ __('หน้าหลัก') }}</a>
                         </li>
 
@@ -125,5 +122,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('js')
+
 </body>
 </html>

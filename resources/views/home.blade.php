@@ -1,28 +1,56 @@
 @extends('layouts.myhome')
-<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a1.jpg')}}');">
 
 @section('css')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet" type="text/css" >
-<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" >
 
 @endsection
 
 @section('content')
 
-<h1 align="center">
-    รับจ้างเฉพาะภายในพื้นที่หมู่บ้านอินทนินท์
-</h1>
+<div class="site-blocks-cover overlay" style="background-image: url({{asset('images/demo/backgrounds/a4.jpg')}});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center">
 
-@endsection
+        <div class="col-md-10">
+
+
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-8 text-center">
+                <center>
+                    <h1 data-aos="fade-up">welcome to : <span class="typed-words"></span></h1>
+                    {{-- <p data-aos="fade-up" data-aos-delay="100">Explore top-rated attractions, activities and more!</p> --}}
+                </center>
+                </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @endsection
 
 @section('js')
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" ></script>
+{{-- <script src="{{ asset('new/js/main.js') }}"></script> --}}
+<script src="{{ asset('js/typed.js') }}"></script>
 <script>
-    $(document).ready(function() {
-        document.getElementById('myindex').classList.add('active');
+var typed = new Typed('.typed-words', {
+strings: ["สวนปาล์มอินทนินท์"],
+typeSpeed: 80,
+backSpeed: 80,
+backDelay: 4000,
+startDelay: 1000,
+loop: true,
+showCursor: true
+});
+</script>
+
+<script>
+    $(document).ready(function () {
+        document.getElementById('myhome').classList.add('active');
         // $('#table1').DataTable();
     });
+
 </script>
 
 @endsection

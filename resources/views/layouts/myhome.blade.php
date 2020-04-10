@@ -28,30 +28,33 @@
                 </div>
                 <nav id="mainav" class="fl_right">
                     <ul class="clear">
-                        <li id="myindex">
+                        <li id="myhome">
                             <a href="{{ url('/home') }}">
                                 <i class="fa fa-home" aria-hidden="true"></i> หน้าหลัก</a>
                         </li>
-                        <li id="engage">
+                        <li id="activity2">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
                                 <i class="fa fa-list-ul" aria-hidden="true"></i> บริการ</a>
                                 <ul>
-                                    <li>
+                                    <li id="engage">
                                         <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
                                     </li>
-                                    <li>
+                                    <li id="history">
                                         <a href="{{ route('history') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
                                     </li>
-                                    <li>
-                                        <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานองผุ้รับเหมา') }}</a>
+                                    <li id="workschedule">
+                                        <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}</a>
                                     </li>
                                 </ul>
                         </li>
-                        <li id="engage">
+                        @if (Auth::user()->type == '1')
+
+                        @else
+                        <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <i class="fa fa-list-ul" aria-hidden="true"></i> แจ้งโอนเงิน</a>
+                                <i class="fab fa-btc" aria-hidden="true"></i> แจ้งโอนเงิน</a>
                                 <ul>
                                     <li>
                                         <a href="{{ route('deposit') }}">{{ __('ชำระค่ามัดจำ') }}</a>
@@ -61,7 +64,8 @@
                                     </li>
                                 </ul>
                         </li>
-                        </li>
+
+                        @endif
                         {{-- <li id="bill">
                             <a href="{{ route('bill') }}">
                                 <i class="fa fa-tag" aria-hidden="true"></i> ชำระเงิน</a>
@@ -144,7 +148,7 @@
     <!-- End Bottom Background Image Wrapper -->
     <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
     <!-- JAVASCRIPTS -->
-    {{-- <script src="{{asset('./layout/scripts/jquery.min.js')}}"></script> --}}
+    <script src="{{asset('./layout/scripts/jquery.min.js')}}"></script>
     <script src="{{asset('./layout/scripts/jquery.backtotop.js')}}"></script>
     <script src="{{asset('./layout/scripts/jquery.mobilemenu.js')}}"></script>
 

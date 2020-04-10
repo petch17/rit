@@ -5,50 +5,81 @@
 
 @section('content')
 
+<div class="row justify-content-center">
+    <div class="col-md-8">
+<div class="card">
+    <div class="card-header" align="center">
+        <font color="black">
+            <h3>{{ __('จ่ายค่ามัดจำ') }}</h3>
+        </font>
+    </div>
+
 <div class="card-body"> {{-- start --}}
 
-    <font color="black"><h3>จ่ายค่ามัดจำ </h3></font>
     {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
     @csrf
-        {{--  {{ csrf_field() }}
-        {{ method_field('patch') }}  --}}
-        <div class="form-group row">
-            <label for="titlename" class="col-md-4 col-form-label text-md-right">
-                {{ __('บริการ') }}
-            </label>
 
-            <div class="col-md-6">
-                <input id="titlename" type="text" class="form-control" name="titlename" >
-            </div>
+
+
+    <div class="form-group row">
+        <label for="titlename" class="col-md-4 col-form-label text-md-right">
+            {{ __('บริการที่ใช้') }}
+        </label>
+
+        <div class="col-md-6">
+
+            @foreach ($bills as $index=>$item)
+
+            <input readonly type="text" class="form-control" value="{{$index+1}}. {{ $item->working }}" >
+
+            @endforeach
+
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">
-                {{ __('ชื่อ') }}
-            </label>
+    <div class="form-group row">
+        <label for="name" class="col-md-4 col-form-label text-md-right">
+            {{ __('ค่าบริการทั้งหมด') }}
+        </label>
+        @php
+            $result = $price1 + $price2 + $price3 ;
+        @endphp
 
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control" name="name" >
-            </div>
+        <div class="col-md-6">
+        <input readonly type="text" class="form-control" value="{{ number_format( $result , 2 ) }}" >
         </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="name" class="col-md-4 col-form-label text-md-right">
+            {{ __('ค่ามัดจำที่ต้องชำระ') }}
+        </label>
+        @php
+            $avg_result = $result * 0.3 ;
+        @endphp
+
+        <div class="col-md-6">
+        <input readonly type="text" class="form-control" value="{{ number_format( $avg_result , 2 ) }}" >
+        </div>
+    </div>
 
         <div class="form-group row">
             <label for="lastname" class="col-md-4 col-form-label text-md-right">
-                {{ __('สลิปเงิน') }}
+                {{ __('สลิปการโอนเงิน') }}
             </label>
 
             <div class="col-md-6">
-                <input id="lastname" type="text" class="form-control" name="lastname">
+                <input id="lastname" type="file"  name="image">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="address" class="col-md-4 col-form-label text-md-right">
-                {{ __('วันที่โอน') }}
+                {{ __('วันที่แจ้งโอน') }}
             </label>
 
             <div class="col-md-6">
-                <input id="address" type="text" class="form-control" name="address" >
+                <input id="address" type="date" class="form-control" name="address" >
             </div>
         </div>
 
@@ -58,7 +89,7 @@
             </label>
 
             <div class="col-md-6">
-                <input id="phone" type="text" class="form-control" name="phone" >
+                {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
             </div>
         </div>
 
@@ -70,7 +101,11 @@
                 </button>
             </div>
         </div>
+
         {!! Form::close() !!}
+    </div>
+</div>
+</div>
 </div>
 @endsection
 

@@ -2,7 +2,7 @@
 
 @section('css')
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
-<link rel='stylesheet' href='{{ asset ('css/fullcalendar.min.css')}}' />
+{{-- <link rel='stylesheet' href='{{ asset ('css/fullcalendar.min.css')}}' /> --}}
 @endsection
 
 @section('content')
@@ -10,20 +10,20 @@
 {{-- <div id='calendar'></div> --}}
 <br/><br/><br/>
 <h1 align="center">
-    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
-
-    โปรดเลือกใช้บริการ
+    <div style="background-color:skyblue;">
+        <font color="black"> โปรดเลือกใช้บริการ </font>
+    </div>
 </h1> </br>
 {!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
 @csrf
-<input name="user_id" type="hidden" value="{{Auth::user()->id}}" />
+<input name="user_id" type="hidden" value="{{ Auth::user()->id }}" />
 
 <section id="services">
     <ul class="nospace group">
         <li class="one_quarter">
             <article>
-                <i class="fa fa-leaf fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutgrass.jpg')}}" width="150" height="150"> --}}
+                {{-- <i class="fa fa-leaf fa-6x" aria-hidden="true"></i> --}}
+                <img src="{{asset('./images/palm/cutgrass.jpg')}}" width="150" height="150">
                 <h6 class="heading"> ตัดหญ้า </h6>
                 {{-- <p> ตัดหญ้า </p> --}}
                 <footer>
@@ -37,8 +37,8 @@
         </li>
         <li class="one_quarter">
             <article>
-                <i class="fa fa-tree fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/cutpalm.png')}}" width="150" height="150"> --}}
+                {{-- <i class="fa fa-tree fa-6x" aria-hidden="true"></i> --}}
+                <img src="{{asset('./images/palm/cutpalm.png')}}" width="150" height="150">
                 <h6 class="heading"> ตัดปาล์ม </h6>
                 {{-- <p> ตัดปาล์ม </p> --}}
                 <footer>
@@ -52,8 +52,8 @@
         </li>
         <li class="one_quarter">
             <article>
-                <i class="fa fa-archive fa-6x" aria-hidden="true"></i>
-                {{-- <img src="{{asset('./images/palm/fertilizer.jpg')}}" width="150" height="150"> --}}
+                {{-- <i class="fa fa-archive fa-6x" aria-hidden="true"></i> --}}
+                <img src="{{asset('./images/palm/fertilizer.jpg')}}" width="150" height="150">
                 <h6 class="heading"> ใส่ปุ๋ย </h6>
                 {{-- <p> ใส่ปุ๋ย </p> --}}
                 <footer>
@@ -68,17 +68,19 @@
     </ul>
 </section></br></br>
 <h1 align="center">
-    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
+    <div style="background-color:skyblue;">
+        <font color="black"> กรุณากรอกที่อยู่สวนปาล์มของท่านให้ละเอียด </font>
+    </div>
 
-    กรุณากรอกที่อยู่สวนปาล์มของท่านให้ละเอียด
 </h1> </br>
 <center>
     {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
 </center> </br>
 <h1 align="center">
-    <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a2.jpg')}}');">
+    <div style="background-color:skyblue;">
+        <font color="black"> กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ </font>
+    </div>
 
-    กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ
 </h1> </br>
 <section id="services">
     <ul class="nospace group">
@@ -153,6 +155,7 @@
 
 <script>
     $(document).ready(function () {
+        document.getElementById('activity2').classList.add('active');
         document.getElementById('engage').classList.add('active');
         // $('#table1').DataTable();
     });
