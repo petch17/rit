@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="card-body"> {{-- start --}}
-    <font color="black"><h3>ชำระเงิน </h3></font>
+   <center><font color="black"><h3>ชำระค่าเงินทั้งหมด </h3></font></center>
     {!! Form::open(['route' => 'addmonneystore', 'method' => 'post', 'files'=>true ]) !!}
     @csrf
         {{--  {{ csrf_field() }}

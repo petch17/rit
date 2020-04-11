@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function customers()
     {
-        $customer = User::get();
+        $customer = User::where('type','0')->get();
         return view('admin.customers' ,['customers' => $customer ] );
     }
 
@@ -38,6 +38,28 @@ class AdminController extends Controller
     {
         $prob = Problem::get();
         return view('admin.prob',['probb' => $prob ]);
+    }
+
+    public function emp()
+    {
+        $customer = User::get();
+        return view('admin.employee',['customers' => $customer ] );
+    }
+
+    public function addemployee()
+    {
+        return view('admin.addemployee');
+    }
+
+    public function addempstore(Request $request)
+    {
+        // return 1;
+        $problem = new Problem();
+        $problem->user_id = $request->user_id;
+        $problem->desc = $request->desc;
+        $problem->save();
+        return redirect()->route('problem');
+
     }
 
 }

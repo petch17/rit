@@ -71,7 +71,8 @@
 
 <script>
      $(document).ready(function () {
-        // document.getElementById('engage').classList.add('active');
+        document.getElementById('activity3').classList.add('active');
+        document.getElementById('wks').classList.add('active');
         $('#example').DataTable();
     });
 

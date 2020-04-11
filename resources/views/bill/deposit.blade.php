@@ -1,5 +1,6 @@
 @extends('layouts.app2')
 @section('css')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
 
 @endsection
 
@@ -18,8 +19,6 @@
 
     {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
     @csrf
-
-
 
     <div class="form-group row">
         <label for="titlename" class="col-md-4 col-form-label text-md-right">

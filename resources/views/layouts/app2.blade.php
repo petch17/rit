@@ -43,43 +43,99 @@
                             <a class="nav-link" href="{{  url('/home') }}">{{ __('หน้าหลัก') }}</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                             {{ __('บริการ') }} <span class="caret"></span>
-                            </a>
+                        @if (Auth::user()->type == '0')
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{  route('engage.index') }}" >
-                                    {{ __('จ้างงาน') }}
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('บริการ') }} <span class="caret"></span>
                                 </a>
 
-                                <a class="dropdown-item" href="{{('engage.index') }}" >
-                                    {{ __('ตรวจสอบประวัติการจ้างงาน') }}
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{  route('engage.index') }}" >
+                                        {{ __('จ้างงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{('engage.index') }}" >
+                                        {{ __('ตรวจสอบประวัติการจ้างงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{route('workschedule') }}" >
+                                        {{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
                                 </a>
 
-                                <a class="dropdown-item" href="{{route('workschedule') }}" >
-                                    {{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}
-                                </a>
-                            </div>
-                        </li>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{  route('deposit') }}" >
+                                        {{ __('ชำระค่ามัดจำ') }}
+                                    </a>
 
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                             {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
-                            </a>
+                                    <a class="dropdown-item" href="{{('monney') }}" >
+                                        {{ __('ชำระค่าบริการ') }}
+                                    </a>
+                                </div>
+                            </li>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{  route('deposit') }}" >
-                                    {{ __('ชำระค่ามัดจำ') }}
+                        @else
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('บริการ') }} <span class="caret"></span>
                                 </a>
 
-                                <a class="dropdown-item" href="{{('monney') }}" >
-                                    {{ __('ชำระค่าบริการ') }}
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{  route('engage.index') }}" >
+                                        {{ __('จ้างงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{('engage.index') }}" >
+                                        {{ __('ตรวจสอบประวัติการจ้างงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{route('workschedule') }}" >
+                                        {{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('ตาราง') }} <span class="caret"></span>
                                 </a>
-                            </div>
-                        </li>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{  route('works') }}" >
+                                        {{ __('ตารางงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{  route('details') }}" >
+                                        {{ __('ตารางรายละเอียดงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{  route('prob') }}" >
+                                        {{ __('ตารางแจ้งปัญหา') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{('emp') }}" >
+                                        {{ __('ตารางพนักงาน') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{('customers') }}" >
+                                        {{ __('ตารางลูกค้า') }}
+                                    </a>
+                                </div>
+                            </li>
+
+                        @endif
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('problem') }}">{{ __('แจ้งปัญหา') }}</a>

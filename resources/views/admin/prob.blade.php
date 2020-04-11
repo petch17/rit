@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.myhome')
 
 @section('css')
 <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
@@ -24,18 +24,15 @@
                                 <th align="center"> ปัญหาที่แจ้ง </th>
 
                             </thead>
-
-                            @foreach ( $probb as $index=>$item )
-
                             <tbody>
-                                <th align="center"> {{ $item->id  }} </th>
-                                <th align="right"> {{ $item->user_id  }} </th>
-                                <th align="center"> {{ $item->desc  }} </th>
-
-                            </tbody>
-
+                            @foreach ( $probb as $index=>$item )
+                          <tr>
+                                <td align="center"> {{ $item->id  }} </td>
+                                <td align="right"> {{ $item->user_id  }} </td>
+                                <td align="center"> {{ $item->desc  }} </td>
+                          <tr>
                             @endforeach
-
+                        </tbody>
                         </table>
 
             </div>
@@ -52,7 +49,8 @@
 
 <script>
      $(document).ready(function () {
-        // document.getElementById('engage').classList.add('active');
+        document.getElementById('activity3').classList.add('active');
+        document.getElementById('probs').classList.add('active');
         $('#example').DataTable();
     });
 

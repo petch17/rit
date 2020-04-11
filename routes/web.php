@@ -82,6 +82,7 @@ Route::group(['prefix' => 'admin'], function(){
     });
 });
 
+Route::get('admin/emp/employee', 'admin\AdminController@emp')->name('emp');
 
 Route::get('admin/prob/prob', 'admin\AdminController@prob')->name('prob');
 
@@ -108,3 +109,13 @@ Route::post('bill/addmonneystore', [
     'uses' => 'BillController@addmonneystore'
 ]);
 Route::resource('addmonneystore','BillController' , ['except' => 'addmonneystore']);
+
+
+
+Route::get('admin/addemp/addemployee', 'admin\AdminController@addemployee')->name('addemployee');
+
+Route::post('employee/addempstore', [
+    'as' => 'addempstore',
+    'uses' => 'admin\AdminController@addempstore'
+]);
+Route::resource('addempstore','admin\AdminController' , ['except' => 'addempstore']);

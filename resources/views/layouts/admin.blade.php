@@ -79,6 +79,9 @@
                                 <a class="dropdown-item" href="{{ route('customers') }}" >
                                     {{ __('รายชื่อลูกค้า') }}
                                 </a>
+                                <a class="dropdown-item" href="{{ route('emp') }}" >
+                                    {{ __('รายชื่อลูกจ้าง') }}
+                                </a>
 
                                 <a class="dropdown-item" href="{{ route('works') }}" >
                                     {{ __('ตารางงาน') }}

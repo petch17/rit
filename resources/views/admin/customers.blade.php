@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.myhome')
 
 @section('css')
 
@@ -19,6 +19,7 @@
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
+                                <th align="center">ลำดับ </th>
                                 <th align="center">คำนำหน้า </th>
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> นามสกุล </th>
@@ -26,20 +27,21 @@
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center"> เบอร์โทร </th>
                             </thead>
-
-                            @foreach ( $customers as $index=>$item )
-
                             <tbody>
-                                <th align="center"> {{ $item->titlename  }} </th>
-                                <th align="center"> {{ $item->name  }} </th>
-                                <th align="right"> {{ $item->lastname  }} </th>
-                                <th align="center"> {{ $item->username  }} </th>
-                                <th align="center"> {{ $item->address  }} </th>
-                                <th align="center"> {{ $item->phone  }} </th>
-                            </tbody>
+                            @foreach ( $customers as $index=>$item )
+                            <tr>
 
+                                <td align="center"> {{ $index+1  }} </td>
+                                <td align="center"> {{ $item->titlename  }} </td>
+                                <td align="center"> {{ $item->name  }} </td>
+                                <td align="right"> {{ $item->lastname  }} </td>
+                                <td align="center"> {{ $item->username  }} </td>
+                                <td align="center"> {{ $item->address  }} </td>
+                                <td align="center"> {{ $item->phone  }} </td>
+
+                            </tr>
                             @endforeach
-
+                        </tbody>
 
                         </table>
 
@@ -58,7 +60,8 @@
 
 <script>
      $(document).ready(function () {
-        // document.getElementById('engage').classList.add('active');
+        document.getElementById('activity3').classList.add('active');
+        document.getElementById('cus').classList.add('active');
         $('#example').DataTable();
     });
 

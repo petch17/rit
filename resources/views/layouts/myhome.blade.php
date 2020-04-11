@@ -32,10 +32,13 @@
                             <a href="{{ url('/home') }}">
                                 <i class="fa fa-home" aria-hidden="true"></i> หน้าหลัก</a>
                         </li>
+
+                    @if (Auth::user()->type == '0')
+
                         <li id="activity2">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <i class="fa fa-list-ul" aria-hidden="true"></i> บริการ</a>
+                                <i class="fas fa-highlighter" aria-hidden="true"></i> บริการ</a>
                                 <ul>
                                     <li id="engage">
                                         <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
@@ -48,9 +51,7 @@
                                     </li>
                                 </ul>
                         </li>
-                        @if (Auth::user()->type == '1')
 
-                        @else
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
@@ -65,15 +66,66 @@
                                 </ul>
                         </li>
 
-                        @endif
                         {{-- <li id="bill">
                             <a href="{{ route('bill') }}">
                                 <i class="fa fa-tag" aria-hidden="true"></i> ชำระเงิน</a>
                         </li> --}}
+
+                    @else
+
+                        <li id="activity2">
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                                <i class="fas fa-highlighter" aria-hidden="true"></i> บริการ</a>
+                                <ul>
+                                    <li id="engage">
+                                        <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
+                                    </li>
+                                    <li id="history">
+                                        <a href="{{ route('history') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
+                                    </li>
+                                    <li id="workschedule">
+                                        <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}</a>
+                                    </li>
+                                </ul>
+                        </li>
+
+                        <li id="activity3">
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                                <i class="fas fa-list-ul" aria-hidden="true"></i> ตาราง</a>
+                                <ul>
+                                    <li id="wks">
+                                        <a href="{{ route('works') }}">{{ __('ตารางงาน') }}</a>
+                                    </li>
+                                    <li id="wkdetail">
+                                        <a href="{{ route('details') }}">{{ __('ตารางรายละเอียดงาน') }}</a>
+                                    </li>
+                                    <li id="probs">
+                                        <a href="{{ route('prob') }}">{{ __('ตารางแจ้งปัญหา') }}</a>
+                                    </li>
+                                    <li id="emps">
+                                        <a href="{{ route('emp') }}">{{ __('ตารางพนักงาน') }}</a>
+                                    </li>
+                                    <li id="cus">
+                                        <a href="{{ route('customers') }}">{{ __('ตารางลูกค้า') }}</a>
+                                    </li>
+                                </ul>
+                        </li>
+
+                        {{-- <li id="bill">
+                            <a href="{{ route('bill') }}">
+                                <i class="fa fa-tag" aria-hidden="true"></i> ชำระเงิน</a>
+                        </li> --}}
+
+                    @endif
+
                         <li id="problem">
                             <a href="{{ route('problem') }}">
                                 <i class="fa fa-cog" aria-hidden="true"></i> แจ้งปัญหา</a>
                         </li>
+
+
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>

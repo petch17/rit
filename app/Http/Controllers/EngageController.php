@@ -34,31 +34,8 @@ class EngageController extends Controller
     public function index()
     {
         $date = Work::get();
-        // $event_list = [];
-    	// foreach ($date as $key => $event) {
-    	// 	$event_list[] = Calendar::event(
-        //         $event->event_name,
-        //         true,
-        //         new \DateTime($event->start_date),
-        //         new \DateTime($event->end_date.' +1 day')
-        //     );
-    	// }
-    	// $calendar_details = Calendar::addEvents($event_list);
-
-        // return view('events', compact('calendar_details') );
-
-        // $now = new DateTime();
-        // $currentday = $now->format('Y-m-d');
-
-        // $currenttime = date_default_timezone_set('Asia/Bangkok');
-        // $currenttime = Carbon::now()->format('H:i');
-        // $date = DB::table('works')
-        //     ->join('work_details', 'works.id', '=', 'work_details.work_id')
-        //     ->select('works.*', 'work_details.working')
-        //     ->get();
 
         return view('engage.index' ,['dates' => $date ]);
-        // return view('engage.index' ,['dates' => $date , 'currentday' => $currentday]);
     }
 
     public function desc()
