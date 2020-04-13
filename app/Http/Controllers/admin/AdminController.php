@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Work;
 use App\WorkDetail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -61,5 +63,7 @@ class AdminController extends Controller
         return redirect()->route('problem');
 
     }
+
+
 
 }

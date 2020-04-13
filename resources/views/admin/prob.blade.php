@@ -19,7 +19,7 @@
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> รหัส </th>
+                                <th align="center"> ลำดับ </th>
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> ปัญหาที่แจ้ง </th>
 

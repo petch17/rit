@@ -73,6 +73,30 @@
 
                     @else
 
+                        @php
+                            $count = App\Work::where('status_work','รอดำเนินการ')->count();
+
+
+                            $count_work = App\Work::where('status_work','รอดำเนินการ')->count();
+
+                        @endphp
+
+                        @if ( $count == '0' )
+
+                            <li id="con">
+                                <a href="{{ route('con') }}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count_work }} ) </a>
+                            </li>
+
+                        @else
+
+                            <li id="con">
+                                <a href="{{ route('con') }}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count_work }} ) </a>
+                            </li>
+
+                        @endif
+
                         <li id="activity2">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>

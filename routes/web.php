@@ -82,6 +82,9 @@ Route::group(['prefix' => 'admin'], function(){
     });
 });
 
+
+Route::get('engage/con/confirmwork', 'EngageController@con')->name('con');
+
 Route::get('admin/emp/employee', 'admin\AdminController@emp')->name('emp');
 
 Route::get('admin/prob/prob', 'admin\AdminController@prob')->name('prob');

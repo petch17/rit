@@ -18,9 +18,9 @@
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> รหัส</th>
-                                <th align="center"> งานที่ </th>
+                                <th align="center"> ลำดับ</th>
                                 <th align="center"> บริการ </th>
+                                <th align="center"> บริการที่เลือก </th>
                                 <th align="center"> กิโลกรัม </th>
                                 <th align="center"> ต้น </th>
                                 <th align="center"> ไร่ </th>
