@@ -56,7 +56,7 @@
                                         {{ __('จ้างงาน') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('engage.index') }}" >
+                                    <a class="dropdown-item" href="{{route ('history') }}" >
                                         {{ __('ตรวจสอบประวัติการจ้างงาน') }}
                                     </a>
 

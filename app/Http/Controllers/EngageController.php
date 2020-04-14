@@ -13,6 +13,7 @@ use League\Flysystem\File;
 use Illuminate\Support\Str;
 use Calendar;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class EngageController extends Controller
 {
@@ -149,9 +150,11 @@ class EngageController extends Controller
         return view('engage.addcreate');
     }
 
-    public function show($id)
+    public function reconfirm($id)
     {
-        //
+        // return $id;
+        $firm = Work::where('id',$id)->update(['status_work'=>'ดำเนินการ']);
+        return Redirect()->route('con');
     }
 
     public function con()

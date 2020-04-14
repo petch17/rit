@@ -17,8 +17,6 @@
 
 <div class="card-body"> {{-- start --}}
 
-    {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
-    @csrf
 
     <div class="form-group row">
         <label for="titlename" class="col-md-4 col-form-label text-md-right">
@@ -62,6 +60,10 @@
         </div>
     </div>
 
+    {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
+    @csrf
+
+
         <div class="form-group row">
             <label for="lastname" class="col-md-4 col-form-label text-md-right">
                 {{ __('สลิปการโอนเงิน') }}
@@ -104,8 +106,8 @@
         {!! Form::close() !!}
     </div>
 </div>
-</div>
-</div>
+
+
 @endsection
 
 @section('js')

@@ -122,3 +122,9 @@ Route::post('employee/addempstore', [
     'uses' => 'admin\AdminController@addempstore'
 ]);
 Route::resource('addempstore','admin\AdminController' , ['except' => 'addempstore']);
+
+Route::get('engage/reconfirm/{id}', [
+    'as' => 'reconfirm',
+    'uses' => 'EngageController@reconfirm'
+]);
+Route::resource('reconfirm','EngageController' , ['except' => 'reconfirm']);

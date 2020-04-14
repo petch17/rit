@@ -1,16 +1,23 @@
 @extends('layouts.app2')
 @section('css')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/a4.jpg')}}');">
 
 @endsection
-
 @section('content')
+<div class="row justify-content-center">
 
-<div class="card-body"> {{-- start --}}
-   <center><font color="black"><h3>ชำระค่าเงินทั้งหมด </h3></font></center>
+    <div class="col-md-8">
+        <div class="card">
+        <div class="card-header" align="center">
+            <font color="black">
+                <h3>{{ __('ชำระเงิน') }}</h3>
+            </font>
+        </div>
     {!! Form::open(['route' => 'addmonneystore', 'method' => 'post', 'files'=>true ]) !!}
     @csrf
         {{--  {{ csrf_field() }}
         {{ method_field('patch') }}  --}}
+        <div class="card-body"> {{-- start --}}
         <div class="form-group row">
             <label for="titlename" class="col-md-4 col-form-label text-md-right">
                 {{ __('บริการ') }}
@@ -57,9 +64,11 @@
             </label>
 
             <div class="col-md-6">
-                <input id="phone" type="text" class="form-control" name="phone" >
+                {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
             </div>
         </div>
+
+
 
 
         <div class="form-group row mb-0">
@@ -71,6 +80,8 @@
         </div>
         {!! Form::close() !!}
 </div>
+</div>
+
 @endsection
 
 @section('js')
