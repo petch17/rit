@@ -51,6 +51,7 @@ class HomeController extends Controller
         return view('problem');
     }
 
+
     public function problemstore(Request $request)
     {
         // return 1;

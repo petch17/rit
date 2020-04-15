@@ -70,6 +70,25 @@ class EngageController extends Controller
 
     }
 
+    public function reviewer()
+    {
+        $workimg = Work::orderByDesc('id')->limit(1)->get();
+        foreach( $workimg as $sum ){
+            $result = $sum->id;
+        }
+
+        $details =  DB::table('work_details')
+        ->select('work_details.*')
+        ->where('work_id','like',$result)
+        ->get();
+        // return $details;
+
+        return view('engage.reviewer',[
+             'detail' => $details
+             ]);
+    }
+
+
     public function addstore(Request $request)
     {
         $workimg = new Work();
@@ -103,51 +122,9 @@ class EngageController extends Controller
             }
         }
 
-        $details =  DB::table('work_details')->select('work_details.*')->where('work_id','like',$workimg->id)->get();
-        // return $details;
-        $sum = 0;
-        $avg1 = 0;
-        $avg2 = 0;
-        $sack = 0;
-        foreach( $details as $detail ){
-            if( $detail->working == "ตัดหญ้า"){
-                // return 1;
-                $grass = $detail->farm_grass ;
-                $sum = $grass * 500;
-            }
-            elseif($detail->working == "ตัดปาล์ม"){
-                // return 2;
-                $palm = $detail->kilo_palm ;
-                $sum2 = $palm * 3;
-                $avg1 = $sum2 * 0.3; //เงินที่เราได้จากการขาย 30 %
-                $avg2 = $sum2 - $avg1 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
-            }
-            else{
-                // return 3;
-                $fertilizer = $detail->unit_fertilizer ;
-                $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
-                $sack = $sum3 * 600;
-            }
-        }
 
-        return view('engage.addcreate',[ 'detail' => $details , 'price1' => $sum , 'price2' => $avg1 , 'price3' => $sack ]);
+        return redirect()->route('reviewer');
         // return redirect()->route('addcreate');
-    }
-
-    public function checkworkstore(Request $request)
-    {
-        // return $request;
-        foreach ($request->work as $works){
-            $workimg2 = new WorkDetail();
-            $workimg2->working = $works;
-        }
-        return $workimg2;
-        return view('engage.addcreate',['requests' => $request ]);
-    }
-
-    public function addcreate()
-    {
-        return view('engage.addcreate');
     }
 
     public function reconfirm($id)
@@ -159,7 +136,9 @@ class EngageController extends Controller
 
     public function con()
     {
-        $prob = Work::where('status_work','รอดำเนินการ')->get();
+        $prob = Work::where('status_work','รอดำเนินการ')
+                ->where('status_bill','ชำระแล้ว')
+                ->get();
         return view('engage.confirmwork',['probb' => $prob ]);
     }
 

@@ -9,7 +9,6 @@
     ค่าใช้จ่ายทั้งหมด
 </h1> </br>
 <center>
-
     <table class="table">
         <thead>
             <th align="center"> # </th>
@@ -21,24 +20,46 @@
 
         @foreach ($detail as $index=>$item)
 
+        @php
+            $sum = 0;
+            $avg1 = 0;
+            $avg2 = 0;
+            $sack = 0;
+            foreach( $detail as $detailes ) {
+                if( $detailes->working == "ตัดหญ้า" ) {
+                    $grass = $detailes->farm_grass ;
+                    $sum = $grass * 500;
+                }
+                elseif( $detailes->working == "ตัดปาล์ม" ) {
+                    $palm = $detailes->kilo_palm ;
+                    $sum2 = $palm * 3;
+                    $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
+                    $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                }
+                else{
+                    $fertilizer = $detailes->unit_fertilizer ;
+                    $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                    $sack = $sum3 * 600;
+                }
+            }
+            $sumation = $sum + $avg1 + $sack;
+
+        @endphp
+
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
             <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
-            <th align="right"> @php echo number_format( $price1 , 2 ) @endphp </th>
+            <th align="right"> @php echo number_format( $sum , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
 
         @elseif( $item->working == 'ตัดปาล์ม' )
         <tbody>
-            {{-- {{ $palm = $item->kilo_palm }} --}}
-            {{-- {{ $sum = $item->kilo_palm * 3 }} --}}
-            {{-- {{ $avg = $sum * 0.3 }} --}}
-           {{-- {{ $sum2 = $sum - $avg }} --}}
             <th align="center"> {{ $index+1 }} </th>
             <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
-            <th align="right"> @php echo number_format( $price2 , 2 ) @endphp </th>
+            <th align="right"> @php echo number_format( $avg1 , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
@@ -47,7 +68,7 @@
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
             <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
-            <th align="right"> @php echo number_format( $price3 , 2 ) @endphp </th>
+            <th align="right"> @php echo number_format( $sack , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
@@ -60,17 +81,16 @@
 
             </th>
         </tr>
-        {{-- {{ $sum = $price1 + $price2 + $price3  }} --}}
 
         <tr>
             <th colspan="2" align="right"> ยอดรวม </th>
-            <th align="right"> @php echo number_format( $price1 + $price2 + $price3 , 2 ) @endphp </th>
+            <th align="right"> @php echo number_format( $sumation , 2 ) @endphp </th>
             <th align="center"> บาท </th>
         </tr>
 
         <tr>
             <th colspan="2" align="right"> ค่ามัดจำ(30%) </th>
-            <th align="right"> @php echo number_format( ($price1 + $price2 + $price3)*0.1 , 2 ) @endphp </th> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
+            <th align="right"> @php echo number_format( ( $sumation ) * 0.3 , 2 ) @endphp </th> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <th align="center"> บาท </th>
         </tr>
 
@@ -90,8 +110,12 @@
 </h3>
 
 <center>
-    <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
-        onClick="javascript:this.style.display='none';window.print()"> <br> <br>
+    {{-- <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
+        onClick="javascript:this.style.display='none';window.print()"> <br> <br> --}}
+
+        <a href="{{ route('home') }}">
+            {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
+        </a>
 </center>
 @endsection
 

@@ -132,6 +132,10 @@
                                     <a class="dropdown-item" href="{{('customers') }}" >
                                         {{ __('ตารางลูกค้า') }}
                                     </a>
+
+                                    <a class="dropdown-item" href="{{('report') }}" >
+                                        {{ __('รายงานกำไร-ขาดทุน') }}
+                                    </a>
                                 </div>
                             </li>
 

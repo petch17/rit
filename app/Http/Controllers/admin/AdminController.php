@@ -53,6 +53,12 @@ class AdminController extends Controller
         return view('admin.addemployee');
     }
 
+    public function report()
+    {
+        $report = User::get();
+        return view('admin.report',['report' => $report ]);
+    }
+
     public function addempstore(Request $request)
     {
         // return 1;

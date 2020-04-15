@@ -77,7 +77,9 @@
                             $count = App\Work::where('status_work','รอดำเนินการ')->count();
 
 
-                            $count_work = App\Work::where('status_work','รอดำเนินการ')->count();
+                            $count_work = App\Work::where('status_work','รอดำเนินการ')
+                                            ->where('status_bill','ชำระแล้ว')
+                                            ->count();
 
                         @endphp
 
@@ -133,6 +135,9 @@
                                     </li>
                                     <li id="cus">
                                         <a href="{{ route('customers') }}">{{ __('ตารางลูกค้า') }}</a>
+                                    </li>
+                                    <li id="report">
+                                        <a href="{{ route('report') }}">{{ __('รายงานกำไร-ขาดทุน') }}</a>
                                     </li>
                                 </ul>
                         </li>

@@ -4,11 +4,22 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+//Route for user
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index');
+});
+//Route for admin
+Route::group(['prefix' => 'admin'], function(){
+    Route::group(['middleware' => ['admin']], function(){
+        Route::get('dashboard', 'admin\AdminController@index');
+    });
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -22,9 +33,9 @@ Route::get('zervid', 'HomeController@zervid')->name('zervid');
 
 Route::get('problem', 'HomeController@problem')->name('problem');
 
-Route::get('engage/123/desc', 'EngageController@desc')->name('desc');
+Route::get('123/engage/desc', 'EngageController@desc')->name('desc');
 
-Route::get('engage/schedule/workschedule', 'EngageController@workschedule')->name('workschedule');
+Route::get('schedule/engage/workschedule', 'EngageController@workschedule')->name('workschedule');
 
 Route::resource('profile' , 'ProfileController');
 
@@ -36,7 +47,11 @@ Route::post('profile/profileupdatestore', [
 ]);
 Route::resource('profileupdatestore', 'ProfileController' , ['except' => 'profileupdatestore']);
 
-
+Route::get('rw/engage/reviewer', [
+    'as' => 'reviewer',
+    'uses' => 'EngageController@reviewer'
+]);
+Route::resource('engage/reviewer', 'EngageController@reviewer' , ['except' => 'reviewer']);
 
 Route::post('engage/addstore', [
     'as' => 'addstore',
@@ -44,58 +59,27 @@ Route::post('engage/addstore', [
 ]);
 Route::resource('addstore', 'EngageController' , ['except' => 'addstore']);
 
-// Route::post('engage/detailstore', [
-//     'as' => 'detailstore',
-//     'uses' => 'EngageController@detailstore'
-// ]);
-// Route::resource('detailstore', 'EngageController' , ['except' => 'detailstore']);
-
-// Route::post('engage/dayworkstore', [
-//     'as' => 'dayworkstore',
-//     'uses' => 'EngageController@dayworkstore'
-// ]);
-// Route::resource('dayworkstore', 'EngageController' , ['except' => 'dayworkstore']);
-
-Route::post('engage/checkworkstore', [
-    'as' => 'checkworkstore',
-    'uses' => 'EngageController@checkworkstore'
-]);
-Route::resource('checkworkstore', 'EngageController' , ['except' => 'checkworkstore']);
-
-Route::get('engage/addcreate', 'EngageController@addcreate' , ['except' => 'addcreate']);
-
-
 Route::post('problemstore', [
     'as' => 'problemstore',
     'uses' => 'HomeController@problemstore'
 ]);
 Route::resource('addproblem/problem', 'HomeController' , ['except' => 'problem']);
 
-//Route for user
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index');
-});
-//Route for admin
-Route::group(['prefix' => 'admin'], function(){
-    Route::group(['middleware' => ['admin']], function(){
-        Route::get('dashboard', 'admin\AdminController@index');
-    });
-});
+Route::get('report/admin/report', 'admin\AdminController@report')->name('report');
 
+Route::get('con/engage/confirmwork', 'EngageController@con')->name('con');
 
-Route::get('engage/con/confirmwork', 'EngageController@con')->name('con');
+Route::get('emp/admin/employee', 'admin\AdminController@emp')->name('emp');
 
-Route::get('admin/emp/employee', 'admin\AdminController@emp')->name('emp');
+Route::get('prob/admin/prob', 'admin\AdminController@prob')->name('prob');
 
-Route::get('admin/prob/prob', 'admin\AdminController@prob')->name('prob');
+Route::get('wk/admin/works', 'admin\AdminController@works')->name('works');
 
-Route::get('admin/wk/works', 'admin\AdminController@works')->name('works');
+Route::get('detail/admin/details', 'admin\AdminController@details')->name('details');
 
-Route::get('admin/detail/details', 'admin\AdminController@details')->name('details');
+Route::get('ur/admin/customers', 'admin\AdminController@customers')->name('customers');
 
-Route::get('admin/ur/customers', 'admin\AdminController@customers')->name('customers');
-Route::get('admin/hy/history', 'EngageController@history')->name('history');
-
+Route::get('hy/admin/history', 'EngageController@history')->name('history');
 
 Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 
@@ -113,9 +97,7 @@ Route::post('bill/addmonneystore', [
 ]);
 Route::resource('addmonneystore','BillController' , ['except' => 'addmonneystore']);
 
-
-
-Route::get('admin/addemp/addemployee', 'admin\AdminController@addemployee')->name('addemployee');
+Route::get('addemp/admin/addemployee', 'admin\AdminController@addemployee')->name('addemployee');
 
 Route::post('employee/addempstore', [
     'as' => 'addempstore',
