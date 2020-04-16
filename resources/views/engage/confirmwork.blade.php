@@ -24,7 +24,7 @@
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center">ชำระเงินเงิน</th>
                                 <th align="center"> บริการ </th>
-                                <th align="center"> รับงาน</th>
+                                <th align="center"> แก้ไข</th>
                             </thead>
 
 

@@ -85,6 +85,12 @@ Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 
 Route::get('bill/monney', 'BillController@monney')->name('monney');
 
+Route::get('editcustomer/admin/editcustomer', 'admin\AdminController@editcustomer')->name('editcustomer');
+
+Route::get('editemp/admin/editemp', 'admin\AdminController@editemp')->name('editemp');
+
+Route::get('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
+
 Route::post('bill/addbillstore', [
     'as' => 'addbillstore',
     'uses' => 'BillController@addbillstore'

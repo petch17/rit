@@ -59,6 +59,24 @@ class AdminController extends Controller
         return view('admin.report',['report' => $report ]);
     }
 
+    public function editcustomer()
+    {
+        $editcustomer = User::get();
+        return view('admin.editcustomer',['editcustomer' => $editcustomer ]);
+    }
+
+    public function editemp()
+    {
+        $editemp = User::get();
+        return view('admin.editemp',['editemp' => $editemp ]);
+    }
+
+    public function report2()
+    {
+        $report2 = User::get();
+        return view('admin.report2',['report2' => $report2 ]);
+    }
+
     public function addempstore(Request $request)
     {
         // return 1;
