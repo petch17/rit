@@ -9,7 +9,7 @@
     เพิ่มข้อมูลพนักงาน
 </h1> </br>
 
-{!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
+{!! Form::open(['route' => 'addempstore', 'method' => 'post', 'files'=>true ]) !!}
 @csrf
 
     <div class="form-group row">

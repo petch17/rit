@@ -50,7 +50,7 @@
                                 <td align="center"> {{ $item->address_work  }} </td>
                                 <td align="center"> {{ $item->status_bill  }} </td>
                                 <td align="center"> {{ $item->status_work  }} </td>
-                                    <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิก </a> </td>
+                                <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิก </a> </td>
                             </tr>
 
                             @endforeach

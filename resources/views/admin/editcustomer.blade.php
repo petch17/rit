@@ -24,11 +24,11 @@
 
                 {{-- ใส่ ฟอม --}}
                 <div class="card-body"> {{-- start --}}
-                    <form method="POST" action="{{ route('profileupdatestore' ) }}">
+                    <form method="POST" action="{{ route('customerupdatestore' ) }}">
                     @csrf
                         {{--  {{ csrf_field() }}
                         {{ method_field('patch') }}  --}}
-                        @foreach($admin as $item)
+                        @foreach($editcustomer as $item)
                         <div class="form-group row">
                             <label for="titlename" class="col-md-4 col-form-label text-md-right">
                                 {{ __('คำนำหน้า') }}
@@ -78,7 +78,6 @@
                                 <input id="phone" type="text" class="form-control" name="phone" value="{{ $item->phone }}">
                             </div>
                         </div>
-                        <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิก </a> </td>
 
                         @endforeach
 

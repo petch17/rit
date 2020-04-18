@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-header">
                         <center>
-                            <h1> ตารางรายชื่อ </h1>
+                            <h1> ตารางรายชื่อลูกค้า </h1>
                         </center>
                     </div>
 
@@ -37,6 +37,7 @@
                             <th align="center"> สถานะ </th>
                             <th align="center"> ที่อยู่ </th>
                             <th align="center"> เบอร์โทร </th>
+                            <th align="center"> แก้ไข </th>
                         </thead>
                         <tbody>
                             @foreach ( $customers as $index=>$item )
@@ -47,6 +48,8 @@
                                 <td align="center"> {{ $item->username  }} </td>
                                 <td align="center"> {{ $item->address  }} </td>
                                 <td align="center"> {{ $item->phone  }} </td>
+                                <td align="center"> <a href="{{route('editemp',['id'=>$item->id])}}" > คลิก </a> </td>
+
                             </tr>
                             @endforeach
                         </tbody>

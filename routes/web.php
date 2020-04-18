@@ -85,12 +85,6 @@ Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 
 Route::get('bill/monney', 'BillController@monney')->name('monney');
 
-Route::get('editcustomer/admin/editcustomer', 'admin\AdminController@editcustomer')->name('editcustomer');
-
-Route::get('editemp/admin/editemp', 'admin\AdminController@editemp')->name('editemp');
-
-Route::get('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
-
 Route::post('bill/addbillstore', [
     'as' => 'addbillstore',
     'uses' => 'BillController@addbillstore'
@@ -116,3 +110,26 @@ Route::get('engage/reconfirm/{id}', [
     'uses' => 'EngageController@reconfirm'
 ]);
 Route::resource('reconfirm','EngageController' , ['except' => 'reconfirm']);
+
+Route::get('editcustomer/admin/editcustomer', 'admin\AdminController@editcustomer')->name('editcustomer');
+
+Route::get('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
+
+
+
+Route::get('editemp/admin/editemp/{id}', 'admin\AdminController@editemp')->name('editemp'); //ลิงค์หน้าฟอร์ม
+
+Route::post('profile/empupdatestore', [
+    'as' => 'empupdatestore',
+    'uses' => 'admin\AdminController@empupdatestore'
+]);
+Route::resource('empupdatestore', 'admin\AdminController' , ['except' => 'empupdatestore']);
+
+
+Route::get('editcustomer/admin/editcustomer/{id}', 'admin\AdminController@editcustomer')->name('editcustomer'); //ลิงค์หน้าฟอร์ม
+
+Route::post('profile/customerupdatestore', [
+    'as' => 'customerupdatestore',
+    'uses' => 'admin\AdminController@customerupdatestore'
+]);
+Route::resource('customerupdatestore', 'admin\AdminController' , ['except' => 'customerupdatestore']);
