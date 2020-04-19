@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> ตารางบริการ </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางงาน </h1> </center> </div>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
@@ -22,8 +22,9 @@
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
-                                <th align="center">ชำระเงินเงิน</th>
-                                <th align="center"> บริการ </th>
+                                <th align="center">ชำระเงิน</th>
+                                <th align="center"> สถานะงาน </th>
+                                <th align="center"> ดูรายละเอียด </th>
                             </thead>
 
 
@@ -49,6 +50,7 @@
                                 <td align="center"> {{ $item->address_work  }} </td>
                                 <td align="center"> {{ $item->status_bill  }} </td>
                                 <td align="center"> {{ $item->status_work  }} </td>
+                                <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
                             </tr>
 
                             @endforeach

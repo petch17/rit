@@ -10,9 +10,9 @@
 {{-- <div id='calendar'></div> --}}
 <br/><br/><br/>
 <h1 align="center">
-    <div style="background-color:skyblue;">
+    {{-- <div style="background-color:skyblue;"> --}}
         <font color="black"> โปรดเลือกใช้บริการ </font>
-    </div>
+    {{-- </div> --}}
 </h1> </br>
 {!! Form::open(['route' => 'addstore', 'method' => 'post', 'files'=>true ]) !!}
 @csrf
@@ -68,18 +68,18 @@
     </ul>
 </section></br></br>
 <h1 align="center">
-    <div style="background-color:skyblue;">
+    {{-- <div style="background-color:skyblue;"> --}}
         <font color="black"> กรุณากรอกที่อยู่สวนปาล์มของท่านให้ละเอียด </font>
-    </div>
+    {{-- </div> --}}
 
 </h1> </br>
 <center>
     {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
 </center> </br>
 <h1 align="center">
-    <div style="background-color:skyblue;">
+    {{-- <div style="background-color:skyblue;"> --}}
         <font color="black"> กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ </font>
-    </div>
+    {{-- </div> --}}
 
 </h1> </br>
 <section id="services">

@@ -124,9 +124,9 @@
                                     <li id="wks">
                                         <a href="{{ route('works') }}">{{ __('ตารางงาน') }}</a>
                                     </li>
-                                    <li id="wkdetail">
+                                    {{-- <li id="wkdetail">
                                         <a href="{{ route('details') }}">{{ __('ตารางรายละเอียดงาน') }}</a>
-                                    </li>
+                                    </li> --}}
                                     <li id="probs">
                                         <a href="{{ route('prob') }}">{{ __('ตารางแจ้งปัญหา') }}</a>
                                     </li>

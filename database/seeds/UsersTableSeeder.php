@@ -36,9 +36,9 @@ class UsersTableSeeder extends Seeder
             'titlename' => 'นาย',
             'name' => 'ผู้ดูแล',
             'lastname' => 'คุม',
-            'username' => 'add',
+            'username' => 'user',
             'phone' => '00',
-            'address' => 'admin@gmail.com',
+            'address' => 'adil.com',
             'password' => Hash::make('12345678'),
             'remember_token' => Str::random(10),
             'type' => '0'

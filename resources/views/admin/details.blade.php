@@ -19,7 +19,8 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> ลำดับ</th>
-                                <th align="center"> บริการ </th>
+                                <th align="center"> รหัส</th>
+                                <th align="center"> รหัสงาน</th>
                                 <th align="center"> บริการที่เลือก </th>
                                 <th align="center"> กิโลกรัม </th>
                                 <th align="center"> ต้น </th>
@@ -28,18 +29,24 @@
                             <tbody>
                             @foreach ( $wdetail as $index=>$item )
                             <tr>
-
+                                <td align="center"> {{ $index+1  }} </td>
                                 <td align="center"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->work_id  }} </td>
+                                <td align="center"> {{ $item->work_id  }} </td>
                                 <td align="center"> {{ $item->working  }} </td>
                                 <td align="center"> {{ $item->kilo_palm  }} </td>
                                 <td align="center"> {{ $item->unit_fertilizer  }} </td>
                                 <td align="center"> {{ $item->farm_grass  }} </td>
                             </tr>
 
+
                             @endforeach
                              </tbody>
                         </table>
+                    </br> </br>
+                    <div align="center" >
+
+                        {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+                    </div>
 
             </div>
     </div>

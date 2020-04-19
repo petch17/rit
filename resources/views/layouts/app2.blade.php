@@ -117,9 +117,9 @@
                                         {{ __('ตารางงาน') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{  route('details') }}" >
+                                    {{-- <a class="dropdown-item" href="{{  route('details') }}" >
                                         {{ __('ตารางรายละเอียดงาน') }}
-                                    </a>
+                                    </a> --}}
 
                                     <a class="dropdown-item" href="{{  route('prob') }}" >
                                         {{ __('ตารางแจ้งปัญหา') }}

@@ -22,8 +22,8 @@
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
-                                <th align="center">ชำระเงินเงิน</th>
-                                <th align="center"> บริการ </th>
+                                <th align="center">ชำระเงิน</th>
+                                <th align="center"> สถานะงาน </th>
                                 <th align="center"> แก้ไข</th>
                             </thead>
 

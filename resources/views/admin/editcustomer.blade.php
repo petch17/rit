@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header" align="center">
                     <font color="black">
-                        <h3>{{ __('แก้ไขข้อมูลส่วนตัว') }}</h3>
+                        <h3>{{ __('แก้ไข') }}</h3>
                     </font>
                 </div>
 

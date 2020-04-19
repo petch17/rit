@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Problem;
 use App\User;
@@ -30,9 +31,11 @@ class AdminController extends Controller
         return view('admin.works' ,['wok' => $workss ]);
     }
 
-    public function details()
+    public function details($id)
     {
-        $workde = WorkDetail::get();
+        // return $id;
+        $workde = WorkDetail::where('work_id',$id)->get();
+        // return $workde;
         return view('admin.details',['wdetail' => $workde ]);
     }
 
@@ -44,8 +47,8 @@ class AdminController extends Controller
 
     public function emp()
     {
-        $customer = User::get();
-        return view('admin.employee',['customers' => $customer ] );
+        $empp = Employee::get();
+        return view('admin.employee',['empps' => $empp ] );
     }
 
     public function addemployee()
@@ -68,7 +71,7 @@ class AdminController extends Controller
     public function editemp($id)
     {
         // return 1;
-        $editemp = User::where('id',$id)->orderBy('id')->get();
+        $editemp = Employee::where('id',$id)->orderBy('id')->get();
         return view('admin.editemp',['editemps' => $editemp ]);
     }
 
@@ -76,7 +79,7 @@ class AdminController extends Controller
     {
         // return $request;
 
-        User::where( 'id',$request->id )
+        Employee::where( 'id',$request->id )
         ->update([
             'titlename' => $request->titlename,
             'name' => $request->name,
@@ -112,12 +115,16 @@ class AdminController extends Controller
 
     public function addempstore(Request $request)
     {
-        return 1;
-        $problem = new Problem();
-        $problem->user_id = $request->user_id;
-        $problem->desc = $request->desc;
-        $problem->save();
-        return redirect()->route('problem');
+        // return 1;
+        $empp = new Employee();
+        $empp->titlename = $request->titlename;
+        $empp->name = $request->name;
+        $empp->lastname = $request->lastname;
+        $empp->address = $request->address;
+        $empp->phone = $request->phone;
+        // return $empp;
+        $empp->save();
+        return redirect()->route('emp');
 
     }
 

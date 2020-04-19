@@ -23,7 +23,6 @@
                                 <th align="center">คำนำหน้า </th>
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> นามสกุล </th>
-                                <th align="center"> สถานะ </th>
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center"> เบอร์โทร </th>
                                 <th align="center"> แก้ไข </th>
@@ -36,7 +35,6 @@
                                 <td align="center"> {{ $item->titlename  }} </td>
                                 <td align="center"> {{ $item->name  }} </td>
                                 <td align="right"> {{ $item->lastname  }} </td>
-                                <td align="center"> {{ $item->username  }} </td>
                                 <td align="center"> {{ $item->address  }} </td>
                                 <td align="center"> {{ $item->phone  }} </td>
                                 <td align="center"> <a href="{{route('editcustomer',['id'=>$item->id])}}" > คลิก </a> </td>

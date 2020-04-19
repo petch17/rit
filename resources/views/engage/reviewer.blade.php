@@ -1,15 +1,20 @@
-@extends('layouts.myhome')
+@extends('layouts.app2')
 
 @section('css')
 @endsection
 
 @section('content')
 <div id='calendar'></div>
+
+<center>
+<div class="col-md-10">
+<div class="card">
+    <div class="card-header">
 <h1 align="center">
     ค่าใช้จ่ายทั้งหมด
-</h1> </br>
-<center>
-    <table class="table">
+</h1>
+    </div> </br>
+    <table class="table table-striped table-bordered" style="width:100%">
         <thead>
             <th align="center"> # </th>
             <th align="center"> รายการ </th>
@@ -95,9 +100,7 @@
         </tr>
 
     </table>
-
-</center>
-<h3>
+<h5>
     <font color="red">
 
     <font color="blue">
@@ -107,16 +110,18 @@
     <font color="red">
 
     </font> <br/>
-</h3>
+</h5>
 
-<center>
-    {{-- <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
-        onClick="javascript:this.style.display='none';window.print()"> <br> <br> --}}
+    <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
+        onClick="javascript:this.style.display='none';window.print()"> <br> <br>
 
         <a href="{{ route('home') }}">
             {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
         </a>
 </center>
+</div>
+</div>
+
 @endsection
 
 @section('js')

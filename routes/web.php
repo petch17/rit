@@ -75,7 +75,7 @@ Route::get('prob/admin/prob', 'admin\AdminController@prob')->name('prob');
 
 Route::get('wk/admin/works', 'admin\AdminController@works')->name('works');
 
-Route::get('detail/admin/details', 'admin\AdminController@details')->name('details');
+Route::get('detail/admin/details/{id}', 'admin\AdminController@details')->name('details');
 
 Route::get('ur/admin/customers', 'admin\AdminController@customers')->name('customers');
 
