@@ -15,10 +15,19 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header"> <center> <h1> กำไร-ขาดทุน </h1> </center> </div>
-                <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิก </a> </td>
 
-                    </div>
-                </div>
+
+
+            </div>
+        <center>
+            <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
+            onClick="javascript:this.style.display='none';window.print()">
+
+            <a href="{{ route('home') }}">
+                {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
+            </a>
+        </center>
+        </div>
     </div>
 </div>
 

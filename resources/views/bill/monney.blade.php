@@ -18,67 +18,113 @@
         {{--  {{ csrf_field() }}
         {{ method_field('patch') }}  --}}
         <div class="card-body"> {{-- start --}}
-        <div class="form-group row">
-            <label for="titlename" class="col-md-4 col-form-label text-md-right">
-                {{ __('บริการ') }}
-            </label>
+            <div class="form-group row">
+                <label for="titlename" class="col-md-4 col-form-label text-md-right">
+                    {{ __('บริการที่ใช้') }}
+                </label>
 
-            <div class="col-md-6">
-                <input id="titlename" type="text" class="form-control" name="titlename" >
+                <div class="col-md-6">
+
+                    @foreach ($bills as $index=>$item)
+
+                    <input readonly type="text" class="form-control" value="{{$index+1}}. {{ $item->working }}" >
+
+                    @endforeach
+
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">
-                {{ __('ชื่อ') }}
-            </label>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">
+                    {{ __('ค่าบริการทั้งหมด') }}
+                </label>
+                @php
+                    $result = $price1 + $price2 + $price3 ;
+                @endphp
 
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control" name="name" >
+                <div class="col-md-6">
+                <input readonly type="text" class="form-control" value="{{ number_format( $result , 2 ) }}" >
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="lastname" class="col-md-4 col-form-label text-md-right">
-                {{ __('สลิปเงิน') }}
-            </label>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">
+                    {{ __('ชำระค่ามัดจำแล้ว') }}
+                </label>
+                @php
+                    $avg_result = $result * 0.3 ;
+                @endphp
 
-            <div class="col-md-6">
-                <input id="lastname" type="text" class="form-control" name="lastname">
+                <div class="col-md-6">
+                <input readonly type="text" class="form-control" value="{{ number_format( $avg_result , 2 ) }}" >
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <label for="address" class="col-md-4 col-form-label text-md-right">
-                {{ __('วันที่โอน') }}
-            </label>
+            <div class="form-group row">
+                <label for="name" class="col-md-4 col-form-label text-md-right">
+                    {{ __('ค่าบริการที่ต้องชำระ') }}
+                </label>
+                @php
+                    $avg_result2 = $result - $avg_result ;
+                @endphp
 
-            <div class="col-md-6">
-                <input id="address" type="text" class="form-control" name="address" >
+                <div class="col-md-6">
+                <input readonly type="text" class="form-control" value="{{ number_format( $avg_result2 , 2 ) }}" >
+                </div>
             </div>
-        </div>
-
-        <div class="form-group row">
-            <label for="phone" class="col-md-4 col-form-label text-md-right">
-                {{ __('บันทึกช่วยจำ') }}
-            </label>
-
-            <div class="col-md-6">
-                {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
-            </div>
-        </div>
 
 
+            {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
+            @csrf
 
+                <div class="form-group row">
+                    <label for="image" class="col-md-4 col-form-label text-md-right">
+                        {{ __('สลิปการโอนเงิน') }}
+                    </label>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('ยืนยันชำระ') }}
-                </button>
-            </div>
-        </div>
-        {!! Form::close() !!}
+                    <div class="col-md-6">
+                        <input id="image" type="file"  name="image" accept="image/*" >
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="monney_date" class="col-md-4 col-form-label text-md-right">
+                        {{ __('วันที่แจ้งโอน') }}
+                    </label>
+
+                    <div class="col-md-6">
+                        <input id="monney_date" type="date" class="form-control" name="monney_date" >
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="desc" class="col-md-4 col-form-label text-md-right">
+                        {{ __('บันทึกช่วยจำ') }}
+                    </label>
+
+                    <div class="col-md-6">
+                        {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
+                    </div>
+                </div>
+
+                @if ( $code_runs == null || $code_runs == '' )
+
+                @else
+                    <input type="hidden" name="work_id" value="{{ $code_runs }}" />
+                @endif
+
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            {{ __('ยืนยันชำระ') }}
+                        </button>
+                    </div>
+                </div>
+
+                {!! Form::close() !!}
+
 </div>
 </div>
 

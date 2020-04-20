@@ -63,24 +63,23 @@
     {!! Form::open(['route' => 'addbillstore', 'method' => 'post', 'files'=>true ]) !!}
     @csrf
 
-
         <div class="form-group row">
-            <label for="lastname" class="col-md-4 col-form-label text-md-right">
+            <label for="image" class="col-md-4 col-form-label text-md-right">
                 {{ __('สลิปการโอนเงิน') }}
             </label>
 
             <div class="col-md-6">
-                <input id="lastname" type="file"  name="image">
+                <input id="image" type="file"  name="image" accept="image/*" >
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="address" class="col-md-4 col-form-label text-md-right">
+            <label for="transfar_date" class="col-md-4 col-form-label text-md-right">
                 {{ __('วันที่แจ้งโอน') }}
             </label>
 
             <div class="col-md-6">
-                <input id="address" type="date" class="form-control" name="address" >
+                <input id="transfar_date" type="date" class="form-control" name="transfar_date" >
             </div>
         </div>
 
@@ -90,10 +89,17 @@
             </label>
 
             <div class="col-md-6">
-                {!! Form::textarea('desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
+                {!! Form::textarea('transfar_desc', null,['class'=>'form-control','placeholder'=>'โปรดกรอกข้อมูล'] ); !!}
             </div>
         </div>
 
+        @if ( $code_runs == null || $code_runs == '' )
+
+        @else
+            <input type="hidden" name="work_id" value="{{ $code_runs }}" />
+        @endif
+
+        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">

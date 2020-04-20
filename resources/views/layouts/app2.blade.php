@@ -65,23 +65,46 @@
                                     </a>
                                 </div>
                             </li>
+                                @php
+                                $count_num = App\Work::where('status_tranfar','ค้างชำระ')->count();
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
-                                </a>
+                                $count_num1 = App\Work::where('status_bill','ค้างชำระ')
+                                                ->where('status_work','ดำเนินการเสร็จสิ้น')
+                                                ->count();
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{  route('deposit') }}" >
-                                        {{ __('ชำระค่ามัดจำ') }}
+                            @endphp
+
+                            @if ( $count_num1 == '0' && $count_num == '0' )
+
+                            @elseif( $count_num != '0' )
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('monney') }}" >
-                                        {{ __('ชำระค่าบริการ') }}
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{  route('deposit') }}" >
+                                            {{ __('ชำระค่ามัดจำ') }}
+                                        </a>
+                                    </div>
+                                </li>
+
+                            @elseif( $count_num1 != '0' )
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('แจ้งโอนเงิน') }} <span class="caret"></span>
                                     </a>
-                                </div>
-                            </li>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                        <a class="dropdown-item" href="{{('monney') }}" >
+                                            {{ __('ชำระค่าบริการ') }}
+                                        </a>
+                                    </div>
+                                </li>
+                            @endif
 
                         @else
 

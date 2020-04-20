@@ -23,6 +23,7 @@
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center">ชำระเงิน</th>
+                                <th align="center">ค่ามัดจำ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> ดูรายละเอียด </th>
                             </thead>
@@ -49,6 +50,7 @@
                                         {{ $date3  }} </td>
                                 <td align="center"> {{ $item->address_work  }} </td>
                                 <td align="center"> {{ $item->status_bill  }} </td>
+                                <td align="center"> {{ $item->status_tranfar  }} </td>
                                 <td align="center"> {{ $item->status_work  }} </td>
                                 <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
                             </tr>

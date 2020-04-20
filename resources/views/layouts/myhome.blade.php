@@ -52,6 +52,19 @@
                                 </ul>
                         </li>
 
+
+                        @php
+                            $count_num = App\Work::where('status_tranfar','ค้างชำระ')->count();
+
+                            $count_num1 = App\Work::where('status_bill','ค้างชำระ')
+                                            ->where('status_work','ดำเนินการเสร็จสิ้น')
+                                            ->count();
+
+                        @endphp
+
+                        @if ( $count_num1 == '0' && $count_num == '0' )
+
+                        @elseif( $count_num != '0' )
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
@@ -60,16 +73,21 @@
                                     <li>
                                         <a href="{{ route('deposit') }}">{{ __('ชำระค่ามัดจำ') }}</a>
                                     </li>
+                                </ul>
+                        </li>
+                        @elseif( $count_num1 != '0' )
+                        <li>
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" v-pre>
+                                <i class="fab fa-btc" aria-hidden="true"></i> แจ้งโอนเงิน</a>
+                                <ul>
                                     <li>
                                         <a href="{{ route('monney') }}">{{ __('ชำระค่าบริการ') }}</a>
                                     </li>
                                 </ul>
                         </li>
+                        @endif
 
-                        {{-- <li id="bill">
-                            <a href="{{ route('bill') }}">
-                                <i class="fa fa-tag" aria-hidden="true"></i> ชำระเงิน</a>
-                        </li> --}}
 
                     @else
 
@@ -78,7 +96,7 @@
 
 
                             $count_work = App\Work::where('status_work','รอดำเนินการ')
-                                            ->where('status_bill','ชำระแล้ว')
+                                            ->where('status_tranfar','ชำระแล้ว')
                                             ->count();
 
                         @endphp
@@ -141,11 +159,6 @@
                                     </li>
                                 </ul>
                         </li>
-
-                        {{-- <li id="bill">
-                            <a href="{{ route('bill') }}">
-                                <i class="fa fa-tag" aria-hidden="true"></i> ชำระเงิน</a>
-                        </li> --}}
 
                     @endif
 

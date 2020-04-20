@@ -50,10 +50,8 @@ class EngageController extends Controller
     {
         // return 1;
         $date = DB::table('works')
-            ->join('work_details', 'works.id', '=', 'work_details.work_id')
             ->join('users', 'users.id', '=', 'works.user_id')
-            ->select('works.*', 'work_details.working', 'work_details.kilo_palm'
-            , 'work_details.unit_fertilizer', 'work_details.farm_grass','users.*')
+            ->select('works.*', 'users.name')
             ->where('users.id',Auth::user()->id )
             ->orderByDesc('works.begin_date')
             ->get();
@@ -61,6 +59,15 @@ class EngageController extends Controller
         return view('engage.history',['dates' => $date ]);
 
     }
+
+
+    public function zoomhistory($id)
+    {
+        // return $id;
+        $firm = WorkDetail::where('work_id',$id)->get();
+        return view('engage.zoomhistory',['firms' => $firm ]);
+    }
+
 
     public function workschedule()
     {
@@ -97,6 +104,7 @@ class EngageController extends Controller
         $workimg->end_date = $request->end_date;
         $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
+        $workimg->status_tranfar = 'ค้างชำระ';
         $workimg->status_work = 'รอดำเนินการ';
         $workimg->save();
         // return $workimg;
@@ -130,14 +138,14 @@ class EngageController extends Controller
     public function reconfirm($id)
     {
         // return $id;
-        $firm = Work::where('id',$id)->update(['status_work'=>'ดำเนินการ']);
+        $firm = Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น']);
         return Redirect()->route('con');
     }
 
     public function con()
     {
         $prob = Work::where('status_work','รอดำเนินการ')
-                ->where('status_bill','ชำระแล้ว')
+                ->where('status_tranfar','ชำระแล้ว')
                 ->get();
         return view('engage.confirmwork',['probb' => $prob ]);
     }

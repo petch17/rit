@@ -56,12 +56,6 @@ class AdminController extends Controller
         return view('admin.addemployee');
     }
 
-    public function report()
-    {
-        $report = User::get();
-        return view('admin.report',['report' => $report ]);
-    }
-
     public function editcustomer($id)
     {
         $editcustomer = User::where('id',$id)->orderBy('id')->get();
@@ -107,12 +101,6 @@ class AdminController extends Controller
         return redirect()->route('customer');;
     }
 
-    public function report2()
-    {
-        $report2 = User::get();
-        return view('admin.report2',['report2' => $report2 ]);
-    }
-
     public function addempstore(Request $request)
     {
         // return 1;
@@ -128,6 +116,21 @@ class AdminController extends Controller
 
     }
 
+    public function report()
+    {
+        return view('admin.report');
+    }
+
+    public function report2(Request $request)
+    {
+        // return $request;
+        $report2 = Work::where('begin_date','>=',$request->date1)
+                    ->where('end_date','<=',$request->date2)
+                    ->get();
+                    return $report2;
+
+        return view('admin.report2',['report2' => $report2 ]);
+    }
 
 
 }

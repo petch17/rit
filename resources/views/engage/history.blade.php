@@ -27,10 +27,7 @@
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สิ้นสุด </th>
-                                <th align="center"> บริการ </th>
-                                <th align="center"> กิโลกรัม </th>
-                                <th align="center"> ต้น </th>
-                                <th align="center"> ไร่ </th>
+                                <th align="center"> ดูรายละเอียด </th>
                             </tr>
                         </thead>
 
@@ -53,11 +50,8 @@
                                     @endphp
                                     {{ $date3  }}
                                 </td>
-                                <td align="center"> {{ $item->working  }} </td>
-                                <td align="center"> {{ $item->kilo_palm  }} </td>
-                                <td align="center"> {{ $item->unit_fertilizer  }} </td>
-                                <td align="center"> {{ $item->farm_grass  }} </td>
 
+                                <td align="center"> <a href="{{route('zoomhistory',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                             </tr>
 
                         @endforeach

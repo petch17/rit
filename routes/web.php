@@ -81,6 +81,8 @@ Route::get('ur/admin/customers', 'admin\AdminController@customers')->name('custo
 
 Route::get('hy/admin/history', 'EngageController@history')->name('history');
 
+Route::get('zoomhistory/engage/zoomhistory/{id}', 'EngageController@zoomhistory')->name('zoomhistory');
+
 Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 
 Route::get('bill/monney', 'BillController@monney')->name('monney');
@@ -113,8 +115,12 @@ Route::resource('reconfirm','EngageController' , ['except' => 'reconfirm']);
 
 Route::get('editcustomer/admin/editcustomer', 'admin\AdminController@editcustomer')->name('editcustomer');
 
-Route::get('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
-
+// Route::post('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
+Route::post('admin/report2', [
+    'as' => 'report2',
+    'uses' => 'admin\AdminController@report2'
+]);
+Route::resource('report2', 'admin\AdminController' , ['except' => 'report2']);
 
 
 Route::get('editemp/admin/editemp/{id}', 'admin\AdminController@editemp')->name('editemp'); //ลิงค์หน้าฟอร์ม

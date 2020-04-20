@@ -16,6 +16,48 @@
             <div class="card">
                 <div class="card-header"> <center> <h1> กำไร-ขาดทุน </h1> </center> </div>
 
+                {!! Form::open(['route' => 'report2', 'method' => 'post', 'files'=>true ]) !!}
+                @csrf
+
+                <section id="services">
+                    <ul class="nospace group">
+                        <li class="one_quarter">
+                            <article>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                                <h6 class="heading"> เลือกวันที่</h6>
+                                <footer>
+                                    {!! Form::date('date1', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
+                                </footer>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                                <h6 class="heading"> เลือกวันที่</h6>
+                                <footer>
+                                    {!! Form::date('date2', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
+                                </footer>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                            </article>
+                        </li>
+
+                    </ul>
+                </section>
+
+                </br> </br>
+                <div align="center">
+                    {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
+                    {!! Form::button('ยกเลิก',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+                </div>
+                {!! Form::close() !!}
 
                     </div>
                 </div>
