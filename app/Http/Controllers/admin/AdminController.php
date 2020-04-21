@@ -123,13 +123,59 @@ class AdminController extends Controller
 
     public function report2(Request $request)
     {
-        // return $request;
-        $report2 = Work::where('begin_date','>=',$request->date1)
-                    ->where('end_date','<=',$request->date2)
-                    ->get();
-                    return $report2;
+        // return $request->date1;
+       $bill = DB::table('works')
+                ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                ->select('works.*', 'work_details.*' )
+                ->where('begin_date','>=',  $request->date1  )
+                ->where('end_date','<=',  $request->date2  )
+                ->get();
 
-        return view('admin.report2',['report2' => $report2 ]);
+                // return $bill;
+                    $avg1 = 0;
+                    $avg2 = 0;
+                    $sack = 0;
+
+
+                    foreach( $bill as $detail ){
+                        if( $detail->working == "ตัดหญ้า"){
+                            // return 1;
+                            $sum1 = WorkDetail::sum('work_details.farm_grass'); // รวมจำนวนไร่ทั้งหมด
+                            $grass = $sum1 * 500;
+                            // return $grass;
+                        }
+                        elseif($detail->working == "ตัดปาล์ม"){
+                            // return 2;
+                            $sum2 = WorkDetail::sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
+                            $palm = $sum2 * 3;
+                            $avg1 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
+                            // return $avg1;
+                            $avg2 = $sum2 - $avg1 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                        }
+                        else{
+                            // return 3;
+                            $sum3 = WorkDetail::sum('work_details.unit_fertilizer'); // รวมจำนวนปุ๋ยทั้งหมด
+                            $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                            $sack = $fertilizer * 600;
+                            // return $sack;
+                        }
+                    }
+
+                    $result = $grass + $avg1 + $sack ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
+                    $boss = $result * 0.2 ; // เงินที่นายจ้างได้
+                    $emp1 = $result - $boss ; //เงินทั้งหมด ลบ เงินที่นายจ้างได้
+                    $emp2 = $emp1 / 5 ; // เงินที่ลบเงินนายจ้าง แล้วหาร 5 (ลูกจ้าง 5 คน แบ่งกัน) เงินที่ลูกจ้างได้
+
+                    $day1 = $request->date1;
+                    $day2 = $request->date2;
+
+                    // return $emp2;
+
+        return view('admin.report2',[
+            'bills' => $bill , 'leader' => $boss , 'employee' => $emp2 , 'results' => $result ,
+            'grass1' => $grass , 'palm1' => $avg1 , 'fertilizer1' => $sack,
+            'begin_date' => $day1 , 'end_date' => $day2
+            ]);
     }
 
 

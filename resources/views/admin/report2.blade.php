@@ -16,9 +16,97 @@
             <div class="card">
                 <div class="card-header"> <center> <h1> กำไร-ขาดทุน </h1> </center> </div>
 
+                <section id="services">
+                    <ul class="nospace group">
+                        <li class="one_quarter">
+                            <article>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                                <h6 class="heading"> ระหว่างวันที่</h6>
+                                <footer>
+                                    @php
+                                        $date_in = $begin_date ;
+                                        $day1 = show_tdate($date_in) ;
+                                    @endphp
+                                    {{ $day1  }}
+                                </footer>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                                <h6 class="heading"> ถึงวันที่</h6>
+                                <footer>
+                                    @php
+                                        $date_in = $end_date ;
+                                        $day2 = show_tdate($date_in) ;
+                                    @endphp
+                                    {{ $day2  }}
+                                </footer>
+                            </article>
+                        </li>
+
+                        <li class="one_quarter">
+                            <article>
+                            </article>
+                        </li>
+
+                    </ul>
+                </section>
+                <br/>
+
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td height="6"> <b> รายได้จากการตัดหญ้า </b> </td>
+                        <td align="right"> {{ number_format( $grass1 , 2 ) }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="6"> <b> รายได้จากการตัดปาล์ม </b> </td>
+                        <td align="right"> {{ number_format( $palm1 , 2 )  }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="6"> <b> รายได้จากการใส่ปุ๋ย </b> </td>
+                        <td align="right"> {{ number_format( $fertilizer1 , 2 )  }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30"> <b> รวมรายได้ </b> </td>
+                        <td width="106" align="right" style="border-bottom: solid 1px #000">
+                            <b> {{ number_format( $results , 2 )  }} </b>
+                        </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30"> <b> ค่าแรงงานลูกจ้างคนละ ( 80% ของรายได้ทั้งหมด / 5 ) </b> </td>
+                        <td width="106" align="right" style="border-bottom: solid 1px #000">
+                            <b> {{ number_format( $employee , 2 )  }} </b>
+                        </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30"> <b> กำไรสุทธิ </b> </td>
+                        <td width="106" align="right" style="border-bottom: solid 1px #000">
+                            <b> {{ number_format( $leader , 2 )  }} </b>
+                        </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                </table>
 
 
             </div>
+            <br/>
         <center>
             <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
             onClick="javascript:this.style.display='none';window.print()">
@@ -49,7 +137,7 @@
 </script>
 
 @endsection
-{{-- @php
+@php
 function show_tdate($date_in)
 {
 $month_arr = array("มกราคม" , "กุมภาพันธ์" , "มีนาคม" , "เมษายน" , "พฤษภาคม" , "มิถุนายน" , "กรกฏาคม" , "สิงหาคม" ,
@@ -72,4 +160,4 @@ if ($day < 10 ) $day_out="" .$day; else $day_out=$day ; $t_date=$day_out." ".$mo
 
 return $t_date ;
 }
-@endphp --}}
+@endphp

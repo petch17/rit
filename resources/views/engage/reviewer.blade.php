@@ -54,7 +54,7 @@
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
+            <th align="center"> {{ $item->working }}  </th>
             <th align="right"> @php echo number_format( $sum , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -63,7 +63,7 @@
         @elseif( $item->working == 'ตัดปาล์ม' )
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
+            <th align="center">{{ $item->working }}  </th>
             <th align="right"> @php echo number_format( $avg1 , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -72,7 +72,7 @@
         @else
         <tbody>
             <th align="center"> {{ $index+1 }} </th>
-            <th align="center"><a href="http://127.0.0.1/rit/public/engage/123/desc" target="_blank" > {{ $item->working }} </a> </th>
+            <th align="center"> {{ $item->working }} </th>
             <th align="right"> @php echo number_format( $sack , 2 ) @endphp </th>
             <th align="center"> บาท </th>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}

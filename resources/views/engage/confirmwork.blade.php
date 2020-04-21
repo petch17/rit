@@ -22,10 +22,10 @@
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
-                                <th align="center">ชำระเงิน</th>
                                 <th align="center">ค่ามัดจำ</th>
+                                <th align="center">ชำระเงิน</th>
                                 <th align="center"> สถานะงาน </th>
-                                <th align="center"> แก้ไข</th>
+                                <th align="center"> คลิกเมื่องานเสร็จ</th>
                             </thead>
 
 

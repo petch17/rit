@@ -27,12 +27,23 @@
         $('#calendar').fullCalendar({
             // put your options and callbacks here
             events : [
+
                 @foreach($dates as $index)
                 {
+
+                @if ($index->status_work == 'ดำเนินการเสร็จสิ้น')
+                    title : 'ว่าง',
+                    start : '{{ $index->begin_date }}',
+                    end : '{{ $index->end_date }}',
+                    // url : '{{ route('engage.edit', $index->id) }}'
+
+                @else
                     title : 'ไม่ว่าง',
                     start : '{{ $index->begin_date }}',
                     end : '{{ $index->end_date }}',
                     // url : '{{ route('engage.edit', $index->id) }}'
+
+                @endif
                 },
                 @endforeach
             ]
