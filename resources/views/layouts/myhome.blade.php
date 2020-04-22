@@ -41,7 +41,7 @@
                                 <i class="fas fa-highlighter" aria-hidden="true"></i> บริการ</a>
                                 <ul>
                                     <li id="engage">
-                                        <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
+                                        <a href="{{ route('index') }}">{{ __('จ้างงาน') }}</a>
                                     </li>
                                     <li id="history">
                                         <a href="{{ route('history') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>
@@ -123,7 +123,7 @@
                                 <i class="fas fa-highlighter" aria-hidden="true"></i> บริการ</a>
                                 <ul>
                                     <li id="engage">
-                                        <a href="{{ route('engage.index') }}">{{ __('จ้างงาน') }}</a>
+                                        <a href="{{ route('index') }}">{{ __('จ้างงาน') }}</a>
                                     </li>
                                     <li id="history">
                                         <a href="{{ route('history') }}">{{ __('ตรวจสอบประวัติจ้างงาน') }}</a>

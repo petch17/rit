@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin'], function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('engage', 'EngageController');
+Route::get('engage', 'EngageController@index')->name('index');
 
 Route::get('profit', 'HomeController@profit')->name('profit');
 

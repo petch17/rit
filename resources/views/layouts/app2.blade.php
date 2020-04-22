@@ -52,7 +52,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{  route('engage.index') }}" >
+                                    <a class="dropdown-item" href="{{  route('index') }}" >
                                         {{ __('จ้างงาน') }}
                                     </a>
 
@@ -99,7 +99,7 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                        <a class="dropdown-item" href="{{('monney') }}" >
+                                        <a class="dropdown-item" href="{{route('monney') }}" >
                                             {{ __('ชำระค่าบริการ') }}
                                         </a>
                                     </div>
@@ -115,11 +115,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{  route('engage.index') }}" >
+                                    <a class="dropdown-item" href="{{  route('index') }}" >
                                         {{ __('จ้างงาน') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('engage.index') }}" >
+                                    <a class="dropdown-item" href="{{route('history') }}" >
                                         {{ __('ตรวจสอบประวัติการจ้างงาน') }}
                                     </a>
 
@@ -148,15 +148,15 @@
                                         {{ __('ตารางแจ้งปัญหา') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('emp') }}" >
+                                    <a class="dropdown-item" href="{{route('emp') }}" >
                                         {{ __('ตารางพนักงาน') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('customers') }}" >
+                                    <a class="dropdown-item" href="{{route('customers') }}" >
                                         {{ __('ตารางลูกค้า') }}
                                     </a>
 
-                                    <a class="dropdown-item" href="{{('report') }}" >
+                                    <a class="dropdown-item" href="{{route('report') }}" >
                                         {{ __('รายงานกำไร-ขาดทุน') }}
                                     </a>
                                 </div>
