@@ -10,7 +10,7 @@
         <div class="card">
         <div class="card-header" align="center">
             <font color="black">
-                <h3>{{ __('ชำระเงิน') }}</h3>
+                <h3>{{ __('ชำระเงินทั้งหมด') }}</h3>
             </font>
         </div>
     {!! Form::open(['route' => 'addmonneystore', 'method' => 'post', 'files'=>true ]) !!}

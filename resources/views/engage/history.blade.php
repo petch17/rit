@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header">
                         <center>
-                            <h1> ตารางรายละเอียดงาน </h1>
+                            <h1> ตารางวันที่จ้างงาน </h1>
                         </center>
                     </div>
 

@@ -35,13 +35,11 @@
                     title : 'ว่าง',
                     start : '{{ $index->begin_date }}',
                     end : '{{ $index->end_date }}',
-                    // url : '{{ route('engage.edit', $index->id) }}'
 
                 @else
                     title : 'ไม่ว่าง',
                     start : '{{ $index->begin_date }}',
                     end : '{{ $index->end_date }}',
-                    // url : '{{ route('engage.edit', $index->id) }}'
 
                 @endif
                 },
@@ -63,3 +61,9 @@
 
 
 @endsection
+
+{{--
+title : 'ไม่ว่าง',
+start : '{{ $index->begin_date }}',
+end : '{{ $index->end_date }}',
+// url : '{{ route('engage.edit', $index->id) }}' --}}
