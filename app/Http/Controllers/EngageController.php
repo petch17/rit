@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Bill;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Work;
@@ -66,6 +68,14 @@ class EngageController extends Controller
         // return $id;
         $firm = WorkDetail::where('work_id',$id)->get();
         return view('engage.zoomhistory',['firms' => $firm ]);
+    }
+
+    public function zoombill($id)
+    {
+        // return $id;
+
+        $zoombill = Bill::where('work_id',$id)->get();
+        return view('engage.zoombill',['zoombill' => $zoombill ]);
     }
 
 

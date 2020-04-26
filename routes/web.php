@@ -83,6 +83,8 @@ Route::get('hy/admin/history', 'EngageController@history')->name('history');
 
 Route::get('zoomhistory/engage/zoomhistory/{id}', 'EngageController@zoomhistory')->name('zoomhistory');
 
+Route::get('zoombill/engage/zoombill/{id}', 'EngageController@zoombill')->name('zoombill');
+
 Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 
 Route::get('bill/monney', 'BillController@monney')->name('monney');

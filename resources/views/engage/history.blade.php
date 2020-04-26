@@ -28,6 +28,7 @@
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สิ้นสุด </th>
                                 <th align="center"> ดูรายละเอียด </th>
+                                <th align="center"> ตรวจสอบค่าใช้จ่าย </th>
                             </tr>
                         </thead>
 
@@ -52,6 +53,7 @@
                                 </td>
 
                                 <td align="center"> <a href="{{route('zoomhistory',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
+                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                             </tr>
 
                         @endforeach
