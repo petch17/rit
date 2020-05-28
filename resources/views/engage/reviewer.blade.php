@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<div id='calendar'></div>
+
 
 <center>
 <div class="col-md-10">
@@ -16,10 +16,10 @@
     </div> </br>
     <table class="table table-striped table-bordered" style="width:100%">
         <thead>
-            <th align="center"> # </th>
-            <th align="center"> รายการ </th>
-            <th align="center"> จำนวนเงิน </th>
-            <th align="center"> หน่วย </th>
+            <td align="center"> # </td>
+            <td align="center"> รายการ </td>
+            <td align="center"> จำนวนเงิน </td>
+            <td align="center"> หน่วย </td>
             {{-- <th align="center"> รายละเอียด </th> --}}
         </thead>
 
@@ -53,28 +53,28 @@
 
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
-            <th align="center"> {{ $index+1 }} </th>
-            <th align="center"> {{ $item->working }}  </th>
-            <th align="right"> @php echo number_format( $sum , 2 ) @endphp </th>
-            <th align="center"> บาท </th>
+            <td align="center"> {{ $index+1 }} </td>
+            <td align="center"> {{ $item->working }}  </td>
+            <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
 
         @elseif( $item->working == 'ตัดปาล์ม' )
         <tbody>
-            <th align="center"> {{ $index+1 }} </th>
-            <th align="center">{{ $item->working }}  </th>
-            <th align="right"> @php echo number_format( $avg1 , 2 ) @endphp </th>
-            <th align="center"> บาท </th>
+            <td align="center"> {{ $index+1 }} </td>
+            <td align="center">{{ $item->working }}  </td>
+            <td align="center"> @php echo number_format( $avg1 , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
 
         @else
         <tbody>
-            <th align="center"> {{ $index+1 }} </th>
-            <th align="center"> {{ $item->working }} </th>
-            <th align="right"> @php echo number_format( $sack , 2 ) @endphp </th>
-            <th align="center"> บาท </th>
+            <td align="center"> {{ $index+1 }} </td>
+            <td align="center"> {{ $item->working }} </td>
+            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         @endif
@@ -88,15 +88,15 @@
         </tr>
 
         <tr>
-            <th colspan="2" align="right"> ยอดรวม </th>
-            <th align="right"> @php echo number_format( $sumation , 2 ) @endphp </th>
-            <th align="center"> บาท </th>
+            <td colspan="2" align="right"> ยอดรวม </td>
+            <td align="right"> @php echo number_format( $sumation , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
         </tr>
 
         <tr>
-            <th colspan="2" align="right"> ค่ามัดจำ(30%) </th>
-            <th align="right"> @php echo number_format( ( $sumation ) * 0.3 , 2 ) @endphp </th> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
-            <th align="center"> บาท </th>
+            <td colspan="2" align="right"> ค่ามัดจำ(30%) </td>
+            <td align="right"> @php echo number_format( ( $sumation ) * 0.3 , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
+            <td align="center"> บาท </td>
         </tr>
 
     </table>
