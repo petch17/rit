@@ -24,7 +24,7 @@
 <img src="{{ asset('images/demo/backgrounds/a6.jpg') }}" height="400" width="400">
 
     <font color="black"><h3>3.บริการใส่ปุ๋ย  </h3></font>
-    <font color="black"><h3>ใส่ปุ๋ยคิดเป็นกระสอบละ 50 บาท ปุ๋ย1 กระสอบราคา 600  บาท  1กระสอบใส่ได้50ต้น  </h3></font>
+    <font color="black"><h3>ใส่ปุ๋ยคิดเป็นกระสอบละ 50 กิโลกรัม ปุ๋ย 1 กระสอบราคา 600  บาท  1 กระสอบใส่ได้ 50 ต้น </h3></font>
 </center>
 @endsection
 
