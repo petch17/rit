@@ -92,10 +92,10 @@
                     @else
 
                         @php
-                            $count = App\Work::where('status_work','รอดำเนินการ')->count();
+                            $count = App\Work::where('status_work','กำลังดำเนินการ')->count();
 
 
-                            $count_work = App\Work::where('status_work','รอดำเนินการ')
+                            $count_work = App\Work::where('status_work','กำลังดำเนินการ')
                                             ->where('status_tranfar','ชำระแล้ว')
                                             ->count();
 

@@ -59,7 +59,16 @@
             <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
-
+ <tr>
+    <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
+    <td align="right"> </td>
+    <td align="center"> บาท </td>
+</tr>
+<tr>
+    <td colspan="2" align="right"> ค่าน้ำมัน </td>
+    <td align="right"> </td>
+    <td align="center"> บาท </td>
+</tr>
         @elseif( $item->working == 'ตัดปาล์ม' )
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
@@ -68,6 +77,11 @@
             <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
+        <tr>
+            <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
+            <td align="right"> </td>
+            <td align="center"> บาท </td>
+        </tr>
 
         @else
         <tbody>
@@ -77,6 +91,16 @@
             <td align="center"> บาท </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
+        <tr>
+            <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
+            <td align="right"> </td>
+            <td align="center"> บาท </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"> ค่าปุ๋ย </td>
+            <td align="right"> </td>
+            <td align="center"> บาท </td>
+        </tr>
         @endif
 
         @endforeach
@@ -88,7 +112,7 @@
         </tr>
 
         <tr>
-            <td colspan="2" align="right"> ยอดรวม </td>
+            <td colspan="2" align="right"> ยอดรวมทั้งหมด </td>
             <td align="right"> @php echo number_format( $sumation , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

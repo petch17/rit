@@ -115,7 +115,7 @@ class EngageController extends Controller
         $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
         $workimg->status_tranfar = 'ค้างชำระ';
-        $workimg->status_work = 'กำลังดำเนินการ';
+        $workimg->status_work = 'รอดำเนินการ';
         $workimg->save();
         // return $workimg;
 
@@ -154,7 +154,7 @@ class EngageController extends Controller
 
     public function con()
     {
-        $prob = Work::where('status_work','รอดำเนินการ')
+        $prob = Work::where('status_work','กำลังดำเนินการ')
                 ->where('status_tranfar','ชำระแล้ว')
                 ->get();
         return view('engage.confirmwork',['probb' => $prob ]);
