@@ -16,11 +16,11 @@
     </div> </br>
     <table class="table table-striped table-bordered" style="width:100%">
         <thead>
-            <td align="center"> # </td>
-            <td align="center"> รายการ </td>
-            <td align="center"> จำนวนเงิน </td>
-            <td align="center"> หน่วย </td>
-            {{-- <th align="center"> รายละเอียด </th> --}}
+            <th> ลำดับ </th>
+            <th> รายการ </th>
+            <th> จำนวนเงิน </th>
+            <th> หน่วย </th>
+            {{-- <th> รายละเอียด </th> --}}
         </thead>
 
         @foreach ($detail as $index=>$item)
@@ -49,58 +49,77 @@
             }
             $sumation = $sum + $avg1 + $sack;
 
+
+
         @endphp
 
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
-            <td align="center"> {{ $item->working }}  </td>
-            <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
-            <td align="center"> บาท </td>
-            {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
-        </tbody>
- <tr>
-    <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
-    <td align="right"> </td>
-    <td align="center"> บาท </td>
-</tr>
-<tr>
-    <td colspan="2" align="right"> ค่าน้ำมัน </td>
-    <td align="right"> </td>
-    <td align="center"> บาท </td>
-</tr>
-        @elseif( $item->working == 'ตัดปาล์ม' )
-        <tbody>
-            <td align="center"> {{ $index+1 }} </td>
-            <td align="center">{{ $item->working }}  </td>
-            <td align="center"> @php echo number_format( $avg1 , 2 ) @endphp </td>
-            <td align="center"> บาท </td>
+            <td align="center"> <b> {{ $item->working }} </b> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         <tr>
-            <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
+            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
+            <td align="right"> 400 </td>
+            <td align="center"> บาท </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"> ค่าน้ำมันเครื่องตัดหญ้า (ต่อไร่) </td>
+            <td align="right"> 100 </td>
+            <td align="center"> บาท </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"> บริการทั้งหมด {{ $grass }} ไร่ </td>
+            <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
+        </tr>
+
+        @elseif( $item->working == 'ตัดปาล์ม' )
+        <tbody>
+            <td align="center"> {{ $index+1 }} </td>
+            <td align="center"> <b> {{ $item->working }} </b>  </td>
+            <td align="center">  </td>
+            <td align="center">  </td>
+            {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
+        </tbody>
+        <tr>
+            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
             <td align="right"> </td>
+            <td align="center"> บาท </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"> บริการทั้งหมด {{ $palm }} กิโลกรัม </td>
+            <td align="right"> @php echo number_format( $avg1 , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
 
         @else
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
-            <td align="center"> {{ $item->working }} </td>
-            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
-            <td align="center"> บาท </td>
+            <td align="center"> <b> {{ $item->working }} </b> </td>
+            <td align="center">  </td>
+            <td align="center">  </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         <tr>
-            <td colspan="2" align="right"> ค่าแรงพนักงาน </td>
+            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
             <td align="right"> </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
-            <td colspan="2" align="right"> ค่าปุ๋ย </td>
-            <td align="right"> </td>
+            <td colspan="2" align="right"> ค่าปุ๋ย (ต่อกระสอบ) </td>
+            <td align="right"> 600 </td>
             <td align="center"> บาท </td>
         </tr>
+        <tr>
+            <td colspan="2" align="right"> บริการทั้งหมด {{ $fertilizer }} ต้น </td>
+            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
+        </tr>
+
         @endif
 
         @endforeach

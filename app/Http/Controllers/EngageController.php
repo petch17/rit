@@ -115,7 +115,7 @@ class EngageController extends Controller
         $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
         $workimg->status_tranfar = 'ค้างชำระ';
-        $workimg->status_work = 'รอดำเนินการ';
+        $workimg->status_work = 'กำลังดำเนินการ';
         $workimg->save();
         // return $workimg;
 

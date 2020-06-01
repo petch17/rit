@@ -19,8 +19,6 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th > ลำดับ</th>
-                                <th > รหัส</th>
-                                <th > รหัสงาน</th>
                                 <th > บริการที่เลือก </th>
                                 <th > กิโลกรัม </th>
                                 <th > ต้น </th>
@@ -30,8 +28,6 @@
                             @foreach ( $firms as $index=>$item )
                             <tr>
                                 <td align="right"> {{ $index+1  }} </td>
-                                <td align="right"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->work_id  }} </td>
                                 <td align="center"> {{ $item->working  }} </td>
                                 <td align="right"> {{ $item->kilo_palm  }} </td>
                                 <td align="right"> {{ $item->unit_fertilizer  }} </td>
