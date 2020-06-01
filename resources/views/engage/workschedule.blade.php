@@ -1,5 +1,7 @@
 @extends('layouts.myhome')
 @section('css')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/aa.jpg')}}');">
+
 
 {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/> --}}
 <link rel='stylesheet' href='{{ asset ('css/fullcalendar.min.css')}}' />

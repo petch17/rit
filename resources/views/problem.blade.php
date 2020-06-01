@@ -1,6 +1,7 @@
 @extends('layouts.myhome')
 
 @section('css')
+<div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/aa.jpg')}}');">
 
 @endsection
 
