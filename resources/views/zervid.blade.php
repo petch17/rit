@@ -4,7 +4,7 @@
 {{-- <div class="bgded overlay" style="background-image:url('{{asset('./images/demo/backgrounds/aa.jpg')}}');"> --}}
 
 <style>
-    body { background-color:#FFFF99; }
+    body { background-color:#00aa77; }
 </style>
 @endsection
 
