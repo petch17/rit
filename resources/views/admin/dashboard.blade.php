@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="site-blocks-cover overlay" style="background-image: url({{asset('images/demo/backgrounds/a4.jpg')}});" data-aos="fade" data-stellar-background-ratio="0.5">
+<div class="site-blocks-cover overlay" style="background-image: url({{asset('images/demo/backgrounds/aa.jpg')}});" data-aos="fade" data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row align-items-center justify-content-center text-center">
 
