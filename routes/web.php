@@ -115,6 +115,18 @@ Route::get('engage/reconfirm/{id}', [
 ]);
 Route::resource('reconfirm','EngageController' , ['except' => 'reconfirm']);
 
+Route::get('engage/reconfirm2/{id}', [
+    'as' => 'reconfirm2',
+    'uses' => 'EngageController@reconfirm2'
+]);
+Route::resource('reconfirm2','EngageController' , ['except' => 'reconfirm2']);
+
+Route::get('engage/reconfirm3/{id}', [
+    'as' => 'reconfirm3',
+    'uses' => 'EngageController@reconfirm3'
+]);
+Route::resource('reconfirm3','EngageController' , ['except' => 'reconfirm3']);
+
 Route::get('editcustomer/admin/editcustomer', 'admin\AdminController@editcustomer')->name('editcustomer');
 
 // Route::post('report2/admin/report2', 'admin\AdminController@report2')->name('report2');

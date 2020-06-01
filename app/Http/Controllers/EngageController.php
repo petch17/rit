@@ -145,19 +145,33 @@ class EngageController extends Controller
         // return redirect()->route('addcreate');
     }
 
+    public function con()
+    {
+        $prob = Work::
+                where('status_tranfar','ชำระแล้ว')
+                ->get();
+        return view('engage.confirmwork',['probb' => $prob ]);
+    }
+
     public function reconfirm($id)
+    {
+        // return $id;
+        $firm = Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
+        return Redirect()->route('con');
+    }
+
+    public function reconfirm2($id)
     {
         // return $id;
         $firm = Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น']);
         return Redirect()->route('con');
     }
 
-    public function con()
+    public function reconfirm3($id)
     {
-        $prob = Work::where('status_work','กำลังดำเนินการ')
-                ->where('status_tranfar','ชำระแล้ว')
-                ->get();
-        return view('engage.confirmwork',['probb' => $prob ]);
+        // return $id;
+        $firm = Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
+        return Redirect()->route('con');
     }
 
 

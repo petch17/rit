@@ -18,42 +18,90 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> รหัส</th>
-                                <th align="center"> รายการ </th>
+                                <th align="center"> รหัสผู้ใช้งาน </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center">ค่ามัดจำ</th>
                                 <th align="center">ชำระเงิน</th>
                                 <th align="center"> สถานะงาน </th>
-                                <th align="center"> คลิกเมื่องานเสร็จ</th>
+                                <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
                             </thead>
-
 
 
                             <tbody>
                                 @foreach ( $probb as $index=>$item )
-                                <tr>
-                                <td align="center"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->user_id  }} </td>
-                                <td align="center">
-                                    @php
-                                        $date_in = $item->begin_date ;
-                                        $date3 = show_tdate($date_in) ;
-                                    @endphp
-                                    {{ $date3  }} </td>
 
-                                    <td align="center">
-                                        @php
-                                            $date_in = $item->end_date ;
-                                            $date3 = show_tdate($date_in) ;
-                                        @endphp
-                                        {{ $date3  }} </td>
-                                <td align="center"> {{ $item->address_work  }} </td>
-                                <td align="center"> {{ $item->status_tranfar  }} </td>
-                                <td align="center"> {{ $item->status_bill  }} </td>
-                                <td align="center"> {{ $item->status_work  }} </td>
-                                <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิก </a> </td>
-                            </tr>
+                                @if( $item->status_work == "กำลังดำเนินการ" )
+                                    <tr>
+                                        <td align="center"> {{ $item->id  }} </td>
+                                        <td align="right"> {{ $item->user_id  }} </td>
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->begin_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->end_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+                                        <td align="center"> {{ $item->address_work  }} </td>
+                                        <td align="center"> {{ $item->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item->status_bill  }} </td>
+                                        <td align="center"> {{ $item->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('reconfirm',['id'=>$item->id])}}" > คลิกเพื่อรับงาน </a> </td>
+                                    </tr>
+                                @elseif( $item->status_work == "อยู่ระหว่างการดำเนินการ" )
+                                    <tr>
+                                        <td align="center"> {{ $item->id  }} </td>
+                                        <td align="right"> {{ $item->user_id  }} </td>
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->begin_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->end_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+                                        <td align="center"> {{ $item->address_work  }} </td>
+                                        <td align="center"> {{ $item->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item->status_bill  }} </td>
+                                        <td align="center"> {{ $item->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('reconfirm2',['id'=>$item->id])}}" > คลิกเมื่องานเสร็จ </a> </td>
+                                    </tr>
+                                @elseif( $item->status_work == "ดำเนินการเสร็จสิ้น" && $item->status_bill == 'ค้างชำระ' )
+                                    <tr>
+                                        <td align="center"> {{ $item->id  }} </td>
+                                        <td align="right"> {{ $item->user_id  }} </td>
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->begin_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->end_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+                                        <td align="center"> {{ $item->address_work  }} </td>
+                                        <td align="center"> {{ $item->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item->status_bill  }} </td>
+                                        <td align="center"> {{ $item->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('reconfirm3',['id'=>$item->id])}}" > คลิกเมื่อมีการชำระเงินครบแล้ว </a> </td>
+                                    </tr>
+                                @endif
 
                             @endforeach
                             </tbody>

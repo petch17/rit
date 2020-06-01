@@ -54,17 +54,17 @@
 
 
                         @php
-                            $count_num = App\Work::where('status_tranfar','ค้างชำระ')->count();
+                            $count_tranfar = App\Work::where('status_tranfar','ค้างชำระ')->count();
 
-                            $count_num1 = App\Work::where('status_bill','ค้างชำระ')
-                                            ->where('status_work','ดำเนินการเสร็จสิ้น')
-                                            ->count();
+                            $count_work = App\Work::where('status_bill','ค้างชำระ')
+                                        ->where('status_work','ดำเนินการเสร็จสิ้น')
+                                        ->count();
 
                         @endphp
 
-                        @if ( $count_num1 == '0' && $count_num == '0' )
+                        @if ( $count_work == '0' && $count_tranfar == '0' )
 
-                        @elseif( $count_num != '0' )
+                        @elseif( $count_tranfar != '0' )
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
@@ -75,17 +75,21 @@
                                     </li>
                                 </ul>
                         </li>
-                        @elseif( $count_num1 != '0' )
+                        @elseif( $count_work != '0' )
                         <li>
+                            <a href="{{ route('monney') }}">
+                                <i class="fab fa-btc" aria-hidden="true"></i> ตรวจสอบใบเสร็จรับเงิน</a>
+                        </li>
+                        {{-- <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <i class="fab fa-btc" aria-hidden="true"></i> แจ้งโอนเงิน</a>
+                                <i class="fab fa-btc" aria-hidden="true"></i> ตรวจสอบใบเสร็จรับเงิน</a>
                                 <ul>
                                     <li>
                                         <a href="{{ route('monney') }}">{{ __('ชำระค่าบริการ') }}</a>
                                     </li>
                                 </ul>
-                        </li>
+                        </li> --}}
                         @endif
 
 
@@ -94,25 +98,40 @@
                         @php
                             $count = App\Work::where('status_work','กำลังดำเนินการ')->count();
 
+                            $count2 = App\Work::where('status_work','อยู่ระหว่างการดำเนินการ')->count();
 
-                            $count_work = App\Work::where('status_work','กำลังดำเนินการ')
-                                            ->where('status_tranfar','ชำระแล้ว')
-                                            ->count();
+                            $count3 = App\Work::where('status_work','ดำเนินการเสร็จสิ้น')
+                                        ->where('status_bill','ค้างชำระ')
+                                        ->count();
 
                         @endphp
 
-                        @if ( $count == '0' )
+                        @if ( $count == '0' && $count2 == '0' && $count3 == '0' )
 
                             <li id="con">
                                 <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count_work }} ) </a>
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( 0 ) </a>
                             </li>
 
-                        @else
+                        @elseif( $count == '0' && $count2 == '1' && $count3 == '0' )
 
                             <li id="con">
                                 <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count_work }} ) </a>
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่กำลังทำ ( {{ $count2 }} ) </a>
+                            </li>
+
+                        @elseif( $count == '1' && $count2 == '0' && $count3 == '0' )
+
+                            <li id="con">
+                                <a href="{{ route('con') }}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
+                            </li>
+
+                        @elseif( $count == '0' && $count2 == '0' && $count3 == '1' )
+
+                            <li id="con">
+                                <a href="{{ route('con') }}">
+                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
                             </li>
 
                         @endif
