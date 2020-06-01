@@ -106,8 +106,8 @@
         </tbody>
         <tr>
             <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
-            <td align="right"> </td>
-            <td align="center"> 100 บาท </td>
+            <td align="right">100 </td>
+            <td align="center">  บาท </td>
         </tr>
         <tr>
             <td colspan="2" align="right"> ค่าปุ๋ย (ต่อกระสอบ) </td>
