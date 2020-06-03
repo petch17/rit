@@ -124,10 +124,6 @@
         <center>
             <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
             onClick="javascript:this.style.display='none';window.print()">
-
-            <a href="{{ route('home') }}">
-                {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-            </a>
         </center>
         </div>
     </div>
