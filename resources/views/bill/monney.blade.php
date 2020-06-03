@@ -14,54 +14,104 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
+                @php
+                    $sum = 0;
+                    $avg1 = 0;
+                    $avg2 = 0;
+                    $sack = 0;
+                    foreach( $bills as $index=>$detailes ) {
+                        if( $detailes->working == "ตัดหญ้า" ) {
+                            $grass = $detailes->farm_grass ;
+                            $sum = $grass * 500;
+                        }
+                        elseif( $detailes->working == "ตัดปาล์ม" ) {
+                            $palm = $detailes->kilo_palm ;
+                            $sum2 = $palm * 3;
+                            $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
+                            $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                        }
+                        else{
+                            $fertilizer = $detailes->unit_fertilizer ;
+                            $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                            $sack = $sum3 * 600;
+                        }
+                    }
+                    $sumation = $sum + $avg1 + $sack;
+
+                    $deposit =  $sumation  * 0.3 ;
+
+                    $result = $sumation - $deposit ;
+
+                @endphp
+
                 <div class="card-header"> <center> <h1> ใบเสร็จชำระค่าบริการ </h1> </center> </div>
 
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <td height="6"> <b> รายได้จากการตัดหญ้า </b> </td>
-                        <td align="right"> {{ number_format( 7575757 , 2 ) }} </td>
+                        <td colspan="3"> </td>
+                    </tr>
+
+                    <tr>
+                        @php
+                            $date_in = $mydate ;
+                            $datemine = show_tdate($date_in) ;
+                        @endphp
+                        <td height="6"> <b> นาม &nbsp;&nbsp; นาย ชาญณรงค์ สิทธิบุตร </b> </td>
+                        <td colspan="2" height="6"> <b> วันที่ &nbsp;&nbsp; {{ $datemine }} </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="6"> <b> ที่อยู่ &nbsp;&nbsp; สวนปาล์มอินทนินท์ </b> </td>
+                        <td colspan="2" height="6"> <b> โทร. &nbsp; 095-571-6743 </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3"> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="6"> <b> ค่าบริการตัดหญ้า </b> </td>
+                        <td align="right"> {{ number_format( $sum , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
 
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> รายได้จากการตัดปาล์ม </b> </td>
-                        <td align="right"> {{ number_format( 01010101 , 2 )  }} </td>
+                        <td height="6"> <b> ค่าบริการตัดปาล์ม </b> </td>
+                        <td align="right"> {{ number_format( $avg1 , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> รายได้จากการใส่ปุ๋ย </b> </td>
-                        <td align="right"> {{ number_format( 72727224 , 2 )  }} </td>
+                        <td height="6"> <b> ค่าบริการใส่ปุ๋ย </b> </td>
+                        <td align="right"> {{ number_format( $sack , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="30"> <b> รวมรายได้ </b> </td>
+                        <td colspan="3"> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30" align="right"> <b> ค่าใช้จ่ายทั้งหมด </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
-                            <b> {{ number_format( 13057075 , 2 )  }} </b>
+                            <b> {{ number_format( $sumation , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าแรงงานลูกจ้างคนละ ( 80% ของรายได้ทั้งหมด / 5 ) </b> </td>
-                        <td align="right"> {{ number_format( 40460868 , 2 ) }} </td>
-                        <td align="center"> <b> บาท </b> </td>
-                    </tr>
-
-                    <tr>
-                        <td height="30"> <b> ค่าใช้จ่ายทั้งหมด </b> </td>
+                        <td height="30" align="right"> <b> ค่ามัดจำที่จ่ายไป </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
-                            <b> {{ number_format( 13766685 , 2 )  }} </b>
+                            <b> {{ number_format( $deposit , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="30"> <b> กำไรสุทธิ </b> </td>
+                        <td height="30" align="right"> <b> จำนวนเงินที่ต้องจ่าย </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
-                            <b> {{ number_format( 144457 , 2 )  }} </b>
+                            <b> {{ number_format( $result , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
