@@ -63,7 +63,7 @@
         </tbody>
         <tr>
             <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
-            <td align="right"> 400 </td>
+            <td align="right"> 300 </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
@@ -87,7 +87,7 @@
         </tbody>
         <tr>
             <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
-            <td align="right"> </td>
+            <td align="right"> 300 </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
@@ -106,7 +106,7 @@
         </tbody>
         <tr>
             <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
-            <td align="right">100 </td>
+            <td align="right">300 </td>
             <td align="center">  บาท </td>
         </tr>
         <tr>
@@ -147,6 +147,7 @@
     <font color="red">
 
     <font color="blue">
+
         ชำระเงินผ่านธนาคาร<br/>นาย ชาญณรงค์ สิทธิบุตร<br/>
         เลขที่บัญชี : 333-33333-33-3<br/>ธนาคาร : กสิกรไทย<br/>
         หรือชำระเงินผ่านทางพร้อมเพย์&nbsp;099-878-4747
