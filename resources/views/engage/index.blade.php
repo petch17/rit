@@ -77,6 +77,13 @@
 <center>
     {!! Form::textarea('address', null,['class'=>'form-control','placeholder'=>'ใส่ที่อยู่สวน'] ); !!}
 </center> </br>
+
+<h1 align="center">
+    {{-- <div style="background-color:skyblue;"> --}}
+        <p style="background-color: rgb(224, 95, 95)"> <font color="black"> **กรุณาตรวจสอบตารางานผู้รับเหมาก่อนเลือกวันที่เริ่มจ้างงาน**</p></font>
+    {{-- </div> --}}
+
+</h1> </br>
 <h1 align="center">
     {{-- <div style="background-color:skyblue;"> --}}
         <font color="black"> กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ </font>
