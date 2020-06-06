@@ -147,9 +147,8 @@ class EngageController extends Controller
 
     public function con()
     {
-        $prob = Work::
-                where('status_tranfar','ชำระแล้ว')
-                ->get();
+        $prob = Work::get();
+                // return $prob ;
         return view('engage.confirmwork',['probb' => $prob ]);
     }
 

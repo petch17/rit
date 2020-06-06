@@ -95,7 +95,7 @@
 
                     @else
 
-                        @php
+                         @php
                             $count = App\Work::where('status_work','กำลังดำเนินการ')->count();
 
                             $count2 = App\Work::where('status_work','อยู่ระหว่างการดำเนินการ')->count();
@@ -113,21 +113,21 @@
                                     <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( 0 ) </a>
                             </li>
 
-                        @elseif( $count == '0' && $count2 == '1' && $count3 == '0' )
+                        @elseif( $count != '0' && $count2 != '0' && $count3 == '0' )
 
                             <li id="con">
                                 <a href="{{ route('con') }}">
                                     <i class="fa fa-cog" aria-hidden="true"></i> งานที่กำลังทำ ( {{ $count2 }} ) </a>
                             </li>
 
-                        @elseif( $count == '1' && $count2 == '0' && $count3 == '0' )
+                        @elseif( $count != '0' && $count2 == '0' && $count3 == '0' )
 
                             <li id="con">
                                 <a href="{{ route('con') }}">
                                     <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
                             </li>
 
-                        @elseif( $count == '0' && $count2 == '0' && $count3 == '1' )
+                        @elseif( $count != '0' && $count2 == '0' && $count3 != '0' )
 
                             <li id="con">
                                 <a href="{{ route('con') }}">
