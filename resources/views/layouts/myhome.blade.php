@@ -106,18 +106,18 @@
 
                         @endphp
 
-                        <li>
+                        <li id="confirm">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" v-pre>
                                 <i class="fa fa-cog" aria-hidden="true"></i> ตรวจสอบงาน</a>
                                 <ul>
-                                    <li id="con">
+                                    <li id="con1">
                                         <a href="{{ route('confirm1') }}"> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
                                     </li>
-                                    <li id="con">
+                                    <li id="con2">
                                         <a href="{{ route('confirm2') }}"> งานที่กำลังทำ ( {{ $count2 }} ) </a>
                                     </li>
-                                    <li id="con">
+                                    <li id="con3">
                                         <a href="{{ route('confirm3') }}"> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
                                     </li>
                                 </ul>

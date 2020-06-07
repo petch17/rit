@@ -93,7 +93,8 @@
 
 <script>
      $(document).ready(function () {
-        document.getElementById('con').classList.add('active');
+        document.getElementById('confirm').classList.add('active');
+        document.getElementById('con1').classList.add('active');
         $('#example').DataTable();
     });
 

@@ -167,14 +167,16 @@ class EngageController extends Controller
     {
         // return $id;
         Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
-        return Redirect()->route('con');
+        return Redirect()->route('home');
     }
 
     public function reconfirm2($id)
     {
         // return $id;
-        Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น']);
-        return Redirect()->route('con');
+        $mytime = Carbon::now();
+        $mytime = date('Y-m-d');
+        Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น' , 'end_date'=>$mytime]);
+        return Redirect()->route('home');
     }
 
     public function reconfirm3($id)
@@ -185,7 +187,7 @@ class EngageController extends Controller
         // $prob = Work::get();
 
         // return view('engage.confirmwork',['probb' => $prob ]);
-        return Redirect()->route('con');
+        return Redirect()->route('home');
     }
 
 

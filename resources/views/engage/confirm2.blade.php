@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> ตารางรับงาน </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางตรวจงานที่กำลังทำ </h1> </center> </div>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
@@ -29,50 +29,42 @@
                             </thead>
 
                             <tbody>
-                                @php
-                                    $probb = App\Work::get();
-                                @endphp
-                                @foreach ( $probb as $index=>$item )
-                                    {{-- วนหา status_work --}}
-                                @endforeach
 
-                                @if( $item->status_work == "อยู่ระหว่างการดำเนินการ" )
                                     @php
-                                        $work_0 = App\Work::where('works.status_work','อยู่ระหว่างการดำเนินการ' )->get();
+                                        $work_1 = App\Work::where('works.status_work','อยู่ระหว่างการดำเนินการ' )->get();
                                     @endphp
-                                    {{-- {{ $work_0 }} --}}
-                                    @foreach ( $work_0 as $index_0=>$item_0 )
+
+                                    @foreach ( $work_1 as $index_1=>$item_1-)
 
                                         <tr>
-                                            <td align="center"> {{ $item_0->id  }} </td>
-                                            <td align="right"> {{ $item_0->user_id  }} </td>
+                                            <td align="center"> {{ $item_1->id  }} </td>
+                                            <td align="right"> {{ $item_1->user_id  }} </td>
                                             <td align="center">
                                                 @php
-                                                    $date_in = $item_0->begin_date ;
+                                                    $date_in = $item_1->begin_date ;
                                                     $date3 = show_tdate($date_in) ;
                                                 @endphp
                                                 {{ $date3  }} </td>
 
-                                            @if ( $item_0->end_date == null || $item_0->end_date == ' ' )
+                                            @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
                                                 <td></td>
                                             @else
                                                 <td align="center">
                                                     @php
-                                                        $date_in = $item_0->end_date ;
+                                                        $date_in = $item_1->end_date ;
                                                         $date3 = show_tdate($date_in) ;
                                                     @endphp
                                                     {{ $date3  }} </td>
                                             @endif
-                                            <td align="center"> {{ $item_0->address_work  }} </td>
-                                            <td align="center"> {{ $item_0->status_tranfar  }} </td>
-                                            <td align="center"> {{ $item_0->status_bill  }} </td>
-                                            <td align="center"> {{ $item_0->status_work  }} </td>
-                                            <td align="center"> <a href="{{route('reconfirm',['id'=>$item_0->id])}}" > คลิกเพื่อรับงาน </a> </td>
+                                            <td align="center"> {{ $item_1->address_work  }} </td>
+                                            <td align="center"> {{ $item_1->status_tranfar  }} </td>
+                                            <td align="center"> {{ $item_1->status_bill  }} </td>
+                                            <td align="center"> {{ $item_1->status_work  }} </td>
+                                            <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จสิ้น </a> </td>
                                         </tr>
 
                                     @endforeach
 
-                                @endif
 
                             </tbody>
 
@@ -93,7 +85,8 @@
 
 <script>
      $(document).ready(function () {
-        document.getElementById('con').classList.add('active');
+        document.getElementById('confirm').classList.add('active');
+        document.getElementById('con2').classList.add('active');
         $('#example').DataTable();
     });
 
