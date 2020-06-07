@@ -166,6 +166,10 @@
 
         <a href="{{route('destroy',['id'=>$item->work_id])}}" class="btn btn-danger">ยกเลิกบริการ</a>
 
+        <a href="{{ route('deposit') }}">
+            {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
+        </a>
+
         <form method="post" class="delete_form" action="{{route('destroy',['id'=>$item->work_id])}}">
 
             @csrf
