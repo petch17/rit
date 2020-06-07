@@ -45,7 +45,7 @@
 
                                         <tr>
                                             <td align="center"> {{ $item_0->id  }} </td>
-                                            <td align="right"> {{ $item_0->user_id  }} </td>
+                                            <td align="center"> {{ $item_0->user_id  }} </td>
                                             <td align="center">
                                                 @php
                                                     $date_in = $item_0->begin_date ;
@@ -53,12 +53,17 @@
                                                 @endphp
                                                 {{ $date3  }} </td>
 
+                                        @if ( $item_0->end_date == null || $item_0->end_date == ' ' )
+                                            <td></td>
+                                        @else
                                             <td align="center">
                                                 @php
                                                     $date_in = $item_0->end_date ;
                                                     $date3 = show_tdate($date_in) ;
                                                 @endphp
                                                 {{ $date3  }} </td>
+                                        @endif
+
                                             <td align="center"> {{ $item_0->address_work  }} </td>
                                             <td align="center"> {{ $item_0->status_tranfar  }} </td>
                                             <td align="center"> {{ $item_0->status_bill  }} </td>
@@ -67,71 +72,6 @@
                                         </tr>
 
                                     @endforeach
-
-                                @elseif( $item->status_work == "อยู่ระหว่างการดำเนินการ" )
-                                    @php
-                                        $work_1 = App\Work::where('works.status_work','อยู่ระหว่างการดำเนินการ' )->get();
-                                    @endphp
-                                    @foreach ( $work_1 as $index_1=>$item_1 )
-
-                                        <tr>
-                                            <td align="center"> {{ $item_1->id  }} </td>
-                                            <td align="right"> {{ $item_1->user_id  }} </td>
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_1->begin_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_1->end_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-                                            <td align="center"> {{ $item_1->address_work  }} </td>
-                                            <td align="center"> {{ $item_1->status_tranfar  }} </td>
-                                            <td align="center"> {{ $item_1->status_bill  }} </td>
-                                            <td align="center"> {{ $item_1->status_work  }} </td>
-                                            <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จ </a> </td>
-                                        </tr>
-
-                                    @endforeach
-
-                                @elseif( $item->status_work == "ดำเนินการเสร็จสิ้น" && $item->status_bill == 'ค้างชำระ' )
-                                    @php
-                                        $work_2 = App\Work::where('works.status_work','ดำเนินการเสร็จสิ้น' )
-                                                ->where('works.status_bill','ค้างชำระ' )
-                                                ->get();
-                                    @endphp
-                                    @foreach ( $work_2 as $index_2=>$item_2 )
-
-                                        <tr>
-                                            <td align="center"> {{ $item_2->id  }} </td>
-                                            <td align="right"> {{ $item_2->user_id  }} </td>
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_2->begin_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_2->end_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-                                            <td align="center"> {{ $item_2->address_work  }} </td>
-                                            <td align="center"> {{ $item_2->status_tranfar  }} </td>
-                                            <td align="center"> {{ $item_2->status_bill  }} </td>
-                                            <td align="center"> {{ $item_2->status_work  }} </td>
-                                            <td align="center"> <a href="{{route('reconfirm3',['id'=>$item_2->id])}}" > คลิกเมื่อมีการชำระเงินครบแล้ว </a> </td>
-                                        </tr>
-
-                                    @endforeach
-
                                 @endif
 
                             </tbody>

@@ -62,7 +62,6 @@ class EngageController extends Controller
 
     }
 
-
     public function zoomhistory($id)
     {
         // return $id;
@@ -77,7 +76,6 @@ class EngageController extends Controller
         $zoombill = Bill::where('work_id',$id)->get();
         return view('engage.zoombill',['zoombill' => $zoombill ]);
     }
-
 
     public function workschedule()
     {
@@ -140,16 +138,29 @@ class EngageController extends Controller
             }
         }
 
-
         return redirect()->route('reviewer');
         // return redirect()->route('addcreate');
     }
 
-    public function con()
+    public function confirm1()
     {
         // $prob = Work::get();
                 // return $prob ;
-        return view('engage.confirmwork');
+        return view('engage.confirm1');
+    }
+
+    public function confirm2()
+    {
+        // $prob = Work::get();
+                // return $prob ;
+        return view('engage.confirm2');
+    }
+
+    public function confirm3()
+    {
+        // $prob = Work::get();
+                // return $prob ;
+        return view('engage.confirm3');
     }
 
     public function reconfirm($id)

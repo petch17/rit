@@ -106,35 +106,22 @@
 
                         @endphp
 
-                        @if ( $count == '0' && $count2 == '0' && $count3 == '0' )
-
-                            <li id="con">
-                                <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( 0 ) </a>
-                            </li>
-
-                        @elseif( $count != '0' && $count2 != '0' && $count3 == '0' )
-
-                            <li id="con">
-                                <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่กำลังทำ ( {{ $count2 }} ) </a>
-                            </li>
-
-                        @elseif( $count != '0' && $count2 == '0' && $count3 == '0' )
-
-                            <li id="con">
-                                <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
-                            </li>
-
-                        @elseif( $count != '0' && $count2 == '0' && $count3 != '0' )
-
-                            <li id="con">
-                                <a href="{{ route('con') }}">
-                                    <i class="fa fa-cog" aria-hidden="true"></i> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
-                            </li>
-
-                        @endif
+                        <li>
+                            <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
+                                <i class="fa fa-cog" aria-hidden="true"></i> ตรวจสอบงาน</a>
+                                <ul>
+                                    <li id="con">
+                                        <a href="{{ route('confirm1') }}"> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
+                                    </li>
+                                    <li id="con">
+                                        <a href="{{ route('confirm2') }}"> งานที่กำลังทำ ( {{ $count2 }} ) </a>
+                                    </li>
+                                    <li id="con">
+                                        <a href="{{ route('confirm3') }}"> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
+                                    </li>
+                                </ul>
+                        </li>
 
                         <li id="activity2">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"

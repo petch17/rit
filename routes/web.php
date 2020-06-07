@@ -67,7 +67,11 @@ Route::resource('addproblem/problem', 'HomeController' , ['except' => 'problem']
 
 Route::get('report/admin/report', 'admin\AdminController@report')->name('report');
 
-Route::get('con/engage/confirmwork', 'EngageController@con')->name('con');
+Route::get('con1/engage/confirm1', 'EngageController@confirm1')->name('confirm1');
+
+Route::get('con2/engage/confirm2', 'EngageController@confirm2')->name('confirm2');
+
+Route::get('con3/engage/confirm3', 'EngageController@confirm3')->name('confirm3');
 
 Route::get('emp/admin/employee', 'admin\AdminController@emp')->name('emp');
 
@@ -108,8 +112,6 @@ Route::post('employee/addempstore', [
     'uses' => 'admin\AdminController@addempstore'
 ]);
 Route::resource('addempstore','admin\AdminController' , ['except' => 'addempstore']);
-
-// Route::post('engage/destroy/{id}', 'EngageController@destroy')->name('destroy');
 
 Route::get('engage/destroy/{id}', [
     'as' => 'destroy',
