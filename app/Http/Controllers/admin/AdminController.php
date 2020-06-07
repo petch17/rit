@@ -80,6 +80,9 @@ class AdminController extends Controller
             'lastname' => $request->lastname,
             'address' => $request->address,
             'phone' => $request->phone,
+            'priceparm' => $request->priceparm,
+            'pricegrass' => $request->pricegrass,
+            'pricepui' => $request->pricepui,
         ]);
 
         return redirect()->route('emp');;
@@ -110,6 +113,9 @@ class AdminController extends Controller
         $empp->lastname = $request->lastname;
         $empp->address = $request->address;
         $empp->phone = $request->phone;
+        $empp->priceparm = $request->priceparm;
+        $empp->pricegrass = $request->pricegrass;
+        $empp->pricepui = $request->pricepui;
         // return $empp;
         $empp->save();
         return redirect()->route('emp');

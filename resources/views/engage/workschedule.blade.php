@@ -9,8 +9,11 @@
 
 @section('content')
     <center> <h3> ตารางงานผู้รับเหมา </h3> </center>
+    <div align="right">
+            {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+    </div>
+</br>
     <div id='calendar'></div>
-
 @endsection
 
 @section('js')

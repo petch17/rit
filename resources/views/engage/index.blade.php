@@ -90,11 +90,11 @@
 </h1> </br>
 <h1 align="center">
     {{-- <div style="background-color:skyblue;"> --}}
-        <font color="black"> กรุณาเลือกวันที่เริ่มงานและวันสิ้นสุดงานของคุณ </font>
+        <font color="black"> กรุณาเลือกวันที่เริ่มงานของคุณ </font>
     {{-- </div> --}}
 
 </h1> </br>
-<section id="services">
+{{-- <section id="services">
     <ul class="nospace group">
         <li class="one_quarter">
             <article>
@@ -102,12 +102,14 @@
         </li>
 
         <li class="one_quarter">
-            <article>
+            <article> --}}
+            <div align="center">
                 <h6 class="heading"> เลือกวันที่เริ่มงาน : </h6>
-                <footer>
+                {{-- <footer> --}}
                     {!! Form::date('begin_date', null, ['class' => 'form-control', 'placeholder' => '-- เลือกวันที่ --']) !!}
-                </footer>
-            </article>
+                {{-- </footer> --}}
+            </div>
+            {{-- </article>
         </li>
 
         <li class="one_quarter">
@@ -125,7 +127,7 @@
         </li>
 
     </ul>
-</section>
+</section> --}}
 </br> </br>
 <div align="center">
     {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
@@ -137,33 +139,6 @@
 @endsection
 
 @section('js')
-<!-- Scripts -->
-{{-- <script src="http://code.jquery.com/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script> --}}
-
-{{-- <script src="{{ asset ('js/jquery-1.11.3.min.js')}}"></script>
-<script src="{{ asset ('js/moment.min.js')}}"></script>
-<script src="{{ asset ('js/fullcalendar.min.js')}}"></script> --}}
-
-{{-- <script>
-    $(document).ready(function() {
-        // page is now ready, initialize the calendar...
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-            events : [
-                @foreach($dates as $index)
-                {
-                    title : '{{ $index->user_id }}',
-                    start : '{{ $index->begin_date }}',
-                    end : '{{ $index->end_date }}',
-                    // url : '{{ route('engage.edit', $index->id) }}'
-                },
-                @endforeach
-            ]
-        })
-    });
-</script> --}}
 
 <script>
     $(document).ready(function () {
@@ -172,52 +147,6 @@
         // $('#table1').DataTable();
     });
 
-</script>
-
-<script>
-    $(document).on('click', '.delBtn', function (e) {
-        e.preventDefault();
-        var id = $(this).data('id');
-        // alert(id);
-        swal({
-            title: "คุณต้องการลบ?",
-            text: "หากคุณทำการลบข้อมูล จะไม่สามารถทำการกู้คืนได้อีก",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        method: "DELETE",
-                        url: '{{ url('trash')}}/' + id,
-                        data: { ids: id, _token: $('#_token').val(), },
-                        success: function (data) {
-                            // alert(1)
-                            // alert(data.success)
-                            if (data.success == "1") {
-                                swal("ทำการลบข้อมูลสำเร็จ", {
-                                    icon: "success",
-                                }).then(() => {
-                                    // alert(1);
-                                    location.reload();
-                                });
-                            } else {
-                                swal({
-                                    title: "พบข้อผิดพลาด",
-                                    text: "กรุณาติดต่อผู้ดูแลระบบ",
-                                    icon: "warning",
-                                    dangerMode: true,
-
-                                });
-                            }
-                        }
-                    });
-                } else {
-                    swal("ยกเลิกการลบข้อมูล");
-                }
-            });
-    });
 </script>
 
 @endsection

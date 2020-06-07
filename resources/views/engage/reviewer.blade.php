@@ -163,6 +163,14 @@
         <a href="{{ route('home') }}">
             {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
         </a>
+
+        <a href="{{route('destroy',['id'=>$item->work_id])}}" class="btn btn-danger">ยกเลิกบริการ</a>
+
+        <form method="post" class="delete_form" action="{{route('destroy',['id'=>$item->work_id])}}">
+
+            @csrf
+        </form>
+
 </center>
 </div>
 </div>

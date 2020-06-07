@@ -21,6 +21,9 @@ class CreateEmployeesTable extends Migration
             $table->string('lastname')->nullable(); //นามสกุล
             $table->string('address')->nullable(); //ที่อยู่
             $table->string('phone')->nullable(); //โทรศัพท์
+            $table->integer('priceparm')->nullable(); //ค่าแรงตัดปาล์ม
+            $table->integer('pricegrass')->nullable(); //ค่าแรงตัดหญ้า
+            $table->integer('pricepui')->nullable(); //ค่าแรงใส่ปุ๋ย
             $table->timestamps();
         });
     }

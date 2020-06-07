@@ -29,6 +29,9 @@
                             </thead>
 
                             <tbody>
+                                @php
+                                    $probb = App\Work::get();
+                                @endphp
                                 @foreach ( $probb as $index=>$item )
                                     {{-- วนหา status_work --}}
                                 @endforeach
@@ -37,6 +40,7 @@
                                     @php
                                         $work_0 = App\Work::where('works.status_work','กำลังดำเนินการ' )->get();
                                     @endphp
+                                    {{-- {{ $work_0 }} --}}
                                     @foreach ( $work_0 as $index_0=>$item_0 )
 
                                         <tr>
@@ -97,7 +101,9 @@
 
                                 @elseif( $item->status_work == "ดำเนินการเสร็จสิ้น" && $item->status_bill == 'ค้างชำระ' )
                                     @php
-                                        $work_0 = App\Work::where('works.status_work','กำลังดำเนินการ' )->get();
+                                        $work_2 = App\Work::where('works.status_work','ดำเนินการเสร็จสิ้น' )
+                                                ->where('works.status_bill','ค้างชำระ' )
+                                                ->get();
                                     @endphp
                                     @foreach ( $work_2 as $index_2=>$item_2 )
 

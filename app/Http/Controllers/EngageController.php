@@ -111,7 +111,7 @@ class EngageController extends Controller
         $workimg = new Work();
         $workimg->user_id = $request->user_id;
         $workimg->begin_date = $request->begin_date;
-        $workimg->end_date = $request->end_date;
+        // $workimg->end_date = $request->end_date;
         $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
         $workimg->status_tranfar = 'ค้างชำระ';
@@ -147,47 +147,44 @@ class EngageController extends Controller
 
     public function con()
     {
-        $prob = Work::get();
+        // $prob = Work::get();
                 // return $prob ;
-        return view('engage.confirmwork',['probb' => $prob ]);
+        return view('engage.confirmwork');
     }
 
     public function reconfirm($id)
     {
         // return $id;
-        $firm = Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
+        Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
         return Redirect()->route('con');
     }
 
     public function reconfirm2($id)
     {
         // return $id;
-        $firm = Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น']);
+        Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น']);
         return Redirect()->route('con');
     }
 
     public function reconfirm3($id)
     {
         // return $id;
-        $firm = Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
+        Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
+
+        // $prob = Work::get();
+
+        // return view('engage.confirmwork',['probb' => $prob ]);
         return Redirect()->route('con');
     }
 
 
     public function destroy($id) {
 
-        // Edoc::destroy($id);
+        // return $id ;
+        Work::destroy($id);
+        // return Work::destroy($id);
+        return redirect()->route('index');
 
-       $result = User::find($id);
-
-    //    File::delete(base_path().'http://127.0.0.1:3000/pdffile/'.$result->file);
-       $result->delete();
-
-        if($result){
-            return response()->json(['success' => '1']);
-        }else{
-            return response()->json(['success' => '0']);
-        }
 
     }
 

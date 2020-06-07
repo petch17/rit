@@ -109,6 +109,14 @@ Route::post('employee/addempstore', [
 ]);
 Route::resource('addempstore','admin\AdminController' , ['except' => 'addempstore']);
 
+// Route::post('engage/destroy/{id}', 'EngageController@destroy')->name('destroy');
+
+Route::get('engage/destroy/{id}', [
+    'as' => 'destroy',
+    'uses' => 'EngageController@destroy'
+]);
+Route::resource('destroy','EngageController' , ['except' => 'destroy']);
+
 Route::get('engage/reconfirm/{id}', [
     'as' => 'reconfirm',
     'uses' => 'EngageController@reconfirm'
