@@ -42,12 +42,16 @@
                                     @endphp
                                     {{ $date3  }} </td>
 
-                                    <td align="center">
-                                        @php
-                                            $date_in = $item->end_date ;
-                                            $date3 = show_tdate($date_in) ;
-                                        @endphp
-                                        {{ $date3  }} </td>
+                                    @if ( $item->end_date == null || $item->end_date == ' ' )
+                                        <td></td>
+                                    @else
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item->end_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+                                    @endif
                                 <td align="center"> {{ $item->address_work  }} </td>
                                 <td align="center"> {{ $item->status_bill  }} </td>
                                 <td align="center"> {{ $item->status_tranfar  }} </td>

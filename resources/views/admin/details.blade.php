@@ -28,21 +28,28 @@
                             </thead>
                             <tbody>
                             @foreach ( $wdetail as $index=>$item )
-                            <tr>
-                                <td align="center"> {{ $index+1  }} </td>
-                                <td align="center"> {{ $item->id  }} </td>
-                                <td align="center"> {{ $item->work_id  }} </td>
-                                <td align="center"> {{ $item->working  }} </td>
-                                <td align="center"> {{ $item->kilo_palm  }} </td>
-                                <td align="center"> {{ $item->unit_fertilizer  }} </td>
-                                <td align="center"> {{ $item->farm_grass  }} </td>
-                            </tr>
-
-
+                                <tr>
+                                    <td align="center"> {{ $index+1  }} </td>
+                                    <td align="center"> {{ $item->id  }} </td>
+                                    <td align="center"> {{ $item->work_id  }} </td>
+                                    <td align="center"> {{ $item->working  }} </td>
+                                    <td align="center"> {{ $item->kilo_palm  }} </td>
+                                    <td align="center"> {{ $item->unit_fertilizer  }} </td>
+                                    <td align="center"> {{ $item->farm_grass  }} </td>
+                                </tr>
                             @endforeach
-                             </tbody>
+
+                                <tr>
+                                    <td colspan="5" align="right" >รวมค่าใช้จ่าย</td>
+
+                                </tr>
+
+                            </tbody>
+
                         </table>
+
                     </br> </br>
+
                     <div align="center" >
 
                         {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
