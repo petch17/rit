@@ -34,7 +34,7 @@
                                         $work_1 = App\Work::where('works.status_work','อยู่ระหว่างการดำเนินการ' )->get();
                                     @endphp
 
-                                    @foreach ( $work_1 as $index_1=>$item_1-)
+                                    @foreach ( $work_1 as $index_1=>$item_1)
 
                                         <tr>
                                             <td align="center"> {{ $item_1->id  }} </td>

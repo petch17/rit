@@ -49,8 +49,6 @@
             }
             $sumation = $sum + $avg1 + $sack;
 
-
-
         @endphp
 
         @if( $item->working == 'ตัดหญ้า' )

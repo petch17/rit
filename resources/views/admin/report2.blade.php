@@ -87,13 +87,13 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าแรงงานลูกจ้างคนละ ( 80% ของรายได้ทั้งหมด / 5 ) </b> </td>
+                        <td height="6"> <b> ค่าแรงงานลูกจ้าง </b> </td>
                         <td align="right"> {{ number_format( $employee , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="30"> <b> ค่าใช้จ่ายทั้งหมด </b> </td>
+                        <td height="30"> <b> รวมรายจ่าย </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $employee , 2 )  }} </b>
                         </td>
@@ -117,9 +117,11 @@
             <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
             onClick="javascript:this.style.display='none';window.print()">
 
-            <a href="{{ route('home') }}">
+            {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+
+            {{-- <a href="{{ route('home') }}">
                 {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-            </a>
+            </a> --}}
         </center>
         </div>
     </div>

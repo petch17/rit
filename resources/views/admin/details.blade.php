@@ -37,10 +37,43 @@
                                     <td align="center"> {{ $item->unit_fertilizer  }} </td>
                                     <td align="center"> {{ $item->farm_grass  }} </td>
                                 </tr>
+                                @php
+                                    $sum = 0;
+                                    $avg1 = 0;
+                                    $avg2 = 0;
+                                    $sack = 0;
+                                    foreach( $wdetail as $detailes ) {
+                                        if( $detailes->working == "ตัดหญ้า" ) {
+                                            $grass = $detailes->farm_grass ;
+                                            $sum = $grass * 500;
+                                        }
+                                        elseif( $detailes->working == "ตัดปาล์ม" ) {
+                                            $palm = $detailes->kilo_palm ;
+                                            $sum2 = $palm * 3;
+                                            $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
+                                            $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                                        }
+                                        else{
+                                            $fertilizer = $detailes->unit_fertilizer ;
+                                            $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                                            $sack = $sum3 * 600;
+                                        }
+                                    }
+                                    $sumation = $sum + $avg1 + $sack;
+                                @endphp
+
                             @endforeach
 
                                 <tr>
-                                    <td colspan="5" align="right" >รวมค่าใช้จ่าย</td>
+                                    <td colspan="7"></td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="5" align="right" > <b> รวมยอด </b> </td>
+                                    <td align="right" style="border-bottom: solid 1px #000">
+                                        <b> {{ number_format( $sumation , 2 )  }} </b>
+                                    </td>
+                                    <td align="center"> <b> บาท </b> </td>
 
                                 </tr>
 

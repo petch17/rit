@@ -133,6 +133,7 @@ class AdminController extends Controller
        $bill = DB::table('works')
                 ->join('work_details', 'works.id', '=', 'work_details.work_id')
                 ->select('works.*', 'work_details.*' )
+                ->where('status_bill','=',  'ชำระแล้ว'  )
                 ->where('begin_date','>=',  $request->date1  )
                 ->where('end_date','<=',  $request->date2  )
                 ->get();
@@ -142,17 +143,30 @@ class AdminController extends Controller
                     $avg2 = 0;
                     $sack = 0;
 
-
                     foreach( $bill as $detail ){
-                        if( $detail->working == "ตัดหญ้า"){
+                        if( $detail->working == "ตัดหญ้า" ){
                             // return 1;
-                            $sum1 = WorkDetail::sum('work_details.farm_grass'); // รวมจำนวนไร่ทั้งหมด
+                            $sum1 = DB::table('works')
+                                    ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                                    ->select('works.*', 'work_details.*' )
+                                    ->where('status_bill','=',  'ชำระแล้ว'  )
+                                    ->where('begin_date','>=',  $request->date1  )
+                                    ->where('end_date','<=',  $request->date2  )
+                                    ->sum('work_details.farm_grass'); // รวมจำนวนไร่ทั้งหมด
+
                             $grass = $sum1 * 500;
-                            // return $grass;
+                            // return [ $sum1 , $grass , $bill ];
                         }
                         elseif($detail->working == "ตัดปาล์ม"){
                             // return 2;
-                            $sum2 = WorkDetail::sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
+                            $sum2  = DB::table('works')
+                                    ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                                    ->select('works.*', 'work_details.*' )
+                                    ->where('status_bill','=',  'ชำระแล้ว'  )
+                                    ->where('begin_date','>=',  $request->date1  )
+                                    ->where('end_date','<=',  $request->date2  )
+                                    ->sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
+
                             $palm = $sum2 * 3;
                             $avg1 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             // return $avg1;
@@ -160,25 +174,37 @@ class AdminController extends Controller
                         }
                         else{
                             // return 3;
-                            $sum3 = WorkDetail::sum('work_details.unit_fertilizer'); // รวมจำนวนปุ๋ยทั้งหมด
+                            $sum3  = DB::table('works')
+                                    ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                                    ->select('works.*', 'work_details.*' )
+                                    ->where('status_bill','=',  'ชำระแล้ว'  )
+                                    ->where('begin_date','>=',  $request->date1  )
+                                    ->where('end_date','<=',  $request->date2  )
+                                    ->sum('work_details.unit_fertilizer'); // รวมจำนวนปุ๋ยทั้งหมด
+
                             $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                             $sack = $fertilizer * 600;
                             // return $sack;
                         }
                     }
 
+                    $employee1 = Employee::sum('priceparm');
+                    $employee2 = Employee::sum('pricegrass');
+                    $employee3 = Employee::sum('pricepui');
+                    // return [ $employee1 , $employee2 , $employee3 ] ;
+
                     $result = $grass + $avg1 + $sack ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
-                    $boss = $result * 0.2 ; // เงินที่นายจ้างได้
-                    $emp1 = $result - $boss ; //เงินทั้งหมด ลบ เงินที่นายจ้างได้
-                    $emp2 = $emp1 / 5 ; // เงินที่ลบเงินนายจ้าง แล้วหาร 5 (ลูกจ้าง 5 คน แบ่งกัน) เงินที่ลูกจ้างได้
+                    $boss = $result - ( $employee1 + $employee2 + $employee3 ) ; // เงินที่นายจ้างได้
+                    $sum_emp = $employee1 + $employee2 + $employee3  ; // เงินที่ลูกจ้างได้
+                    // $pluss = $boss + $sum_emp;
+                    // return [ $result , $boss , $sum_emp , $pluss ] ;
+
 
                     $day1 = $request->date1;
                     $day2 = $request->date2;
 
-                    // return $emp2;
-
         return view('admin.report2',[
-            'bills' => $bill , 'leader' => $boss , 'employee' => $emp2 , 'results' => $result ,
+            'bills' => $bill , 'leader' => $boss , 'results' => $result , 'employee' => $sum_emp ,
             'grass1' => $grass , 'palm1' => $avg1 , 'fertilizer1' => $sack,
             'begin_date' => $day1 , 'end_date' => $day2
             ]);
