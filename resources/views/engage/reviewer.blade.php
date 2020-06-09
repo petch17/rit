@@ -60,7 +60,7 @@
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         <tr>
-            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
+            <td colspan="2" align="right"> ค่าแรง</td>
             <td align="right"> 300 </td>
             <td align="center"> บาท </td>
         </tr>
@@ -84,7 +84,7 @@
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         <tr>
-            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
+            <td colspan="2" align="right"> ค่าแรง</td>
             <td align="right"> 300 </td>
             <td align="center"> บาท </td>
         </tr>
@@ -103,7 +103,7 @@
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         <tr>
-            <td colspan="2" align="right"> ค่าแรงพนักงาน (ต่อคน) </td>
+            <td colspan="2" align="right"> ค่าแรง </td>
             <td align="right">300 </td>
             <td align="center">  บาท </td>
         </tr>
