@@ -87,15 +87,25 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าแรงงานลูกจ้าง </b> </td>
+                        <td height="6"> <b> ค่าแรงงานลูกจ้าง ( ต่อคน ) </b> </td>
                         <td align="right"> {{ number_format( $employee , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
+                        <td height="6"> <b> ค่าน้ำมันเครื่องตัดหญ้า </b> </td>
+                        <td align="right"> {{ number_format( $oil , 2 ) }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    @php
+                        $sum_price = ( $employee * 5 ) + $oil ;
+                    @endphp
+
+                    <tr>
                         <td height="30"> <b> รวมรายจ่าย </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
-                            <b> {{ number_format( $employee , 2 )  }} </b>
+                            <b> {{ number_format( $sum_price , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
