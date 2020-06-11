@@ -34,6 +34,8 @@
                 if( $detailes->working == "ตัดหญ้า" ) {
                     $grass = $detailes->farm_grass ;
                     $sum = $grass * 500;
+                    $sum_oil = $grass * 100 ;
+                    $sum_deposit = $sum - $sum_oil ;
                 }
                 elseif( $detailes->working == "ตัดปาล์ม" ) {
                     $palm = $detailes->kilo_palm ;
@@ -61,12 +63,12 @@
         </tbody>
         <tr>
             <td colspan="2" align="right"> ค่าแรง</td>
-            <td align="right"> 300 </td>
+            <td align="right"> {{ $sum_deposit }} </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
             <td colspan="2" align="right"> ค่าน้ำมันเครื่องตัดหญ้า (ต่อไร่) </td>
-            <td align="right"> 100 </td>
+            <td align="right"> {{ $sum_oil }} </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
@@ -83,11 +85,11 @@
             <td align="center">  </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
-        <tr>
+        {{-- <tr>
             <td colspan="2" align="right"> ค่าแรง</td>
             <td align="right"> 300 </td>
             <td align="center"> บาท </td>
-        </tr>
+        </tr> --}}
         <tr>
             <td colspan="2" align="right"> บริการทั้งหมด {{ $palm }} กิโลกรัม </td>
             <td align="right"> @php echo number_format( $avg1 , 2 ) @endphp </td>
@@ -102,11 +104,11 @@
             <td align="center">  </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
-        <tr>
+        {{-- <tr>
             <td colspan="2" align="right"> ค่าแรง </td>
             <td align="right">300 </td>
             <td align="center">  บาท </td>
-        </tr>
+        </tr> --}}
         <tr>
             <td colspan="2" align="right"> ค่าปุ๋ย (ต่อกระสอบ) </td>
             <td align="right"> 600 </td>
