@@ -67,12 +67,12 @@
             <td align="center"> บาท </td>
         </tr>
         <tr>
-            <td colspan="2" align="right"> ค่าน้ำมันเครื่องตัดหญ้า (ต่อไร่) </td>
+            <td colspan="2" align="right"> ค่าน้ำมันเครื่องตัดหญ้า (ไร่ละ 100 บาท) </td>
             <td align="right"> {{ $sum_oil }} </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
-            <td colspan="2" align="right"> บริการทั้งหมด {{ $grass }} ไร่ </td>
+            <td colspan="2" align="right"> ค่าบริการ + ค่าแรง   </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
