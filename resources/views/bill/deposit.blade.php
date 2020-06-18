@@ -36,7 +36,7 @@
 
     <div class="form-group row">
         <label for="name" class="col-md-4 col-form-label text-md-right">
-            {{ __('ค่าบริการทั้งหมด') }}
+            {{ __('คงค้างส่วนที่เหลือ') }}
         </label>
         @php
             $result = $price1 + $price2 + $price3 ;

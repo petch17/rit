@@ -21,12 +21,12 @@
                                 <th align="center"> รหัสผู้ใช้งาน </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 {{-- <th align="center"> วันที่สื้นสุด </th> --}}
-                                <th align="center"> ที่อยู่ </th>
+                                {{-- <th align="center"> ที่อยู่ </th> --}}
                                 <th align="center">ค่ามัดจำ</th>
                                 <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
-                                <th align="center"> ดูรายละเอียด </th>
+                                {{-- <th align="center"> ดูรายละเอียด </th> --}}
                             </thead>
 
                             <tbody>
@@ -60,12 +60,12 @@
                                                     {{ $date3  }} </td>
                                             @endif --}}
 
-                                            <td align="center"> {{ $item_2->address_work  }} </td>
+                                            {{-- <td align="center"> {{ $item_2->address_work  }} </td> --}}
                                             <td align="center"> {{ $item_2->status_tranfar  }} </td>
                                             <td align="center"> {{ $item_2->status_bill  }} </td>
                                             <td align="center"> {{ $item_2->status_work  }} </td>
                                             <td align="center"> <a href="{{route('reconfirm3',['id'=>$item_2->id])}}" > คลิกเมื่อลูกค้าชำระค่าบริการแล้ว </a> </td>
-                                            <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
+                                            {{-- <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td> --}}
                                         </tr>
 
                                     @endforeach

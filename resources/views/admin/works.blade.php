@@ -20,9 +20,9 @@
                                 <th align="center"> รหัส</th>
                                 <th align="center"> รายการ </th>
                                 <th align="center"> วันที่เริ่ม </th>
-                                <th align="center"> วันที่สื้นสุด </th>
-                                <th align="center"> ที่อยู่ </th>
-                                <th align="center">ค่าบริการทั้งหมด</th>
+                                {{-- <th align="center"> วันที่สื้นสุด </th> --}}
+                                {{-- <th align="center"> ที่อยู่ </th> --}}
+                                <th align="center">คงค้างชำระ</th>
                                 <th align="center">ค่ามัดจำ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> ดูรายละเอียด </th>
@@ -41,10 +41,10 @@
                                         $date3 = show_tdate($date_in) ;
                                     @endphp
                                     {{ $date3  }} </td>
-
+{{--
                                     @if ( $item->end_date == null || $item->end_date == ' ' )
                                         <td></td>
-                                    {{-- @else
+                                    @else
                                         <td align="center">
                                             @php
                                                 $date_in = $item->end_date ;
@@ -52,7 +52,7 @@
                                             @endphp
                                             {{ $date3  }} </td>
                                     @endif --}}
-                                <td align="center"> {{ $item->address_work  }} </td>
+                                {{-- <td align="center"> {{ $item->address_work  }} </td> --}}
                                 <td align="center"> {{ $item->status_bill  }} </td>
                                 <td align="center"> {{ $item->status_tranfar  }} </td>
                                 <td align="center"> {{ $item->status_work  }} </td>
