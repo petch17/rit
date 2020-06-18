@@ -20,12 +20,13 @@
                                 <th align="center"> รหัส</th>
                                 <th align="center"> รหัสผู้ใช้งาน </th>
                                 <th align="center"> วันที่เริ่ม </th>
-                                <th align="center"> วันที่สื้นสุด </th>
+                                {{-- <th align="center"> วันที่สื้นสุด </th> --}}
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center">ค่ามัดจำ</th>
-                                <th align="center">ชำระเงิน</th>
+                                <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
+                                <th align="center"> ดูรายละเอียด </th>
                             </thead>
 
                             <tbody>
@@ -48,7 +49,7 @@
                                                 @endphp
                                                 {{ $date3  }} </td>
 
-                                            @if ( $item_2->end_date == null || $item_2->end_date == ' ' )
+                                            {{-- @if ( $item_2->end_date == null || $item_2->end_date == ' ' )
                                                 <td></td>
                                             @else
                                                 <td align="center">
@@ -57,13 +58,14 @@
                                                         $date3 = show_tdate($date_in) ;
                                                     @endphp
                                                     {{ $date3  }} </td>
-                                            @endif
+                                            @endif --}}
 
                                             <td align="center"> {{ $item_2->address_work  }} </td>
                                             <td align="center"> {{ $item_2->status_tranfar  }} </td>
                                             <td align="center"> {{ $item_2->status_bill  }} </td>
                                             <td align="center"> {{ $item_2->status_work  }} </td>
                                             <td align="center"> <a href="{{route('reconfirm3',['id'=>$item_2->id])}}" > คลิกเมื่อลูกค้าชำระค่าบริการแล้ว </a> </td>
+                                            <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
                                         </tr>
 
                                     @endforeach

@@ -23,7 +23,7 @@
                                 <th align="center"> วันที่สื้นสุด </th>
                                 <th align="center"> ที่อยู่ </th>
                                 <th align="center">ค่ามัดจำ</th>
-                                <th align="center">ชำระเงิน</th>
+                                <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
                             </thead>
@@ -46,7 +46,7 @@
                                                 @endphp
                                                 {{ $date3  }} </td>
 
-                                            @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
+                                            {{-- @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
                                                 <td></td>
                                             @else
                                                 <td align="center">
@@ -55,12 +55,13 @@
                                                         $date3 = show_tdate($date_in) ;
                                                     @endphp
                                                     {{ $date3  }} </td>
-                                            @endif
+                                            @endif --}}
                                             <td align="center"> {{ $item_1->address_work  }} </td>
                                             <td align="center"> {{ $item_1->status_tranfar  }} </td>
                                             <td align="center"> {{ $item_1->status_bill  }} </td>
                                             <td align="center"> {{ $item_1->status_work  }} </td>
                                             <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จสิ้น </a> </td>
+                                            <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
                                         </tr>
 
                                     @endforeach

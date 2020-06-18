@@ -15,13 +15,13 @@
 </h1>
     </div> </br>
     <table class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <th> ลำดับ </th>
-            <th> รายการ </th>
-            <th> จำนวนเงิน </th>
-            <th> หน่วย </th>
+        <tbody>
+            <td align="center">ลำดับ </td>
+            <td align="center">บริการ </td>
+            <td align="center">หน่วย </td>
+            <td align="center">จำนวนเงิน </td>
             {{-- <th> รายละเอียด </th> --}}
-        </thead>
+        </tbody>
 
         @foreach ($detail as $index=>$item)
 
@@ -110,7 +110,7 @@
             <td align="center">  บาท </td>
         </tr> --}}
         <tr>
-            <td colspan="2" align="right"> ค่าปุ๋ย (ต่อกระสอบ) </td>
+            <td colspan="2" align="right"> ค่าปุ๋ย (ต่อ 1 กระสอบ) </td>
             <td align="right"> 600 </td>
             <td align="center"> บาท </td>
         </tr>

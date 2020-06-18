@@ -15,7 +15,7 @@
         p {text-align: center;}
         div {text-align: center;}
         </style>
-          <div class="card-header" align="center"> <font color="black"><h1>{{ __('รายละเอียดงานสวนปาล์ม') }}</h1></font></div>
+          <div class="card-header" align="center"> <font color="black"><h1>{{ __('รายละเอียดงานสวนปาล์ม  (ลูกค้า 1 ท่านจ้างได้แค่  1 ครั้งนะครับ)') }}</h1></font></div>
         <h1> </h1>
     {{-- <table width=90% style="border:1px dashed #00aa77;" cellspacing="5" bgcolor="#00aa77" cellpadding="5"><tr><td style="border:10px dashed white;"bgcolor="white">รายละเอียดงานสวนปาล์ม </td></tr></table> --}}
 
