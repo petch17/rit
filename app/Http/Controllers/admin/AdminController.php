@@ -11,6 +11,7 @@ use App\Work;
 use App\WorkDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -222,5 +223,84 @@ class AdminController extends Controller
             ]);
     }
 
+
+    public function confirm1()
+    {
+        $work_00 = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+                ->where('works.status_work','กำลังดำเนินการ' )
+                ->get();
+        // $work_00 = Work::where('works.status_work','กำลังดำเนินการ' )->get();
+                // return $prob ;
+        return view('admin.confirm1',[
+            'work_0' => $work_00
+            ]);
+    }
+
+    public function confirm2()
+    {
+        $work_11 = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+                ->where('works.status_work','อยู่ระหว่างการดำเนินการ' )
+                ->get();
+                // return $work_1 ;
+        return view('admin.confirm2',[
+            'work_1' => $work_11
+            ]);
+    }
+
+    public function confirm3()
+    {
+        $work_22 = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+                ->where('works.status_work','ดำเนินการเสร็จสิ้น' )
+                ->where('works.status_bill','ค้างชำระ' )
+                ->get();
+                // return $work_2 ;
+        return view('admin.confirm3',[
+            'work_2' => $work_22
+            ]);
+    }
+
+    public function reconfirm($id)
+    {
+        // return $id;
+        Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
+        return Redirect()->route('home');
+    }
+
+    public function reconfirm2($id)
+    {
+        // return $id;
+        $mytime = Carbon::now();
+        $mytime = date('Y-m-d');
+        Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น' , 'end_date'=>$mytime]);
+        return Redirect()->route('home');
+    }
+
+    public function reconfirm3($id)
+    {
+        // return $id;
+        Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
+        return Redirect()->route('home');
+    }
+
+    public function adminbill($id)
+    {
+        // return $id;
+        $workimgs = DB::table('works')
+                ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                ->select('works.*', 'work_details.*' )
+                ->where('work_details.work_id' , '=' , $id )
+                ->get();
+        // return $workimgs;
+
+        return view('admin.adminbill',[
+             'workimg_0' => $workimgs
+             ]);
+    }
 
 }

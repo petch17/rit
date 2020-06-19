@@ -7,15 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Work;
 use App\WorkDetail;
-use DateTime;
 use Carbon\Carbon;
-use Carbon\CarbonTimeZone;
 use Illuminate\Http\Request;
 use League\Flysystem\File;
 use Illuminate\Support\Str;
-use Calendar;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 
 class EngageController extends Controller
 {
@@ -103,7 +99,6 @@ class EngageController extends Controller
              ]);
     }
 
-
     public function addstore(Request $request)
     {
         $workimg = new Work();
@@ -141,55 +136,6 @@ class EngageController extends Controller
         return redirect()->route('reviewer');
         // return redirect()->route('addcreate');
     }
-
-    public function confirm1()
-    {
-        // $prob = Work::get();
-                // return $prob ;
-        return view('engage.confirm1');
-    }
-
-    public function confirm2()
-    {
-        // $prob = Work::get();
-                // return $prob ;
-        return view('engage.confirm2');
-    }
-
-    public function confirm3()
-    {
-        // $prob = Work::get();
-                // return $prob ;
-        return view('engage.confirm3');
-    }
-
-    public function reconfirm($id)
-    {
-        // return $id;
-        Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
-        return Redirect()->route('home');
-    }
-
-    public function reconfirm2($id)
-    {
-        // return $id;
-        $mytime = Carbon::now();
-        $mytime = date('Y-m-d');
-        Work::where('id',$id)->update(['status_work'=>'ดำเนินการเสร็จสิ้น' , 'end_date'=>$mytime]);
-        return Redirect()->route('home');
-    }
-
-    public function reconfirm3($id)
-    {
-        // return $id;
-        Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
-
-        // $prob = Work::get();
-
-        // return view('engage.confirmwork',['probb' => $prob ]);
-        return Redirect()->route('home');
-    }
-
 
     public function destroy($id) {
 

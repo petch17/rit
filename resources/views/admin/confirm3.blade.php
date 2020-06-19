@@ -13,12 +13,12 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> ตารางรับงาน </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางตรวจสอบงานที่ค้างชำระ </h1> </center> </div>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> รหัสงาน</th>
-                                <th align="center"> รหัสผู้ใช้งาน </th>
+                                <th align="center"> ลำดับ</th>
+                                <th align="center"> ผู้ใช้งาน </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 {{-- <th align="center"> วันที่สื้นสุด </th> --}}
                                 {{-- <th align="center"> ที่อยู่ </th> --}}
@@ -26,55 +26,43 @@
                                 <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
-                                <th align="center"> รายละเอียด </th>
+                                {{-- <th align="center"> ดูรายละเอียด </th> --}}
                             </thead>
 
                             <tbody>
-                                @php
-                                    $probb = App\Work::get();
-                                @endphp
-                                @foreach ( $probb as $index=>$item )
-                                    {{-- วนหา status_work --}}
-                                @endforeach
 
-                                @if( $item->status_work == "กำลังดำเนินการ" )
-                                    @php
-                                        $work_0 = App\Work::where('works.status_work','กำลังดำเนินการ' )->get();
-                                    @endphp
-                                    {{-- {{ $work_0 }} --}}
-                                    @foreach ( $work_0 as $index_0=>$item_0 )
+                                @foreach ( $work_2 as $index_2=>$item_2 )
 
-                                        <tr>
-                                            <td align="center"> {{ $item_0->id  }} </td>
-                                            <td align="center"> {{ $item_0->user_id  }} </td>
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_0->begin_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-{{--
-                                        @if ( $item_0->end_date == null || $item_0->end_date == ' ' )
+                                    <tr>
+                                        <td align="center"> {{ $index_2+1  }} </td>
+                                        <td align="center"> {{ $item_2->titlename }} {{ $item_2->name }} {{ $item_2->lastname }} </td>
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item_2->begin_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+
+                                        {{-- @if ( $item_2->end_date == null || $item_2->end_date == ' ' )
                                             <td></td>
                                         @else
                                             <td align="center">
                                                 @php
-                                                    $date_in = $item_0->end_date ;
+                                                    $date_in = $item_2->end_date ;
                                                     $date3 = show_tdate($date_in) ;
                                                 @endphp
                                                 {{ $date3  }} </td>
                                         @endif --}}
-{{--
-                                            <td align="center"> {{ $item_0->address_work  }} </td> --}}
-                                            <td align="center"> {{ $item_0->status_tranfar  }} </td>
-                                            <td align="center"> {{ $item_0->status_bill  }} </td>
-                                            <td align="center"> {{ $item_0->status_work  }} </td>
-                                            <td align="center"> <a href="{{route('reconfirm',['id'=>$item_0->id])}}" > คลิกเพื่อรับงาน </a> </td>
-                                            <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>
-                                        </tr>
 
-                                    @endforeach
-                                @endif
+                                        {{-- <td align="center"> {{ $item_2->address_work  }} </td> --}}
+                                        <td align="center"> {{ $item_2->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item_2->status_bill  }} </td>
+                                        <td align="center"> {{ $item_2->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('reconfirm3',['id'=>$item_2->id])}}" > คลิกเมื่อลูกค้าชำระค่าบริการแล้ว </a> </td>
+                                        {{-- <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td> --}}
+                                    </tr>
+
+                                @endforeach
 
                             </tbody>
 
@@ -96,7 +84,7 @@
 <script>
      $(document).ready(function () {
         document.getElementById('confirm').classList.add('active');
-        document.getElementById('con1').classList.add('active');
+        document.getElementById('con3').classList.add('active');
         $('#example').DataTable();
     });
 

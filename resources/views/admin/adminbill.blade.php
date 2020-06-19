@@ -14,23 +14,23 @@
     ค่าใช้จ่ายทั้งหมด
 </h1>
     </div> </br>
-    <table class="table table-striped table-bordered" style="width:100%" >
-        <tbody>
+    <table class="table table-striped table-bordered" style="width:100%" border="1">
+        <thead>
             <td align="center" style="width:10%"> ลำดับ </td>
             <td align="center" style="width:50%"> รายการ </td>
             <td align="center" style="width:20%"> จำนวนเงิน </td>
             <td align="center" style="width:20%"> หน่วย </td>
             {{-- <th> รายละเอียด </th> --}}
-        </tbody>
+        </thead>
 
-        @foreach ($detail as $index=>$item)
+        @foreach ($workimg_0 as $index=>$item)
 
         @php
             $sum = 0;
             $avg1 = 0;
             $avg2 = 0;
             $sack = 0;
-            foreach( $detail as $detailes ) {
+            foreach( $workimg_0 as $detailes ) {
                 if( $detailes->working == "ตัดหญ้า" ) {
                     $grass = $detailes->farm_grass ;
                     $sum = $grass * 500;
@@ -69,13 +69,13 @@
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าน้ำมันเครื่องตัดหญ้า (ไร่ละ 100 บาท) </td>
+            <td > ค่าน้ำมันเครื่องตัดหญ้า (ต่อไร่) </td>
             <td align="right"> {{ $sum_oil }} </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าบริการ + ค่าแรง   </td>
+            <td > บริการทั้งหมด {{ $grass }} ไร่ </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -115,7 +115,7 @@
         </tr> --}}
         <tr>
             <td > </td>
-            <td > ค่าปุ๋ย (ต่อ 1 กระสอบ) </td>
+            <td > ค่าปุ๋ย (ต่อกระสอบ) </td>
             <td align="right"> 600 </td>
             <td align="center"> บาท </td>
         </tr>
@@ -149,40 +149,12 @@
         </tr>
 
     </table>
-<h5>
-    <font color="red">
-
-    <font color="blue">
-
-        ชำระเงินผ่านธนาคาร<br/>นาย ชาญณรงค์ สิทธิบุตร<br/>
-        เลขที่บัญชี : 333-33333-33-3<br/>ธนาคาร : กสิกรไทย<br/>
-        หรือชำระเงินผ่านทางพร้อมเพย์&nbsp;099-878-4747
-    </font> <br/>
-    <font color="red">
-
-    </font> <br/>
-</h5>
-
-    <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
-        onClick="javascript:this.style.display='none';window.print()">
-
-        <a href="{{ route('home') }}">
-            {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-        </a>
-
-        <a href="{{route('destroy',['id'=>$item->work_id])}}" class="btn btn-danger">ยกเลิกบริการ</a>
-
-        <a href="{{ route('deposit') }}">
-            {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-        </a>
-
-        <form method="post" class="delete_form" action="{{route('destroy',['id'=>$item->work_id])}}">
-
-            @csrf
-        </form>
 
 </center>
 </div>
+<center>
+    {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+</center>
 </div>
 
 @endsection

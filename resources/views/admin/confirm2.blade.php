@@ -17,8 +17,8 @@
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> รหัส</th>
-                                <th align="center"> รหัสผู้ใช้งาน </th>
+                                <th align="center"> ลำดับ</th>
+                                <th align="center"> ผู้ใช้งาน </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 {{-- <th align="center"> วันที่สื้นสุด </th> --}}
                                 {{-- <th align="center"> ที่อยู่ </th> --}}
@@ -29,41 +29,36 @@
                             </thead>
 
                             <tbody>
+                                @foreach ( $work_1 as $index_1=>$item_1)
 
-                                    @php
-                                        $work_1 = App\Work::where('works.status_work','อยู่ระหว่างการดำเนินการ' )->get();
-                                    @endphp
+                                    <tr>
+                                        <td align="center"> {{ $index_1+1  }} </td>
+                                        <td align="center"> {{ $item_1->titlename }} {{ $item_1->name }} {{ $item_1->lastname }} </td>
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item_1->begin_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
 
-                                    @foreach ( $work_1 as $index_1=>$item_1)
-
-                                        <tr>
-                                            <td align="center"> {{ $item_1->id  }} </td>
-                                            <td align="right"> {{ $item_1->user_id  }} </td>
+                                        {{-- @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
+                                            <td></td>
+                                        @else
                                             <td align="center">
                                                 @php
-                                                    $date_in = $item_1->begin_date ;
+                                                    $date_in = $item_1->end_date ;
                                                     $date3 = show_tdate($date_in) ;
                                                 @endphp
                                                 {{ $date3  }} </td>
+                                        @endif --}}
+                                        {{-- <td align="center"> {{ $item_1->address_work  }} </td> --}}
+                                        <td align="center"> {{ $item_1->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item_1->status_bill  }} </td>
+                                        <td align="center"> {{ $item_1->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จสิ้น </a> </td>
+                                    </tr>
 
-                                            {{-- @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
-                                                <td></td>
-                                            @else
-                                                <td align="center">
-                                                    @php
-                                                        $date_in = $item_1->end_date ;
-                                                        $date3 = show_tdate($date_in) ;
-                                                    @endphp
-                                                    {{ $date3  }} </td>
-                                            @endif --}}
-                                            {{-- <td align="center"> {{ $item_1->address_work  }} </td> --}}
-                                            <td align="center"> {{ $item_1->status_tranfar  }} </td>
-                                            <td align="center"> {{ $item_1->status_bill  }} </td>
-                                            <td align="center"> {{ $item_1->status_work  }} </td>
-                                            <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จสิ้น </a> </td>
-                                        </tr>
-
-                                    @endforeach
+                                @endforeach
 
 
                             </tbody>
