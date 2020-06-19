@@ -26,9 +26,11 @@
                             <tr>
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> วันที่เริ่ม </th>
-                                <th align="center"> วันที่สิ้นสุด </th>
-                                <th align="center"> ดูรายละเอียด </th>
-                                <th align="center"> ตรวจสอบค่าใช้จ่าย </th>
+                                {{-- <th align="center"> วันที่สิ้นสุด </th> --}}
+                                <th align="center"> รายละเอียดงาน </th>
+                                <th align="center"> รายละเอียดมัดจำ </th>
+                                <th align="center"> สถานะงานที่จ้าง</th>
+                                <th align="center"> สถานะชำระค่าบริการทั้งหมด</th>
                             </tr>
                         </thead>
 
@@ -44,16 +46,18 @@
                                     @endphp
                                     {{ $date3  }}
                                 </td>
-                                <td align="center">
+                                {{-- <td align="center">
                                     @php
                                         $date_in = $item->end_date ;
                                         $date3 = show_tdate($date_in) ;
                                     @endphp
                                     {{ $date3  }}
-                                </td>
+                                </td> --}}
 
                                 <td align="center"> <a href="{{route('zoomhistory',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
+                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> เสร็จสิ้น </a> </td>
+                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> ยังไม่จ่าย </a> </td>
                             </tr>
 
                         @endforeach

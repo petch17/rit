@@ -25,8 +25,9 @@
                                 <th align="center">ค่ามัดจำ</th>
                                 <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
+                                <th align="center"> รายละเอียดงาน </th>
+                                <th align="center"> รายละเอียดมัดจำ</th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
-                                <th align="center"> รายละเอียด </th>
                             </thead>
 
                             <tbody>
@@ -57,8 +58,10 @@
                                         <td align="center"> {{ $item_0->status_tranfar  }} </td>
                                         <td align="center"> {{ $item_0->status_bill  }} </td>
                                         <td align="center"> {{ $item_0->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
+                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
+                                        {{-- <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td> --}}
                                         <td align="center"> <a href="{{route('reconfirm',['id'=>$item_0->id])}}" > คลิกเพื่อรับงาน </a> </td>
-                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > คลิก </a> </td>
                                     </tr>
 
                                 @endforeach
