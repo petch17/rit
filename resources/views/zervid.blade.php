@@ -15,7 +15,7 @@
         p {text-align: center;}
         div {text-align: center;}
         </style>
-          <div class="card-header" align="center"> <font color="black"><h1>{{ __('รายละเอียดงานสวนปาล์ม  (ลูกค้า 1 ท่านจ้างได้แค่  1 ครั้งนะครับ)') }}</h1></font></div>
+          <div class="card-header" align="center"> <font color="black"><h1>{{ __('รายละเอียดงานสวนปาล์ม') }}</h1></font></div>
         <h1> </h1>
     {{-- <table width=90% style="border:1px dashed #00aa77;" cellspacing="5" bgcolor="#00aa77" cellpadding="5"><tr><td style="border:10px dashed white;"bgcolor="white">รายละเอียดงานสวนปาล์ม </td></tr></table> --}}
 
@@ -44,7 +44,7 @@
 
     <img src="{{ asset('images/demo/backgrounds/a7.jpg') }}" height="400" width="400">
     <br><br><br><br><br>
-    <div class="card-header" align="center">  <font color="red">  #จ้างขั้นต่ำตั้งแต่ 4 ไร่ขึ้นไป</font><h3>{{ __('2.บริการตัดหญ้า จำนวนไร่ละ 500 (ค่าแรง 400 + 100 ค่าน้ำมัน)') }}</h3></div>
+    <div class="card-header" align="center">  <font color="red">  #จ้างขั้นต่ำตั้งแต่ 4 ไร่ขึ้นไป</font><h3>{{ __('2.บริการตัดหญ้า จำนวนไร่ละ 500 บาท (ค่าแรง 400 บาท และค่าน้ำมัน 100 บาท ต่อ 1 ไร่)') }}</h3></div>
        <br><br><br><br><br>
 
         <table>

@@ -59,8 +59,8 @@
                                         <td align="center"> {{ $item_0->status_bill  }} </td>
                                         <td align="center"> {{ $item_0->status_work  }} </td>
                                         <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
-                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
-                                        {{-- <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td> --}}
+                                        <td align="center"> <a href="{{route('zoombill',['id'=>$item_0->id])}}" target="_blank"> คลิก </a> </td>
+                                        {{-- <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td> --}}
                                         <td align="center"> <a href="{{route('reconfirm',['id'=>$item_0->id])}}" > คลิกเพื่อรับงาน </a> </td>
                                     </tr>
 
