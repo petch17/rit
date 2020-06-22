@@ -25,9 +25,9 @@
                                 <th align="center"> ค่ามัดจำ </th>
                                 <th align="center"> วันที่จ่ายค่ามัดจำ </th>
                                 <th align="center"> บันทึกช่วยจำ </th>
-                                <th align="center"> ค่าบริการ </th>
+                                {{-- <th align="center"> ค่าบริการ </th>
                                 <th align="center"> วันที่จ่ายค่าบริการ </th>
-                                <th align="center"> บันทึกช่วยจำ </th>
+                                <th align="center"> บันทึกช่วยจำ </th> --}}
 
                             </thead>
                             <tbody>
@@ -40,9 +40,9 @@
                                 <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td>
                                 <td align="center"> {{ $item->transfar_date  }} </td>
                                 <td align="center"> {{ $item->transfar_desc }} </td>
-                                <td align="center"> <img src="{{asset('./images/money_slip/'. $item->monney_slip)}}" width="150" height="150">  </td>
+                                {{-- <td align="center"> <img src="{{asset('./images/money_slip/'. $item->monney_slip)}}" width="150" height="150">  </td>
                                 <td align="center"> {{ $item->monney_date  }} </td>
-                                <td align="center"> {{ $item->desc }} </td>
+                                <td align="center"> {{ $item->desc }} </td> --}}
 
 
 
