@@ -18,7 +18,7 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> รหัส</th>
-                                <th align="center"> รายการ </th>
+                                <th align="center"> ชื่อ </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 {{-- <th align="center"> วันที่สื้นสุด </th> --}}
                                 {{-- <th align="center"> ที่อยู่ </th> --}}
@@ -34,7 +34,7 @@
                                 @foreach ( $wok as $index=>$item )
                                 <tr>
                                 <td align="center"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->user_id  }} </td>
+                                <td align="right"> {{ $item->titlename  }} </td>
                                 <td align="center">
                                     @php
                                         $date_in = $item->begin_date ;
