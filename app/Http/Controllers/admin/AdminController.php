@@ -146,15 +146,13 @@ class AdminController extends Controller
                 ->get();
 
                 // return $bill;
-                    $palm_2 = 0 ;
+                    $palm_2 = 0 ; $palm = 0 ; $fertilizer = 0 ;
                     $avg2 = 0 ;
                     $pui = 0 ;
-                    $val_boss = 0 ;
-                    $palm_boss = 0 ;
-                    $pui_boss = 0 ;
-                    $val_emp = 0 ;
-                    $palm_emp = 0 ;
-                    $pui_emp = 0 ;
+                    $val_boss = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
+                    $val_emp = 0 ; $palm_emp = 0 ; $palm_emp = 0 ;
+
+
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
