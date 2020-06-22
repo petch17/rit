@@ -30,7 +30,7 @@
                                 <th align="center"> รายละเอียดงาน </th>
                                 <th align="center"> รายละเอียดมัดจำ </th>
                                 <th align="center"> สถานะงานที่จ้าง</th>
-                                <th align="center"> สถานะชำระค่าบริการทั้งหมด</th>
+
                             </tr>
                         </thead>
 
@@ -57,7 +57,7 @@
                                 <td align="center"> <a href="{{route('zoomhistory',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> กำลังดำเนินการ </a> </td>
-                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> ยังไม่จ่าย </a> </td>
+
                             </tr>
 
                         @endforeach
