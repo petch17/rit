@@ -18,7 +18,7 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
                                 <th align="center"> รหัส</th>
-                                <th align="center"> รายการ </th>
+                                <th align="center"> ชื่อ </th>
                                 <th align="center"> วันที่เริ่ม </th>
                                 {{-- <th align="center"> วันที่สื้นสุด </th> --}}
                                 {{-- <th align="center"> ที่อยู่ </th> --}}
