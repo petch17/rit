@@ -143,6 +143,12 @@ class AdminController extends Controller
                     $palm_2 = 0;
                     $avg2 = 0;
                     $pui = 0;
+                    $val_boss = 0;
+                    $palm_boss = 0;
+                    $pui_boss = 0;
+                    $val_emp = 0;
+                    $palm_emp = 0;
+                    $pui_emp = 0;
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
@@ -174,7 +180,6 @@ class AdminController extends Controller
                                     ->where('end_date','<=',  $request->date2  )
                                     ->sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
 
-                            $palm_boss = 0;
                             $palm = $sum2 * 3;
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
