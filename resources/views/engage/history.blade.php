@@ -56,8 +56,8 @@
 
                                 <td align="center"> <a href="{{route('zoomhistory',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
-                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> กำลังดำเนินการ </a> </td>
-                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> ยังไม่จ่าย </a> </td>
+                                <td align="center"> {{ $item->status_work }} </a> </td>
+                                <td align="center"> {{ $item->status_bill }} </a> </td>
                             </tr>
 
                         @endforeach
