@@ -99,7 +99,7 @@
                     </tr>
 
                     @php
-                        $sum_price = ( $employee * 5 ) + $oil ;
+                        $sum_price = ( $employee * 4 ) + $oil ;
                     @endphp
 
                     <tr>
