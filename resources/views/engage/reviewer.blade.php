@@ -106,7 +106,6 @@
             <td > <b> {{ $item->working }} </b> </td>
             <td align="center">  </td>
             <td align="center">  </td>
-            {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
         {{-- <tr>
             <td colspan="2" align="right"> ค่าแรง </td>
