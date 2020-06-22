@@ -93,13 +93,13 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าน้ำมันเครื่องตัดหญ้า </b> </td>
+                        <td height="6"> <b> ค่าน้ำมันเครื่องตัดหญ้า  </b> </td>
                         <td align="right"> {{ number_format( $oil , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     @php
-                        $sum_price = ( $employee * 5 ) + $oil ;
+                        $sum_price = ( $employee * 4 ) + $oil ;
                     @endphp
 
                     <tr>

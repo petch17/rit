@@ -140,9 +140,15 @@ class AdminController extends Controller
                 ->get();
 
                 // return $bill;
-                    $palm_2 = 0;
-                    $avg2 = 0;
-                    $pui = 0;
+                    $palm_2 = 0 ;
+                    $avg2 = 0 ;
+                    $pui = 0 ;
+                    $val_boss = 0 ;
+                    $palm_boss = 0 ;
+                    $pui_boss = 0 ;
+                    $val_emp = 0 ;
+                    $palm_emp = 0 ;
+                    $pui_emp = 0 ;
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
@@ -160,7 +166,7 @@ class AdminController extends Controller
 
                             $val = $grass - $oil_1 ;
                             $val_boss = $val * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากหักค่าน้ำมันแล้ว )
-                            $val_emp = ( $val - $val_boss ) / 5 ; //เงินที่ลูกจ้างได้ต่อคน
+                            $val_emp = ( $val - $val_boss ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
 
                             // return [ $sum1 , $grass , $oil_1 , $val , $val_boss , $val_emp ];
                         }
@@ -178,7 +184,7 @@ class AdminController extends Controller
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
                             $palm_boss = $palm_2 * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
-                            $palm_emp = ( $palm_2 - $palm_boss ) / 5 ; //เงินที่ลูกจ้างได้ต่อคน
+                            $palm_emp = ( $palm_2 - $palm_boss ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
                             // return [ $palm_2 , $palm_boss , $palm_emp ] ;
                         }
                         else{
@@ -194,13 +200,13 @@ class AdminController extends Controller
                             $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                             $pui = $fertilizer * 600;
                             $pui_boss = $pui * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% )
-                            $pui_emp = ( $pui - $pui_boss ) / 5 ;
+                            $pui_emp = ( $pui - $pui_boss ) / 4 ;
                             // return [ $pui , $pui_boss , $pui_emp ] ;
                         }
                     }
 
                     $result = $grass + $palm_2 + $pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
-                    $boss = ( $val_boss + $palm_boss + $pui_boss ) ; //เงินที่นายจ้างได้ทั้งหมด
+                    $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
                     $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
                     // $employee1 = Employee::sum('priceparm');
                     // $employee2 = Employee::sum('pricegrass');
@@ -210,6 +216,8 @@ class AdminController extends Controller
                     // $boss = $result - ( $employee1 + $employee2 + $employee3 ) ; // เงินที่นายจ้างได้
                     // $sum_emp = $employee1 + $employee2 + $employee3  ; // เงินที่ลูกจ้างได้
                     // $pluss = $boss + $sum_emp;
+                    // return [ $val_boss , $palm_boss , $pui_boss ] ;
+                    // return [   $val_emp , $palm_emp , $pui_emp ] ;
                     // return [ $result , $boss , $sum_emp ] ;
 
 
