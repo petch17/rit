@@ -34,7 +34,7 @@
                                 @foreach ( $wok as $index=>$item )
                                 <tr>
                                 <td align="center"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->user_id  }} </td>
+                                <td align="center"> {{ $item->titlename  }} {{ $item->name  }} {{ $item->lastname  }} </td>
                                 <td align="center">
                                     @php
                                         $date_in = $item->begin_date ;

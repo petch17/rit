@@ -28,7 +28,10 @@ class AdminController extends Controller
 
     public function works()
     {
-        $workss = Work::get();
+        $workss = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+                ->get();
         return view('admin.works' ,['wok' => $workss ]);
     }
 
@@ -42,7 +45,10 @@ class AdminController extends Controller
 
     public function prob()
     {
-        $prob = Problem::get();
+        $prob = DB::table('problems')
+            ->join('users', 'users.id', '=', 'problems.user_id')
+            ->select('problems.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+            ->get();
         return view('admin.prob',['probb' => $prob ]);
     }
 
