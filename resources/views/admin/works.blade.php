@@ -56,7 +56,7 @@
                                 <td align="center"> {{ $item->status_bill  }} </td>
                                 <td align="center"> {{ $item->status_tranfar  }} </td>
                                 <td align="center"> {{ $item->status_work  }} </td>
-                                <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td>z
+                                <td align="center"> <a href="{{route('adminbill',['id'=>$item->id])}}" > ดู </a> </td>
                             </tr>
 
                             @endforeach
