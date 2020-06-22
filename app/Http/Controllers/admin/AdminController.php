@@ -177,9 +177,9 @@ class AdminController extends Controller
                             $palm = $sum2 * 3;
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
-                            $palm_bpss = $palm_2 * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
-                            $palm_emp = ( $palm_2 - $palm_bpss ) / 5 ; //เงินที่ลูกจ้างได้ต่อคน
-                            // return [ $palm_2 , $palm_bpss , $palm_emp ] ;
+                            $palm_boss = $palm_2 * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
+                            $palm_emp = ( $palm_2 - $palm_boss ) / 5 ; //เงินที่ลูกจ้างได้ต่อคน
+                            // return [ $palm_2 , $palm_boss , $palm_emp ] ;
                         }
                         else{
                             // return 3;
@@ -200,7 +200,7 @@ class AdminController extends Controller
                     }
 
                     $result = $grass + $palm_2 + $pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
-                    $boss = ( $val_boss + $palm_bpss + $pui_boss ) ; //เงินที่นายจ้างได้ทั้งหมด
+                    $boss = ( $val_boss + $palm_boss + $pui_boss ) ; //เงินที่นายจ้างได้ทั้งหมด
                     $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
                     // $employee1 = Employee::sum('priceparm');
                     // $employee2 = Employee::sum('pricegrass');
