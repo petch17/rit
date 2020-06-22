@@ -174,6 +174,7 @@ class AdminController extends Controller
                                     ->where('end_date','<=',  $request->date2  )
                                     ->sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
 
+                            $palm_boss = 0;
                             $palm = $sum2 * 3;
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
