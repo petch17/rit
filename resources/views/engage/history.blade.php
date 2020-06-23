@@ -29,7 +29,7 @@
                                 {{-- <th align="center"> วันที่สิ้นสุด </th> --}}
                                 <th align="center"> รายละเอียดงาน </th>
                                 <th align="center"> รายละเอียดมัดจำ </th>
-                                <th align="center"> สถานะงานที่จ้าง</th>
+                                {{-- <th align="center"> สถานะงานที่จ้าง</th> --}}
 
                             </tr>
                         </thead>
@@ -54,9 +54,9 @@
                                     {{ $date3  }}
                                 </td> --}}
 
-                                <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
+                             <td align="center"> <a href="{{route('adminbill',['id'=>$item->id])}}" > ดู </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
-                                <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> กำลังดำเนินการ </a> </td>
+                                {{-- <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> กำลังดำเนินการ </a> </td> --}}
 
                             </tr>
 

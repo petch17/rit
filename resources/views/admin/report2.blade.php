@@ -103,7 +103,7 @@
                     @endphp
 
                     <tr>
-                        <td height="30"> <b> รวมรายจ่าย </b> </td>
+                        <td height="30"> <b> รวมรายจ่ายทั้งสิ้น </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $sum_price , 2 )  }} </b>
                         </td>

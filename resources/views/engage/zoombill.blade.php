@@ -21,7 +21,7 @@
 
                                 <th align="center"> รหัส</th>
                                 <th align="center"> รหัสงาน</th>
-                                <th align="center"> ชื่อผู้ใช้ </th>
+                                <th align="center"> ชื่อ </th>
                                 <th align="center"> ค่ามัดจำ </th>
                                 <th align="center"> วันที่จ่ายค่ามัดจำ </th>
                                 <th align="center"> บันทึกช่วยจำ </th>
@@ -36,7 +36,7 @@
 
                                 <td align="center"> {{ $item->id  }} </td>
                                 <td align="center"> {{ $item->work_id  }} </td>
-                                <td align="center"> {{ Auth::user()->name  }} </td>
+                                <td align="center"> {{ $item->name }}</td>
                                 <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td>
                                 <td align="center"> {{ $item->transfar_date  }} </td>
                                 <td align="center"> {{ $item->transfar_desc }} </td>

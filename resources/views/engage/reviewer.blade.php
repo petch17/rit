@@ -93,11 +93,28 @@
             <td align="right"> 300 </td>
             <td align="center"> บาท </td>
         </tr> --}}
+
         <tr>
             <td > </td>
-            <td > บริการทั้งหมด {{ $palm }} กิโลกรัม </td>
+            <td > ตัดปาล์มทั้งหมด {{ $palm }} กิโลกรัม </td>
             <td align="right"> @php echo number_format( $avg1 , 2 ) @endphp </td>
             <td align="center"> บาท </td>
+        </tr>
+
+        <tr>
+            <td > </td>
+            <td > ค่ารรทุก+ ค่าอุปกรรณ์   </td>
+            {{-- <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td> --}}
+            <td align="right">  300 </td>
+            <td align="center">  บาท </td>
+        </tr>
+
+        <tr>
+            <td > </td>
+            <td > ค่าแรง  </td>
+            {{-- <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td> --}}
+            <td align="right">  </td>
+            <td align="center">  บาท </td>
         </tr>
 
         @else
@@ -112,16 +129,25 @@
             <td align="right">300 </td>
             <td align="center">  บาท </td>
         </tr> --}}
+
         <tr>
             <td > </td>
-            <td > ค่าปุ๋ย (ต่อ 1 กระสอบ) </td>
+            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้น </td>
+            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
+        </tr>
+
+        <tr>
+            <td > </td>
+            <td > ค่าปุ๋ยกระสอบละ</td>
             <td align="right"> 600 </td>
             <td align="center"> บาท </td>
         </tr>
+
         <tr>
             <td > </td>
-            <td > บริการทั้งหมด {{ $fertilizer }} ต้น </td>
-            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
+            <td > ค่าน้ำมันรถบรรทุก</td>
+            <td align="right"> 500 </td>
             <td align="center"> บาท </td>
         </tr>
 

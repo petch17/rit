@@ -31,12 +31,12 @@
 
     <td style="border:1px dashed white;" bgcolor="white"><img src="{{ asset('images/demo/backgrounds/a5.jpg') }}" height="400" width="400">
         <br><br><br><br><br>
-        <div class="card-header" align="center"> <font color="red">  #จ้างขั้นต่ำ 500 กิโลกรัมขึ้นไป</font><h3>{{ __('1.บริการตัดปาล์ม คิดเป็นกิโลละ 3 บาท  แล้วหักค่ามัดจำ 30%') }}</h3></div>
+        <div class="card-header" align="center"> <font color="red">  #จ้างขั้นต่ำ 500 กิโลกรัมขึ้นไป</font><h3>{{ __('1.บริการตัดปาล์ม คิดเป็นกิโลละ 3 บาท คิดค่าบรรทุก + ค่าอุปกรณ์ 300 บาท แล้วหักค่ามัดจำ 30% ') }}</h3></div>
         <br><br>
         <table>
             <thead>
                 <tr>
-                    <h2>2.บริการใส่ปุ๋ย </h2>
+                    <h2>2.บริการตัดหญ้า </h2>
                 </tr>
 
             </thead>
@@ -50,15 +50,15 @@
         <table>
             <thead>
                 <tr>
-                    <h2>3.บริการตัดหญ้า </h2>
+                    <h2>3.บริการใส่ปุ๋ย</h2>
                 </tr>
 
             </thead>
          </table>
     <img src="{{ asset('images/demo/backgrounds/a6.jpg') }}" height="400" width="400">
     <br><br><br><br>
-    <div class="card-header" align="center">  <font color="red">  #จ้างขั้นต่ำ 500 ต้นขึ้นไป</font><h3>{{ __('3.บริการใส่ปุ๋ย คิดเป็นกระสอบละ 600 บาท ปุ๋ย 1 กระสอบ 60 กิโลกรัม  1 กระสอบใส่ได้ 50 ต้น') }}</h3></div>
-    <br><br><br><br><br>
+    <div class="card-header" align="center">  <font color="red">  #จ้างขั้นต่ำ 500 ต้นขึ้นไป</font><h3>{{ __('3.บริการใส่ปุ๋ย คิดเป็นกระสอบละ 600 บาท ปุ๋ย 1 กระสอบ 50 กิโลกรัม  1 กระสอบใส่ได้ 50 ต้น  คิดค่าจ้างกระสอบละ 50 บาท และหักค่าน้ำมันรถบรรทุกไปซื้อปุ๋ย 500 บาท') }}</h3></div>
+    <br><br><br>
 
 </center>
 @endsection
