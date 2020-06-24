@@ -43,10 +43,10 @@
                     $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
                     $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
 
-                    $service_palm = 300; $price_palm = 0;
+                    $service_palm = 300; $price_palm = 0;  $palm_val = 0;
                     $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
                     $price_palm = $average * $service_palm ;
-                    $palm_val = $avg1 + $price_palm ;
+                    $palm_val =  $avg1 + $price_palm ;
 
                 }
                 else{
