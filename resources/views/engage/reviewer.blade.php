@@ -46,7 +46,7 @@
 
                     $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
                     $price_palm = $average * $service_palm ;
-                    $palm_val = $avg1 + $price_palm ;
+                    $palm_val =  $avg1 + $price_palm ;
 
                 }
                 else{
