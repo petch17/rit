@@ -23,14 +23,15 @@
             {{-- <th> รายละเอียด </th> --}}
         </tbody>
 
-        @foreach ($working_0 as $index=>$item)
+        @foreach ($workimg_0 as $index=>$item)
 
         @php
-            $sum = 0;
-            $avg1 = 0;
-            $avg2 = 0;
-            $sack = 0;
-            foreach( $working_0 as $detailes ) {
+          $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
+            $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+            $oil_pui = 500; //ค่าน้ำมันรถ
+            $palm_val = 0; $val_pui = 0;
+
+            foreach( $workimg_0 as $detailes ) {
                 if( $detailes->working == "ตัดหญ้า" ) {
                     $grass = $detailes->farm_grass ;
                     $sum = $grass * 500;

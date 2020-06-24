@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าบริการ </td>
+            <td > ค่าแรง + ค่าน้ำมัน </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
