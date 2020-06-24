@@ -184,8 +184,15 @@ class AdminController extends Controller
                             $palm = $sum2 * 3;
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
-                            $palm_boss = $palm_2 * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
-                            $palm_emp = ( $palm_2 - $palm_boss ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
+
+                            $service_palm = 300; $price_palm = 0; $palm_val = 0;
+                            $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
+                            $price_palm = $average * $service_palm ;
+                            $palm_val = $palm_2 + $price_palm ;
+
+                            $palm_boss = ( $palm_2 * 0.2 ) + $price_palm ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
+                            $palm_emp = ( $palm_2 - ( $palm_2 * 0.2 ) ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
+
                             // return [ $palm_2 , $palm_boss , $palm_emp ] ;
                         }
                         else{
@@ -200,25 +207,25 @@ class AdminController extends Controller
 
                             $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                             $pui = $fertilizer * 600;
-                            $pui_boss = $pui * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% )
-                            $pui_emp = ( $pui - $pui_boss ) / 4 ;
+
+                            $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+                            $oil_pui = 500; //ค่าน้ำมันรถ
+                            $powerman = 0; $val_pui = 0;
+                            $powerman = $service_pui * $sum3 ;
+                            $val_pui = $powerman + $pui + $oil_pui ;
+
+                            $pui_boss = $pui + $oil_pui ; //เงินที่นายจ้างได้
+                            $pui_emp = $powerman / 4 ;
                             // return [ $pui , $pui_boss , $pui_emp ] ;
                         }
                     }
+                    $sum_oil_0 = 0 ; $result = 0 ; $sum_emp = 0 ; $boss = 0 ;
 
-                    $result = 0 ; $sum_emp = 0 ; $boss = 0 ;
-
-                    $result = $grass + $palm_2 + $pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
+                    $sum_oil_0 =  $oil_1 + $price_palm + $oil_pui; //รวมค่าน้ำมัน
+                    $result = $grass + $$palm_val + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
                     $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
                     $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
-                    // $employee1 = Employee::sum('priceparm');
-                    // $employee2 = Employee::sum('pricegrass');
-                    // $employee3 = Employee::sum('pricepui');
-                    // return [ $employee1 , $employee2 , $employee3 ] ;
 
-                    // $boss = $result - ( $employee1 + $employee2 + $employee3 ) ; // เงินที่นายจ้างได้
-                    // $sum_emp = $employee1 + $employee2 + $employee3  ; // เงินที่ลูกจ้างได้
-                    // $pluss = $boss + $sum_emp;
                     // return [ $val_boss , $palm_boss , $pui_boss ] ;
                     // return [   $val_emp , $palm_emp , $pui_emp ] ;
                     // return [ $result , $boss , $sum_emp ] ;
@@ -229,7 +236,7 @@ class AdminController extends Controller
 
         return view('admin.report2',[
             'bills' => $bill , 'leader' => $boss , 'results' => $result , 'employee' => $sum_emp ,
-            'grass1' => $grass , 'palm1' => $palm_2 , 'fertilizer1' => $pui , 'oil' => $oil_1 ,
+            'grass1' => $grass , 'palm1' => $palm_2 , 'fertilizer1' => $pui , 'oil' => $sum_oil_0 ,
             'begin_date' => $day1 , 'end_date' => $day2
             ]);
     }

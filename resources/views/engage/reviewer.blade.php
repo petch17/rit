@@ -42,14 +42,25 @@
                     $sum2 = $palm * 3;
                     $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
                     $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+
+                    $service_palm = 300; $price_palm = 0;
+                    $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
+                    $price_palm = $average * $service_palm ;
+                    $palm_val = $avg1 + $price_palm ;
+
                 }
                 else{
                     $fertilizer = $detailes->unit_fertilizer ;
                     $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                     $sack = $sum3 * 600;
+
+                    $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+                    $oil_pui = 500; //ค่าน้ำมันรถ
+                    $powerman = $service_pui * $sum3 ;
+                    $val_pui = $powerman + $sack + $oil_pui ;
                 }
             }
-            $sumation = $sum + $avg1 + $sack;
+            $sumation = $sum + $palm_val + $val_pui;
 
         @endphp
 
@@ -63,19 +74,19 @@
         </tbody>
         <tr>
             <td > </td>
-            <td > ค่าแรง</td>
-            <td align="right"> {{ $sum_deposit }} </td>
+            <td > ค่าแรง </td>
+            <td align="right"> @php echo number_format( $sum_deposit , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าน้ำมันเครื่องตัดหญ้า (ไร่ละ 100 บาท) </td>
-            <td align="right"> {{ $sum_oil }} </td>
+            <td > ค่าน้ำมันเครื่องตัดหญ้า ( ไร่ละ 100 บาท ) </td>
+            <td align="right"> @php echo number_format( $sum_oil , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าบริการ + ค่าแรง   </td>
+            <td > ค่าบริการ </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -88,33 +99,27 @@
             <td align="center">  </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
         </tbody>
-        {{-- <tr>
-            <td colspan="2" align="right"> ค่าแรง</td>
-            <td align="right"> 300 </td>
-            <td align="center"> บาท </td>
-        </tr> --}}
 
         <tr>
             <td > </td>
-            <td > ตัดปาล์มทั้งหมด {{ $palm }} กิโลกรัม </td>
+            <td > ค่าแรง </td>
             <td align="right"> @php echo number_format( $avg1 , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
 
         <tr>
             <td > </td>
-            <td > ค่ารรทุก+ ค่าอุปกรรณ์   </td>
+            <td > ค่าบรรทุก + ค่าอุปกรรณ์   </td>
             {{-- <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td> --}}
-            <td align="right">  300 </td>
+            <td align="right">  @php echo number_format( $price_palm , 2 ) @endphp </td>
             <td align="center">  บาท </td>
         </tr>
 
         <tr>
             <td > </td>
-            <td > ค่าแรง  </td>
-            {{-- <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td> --}}
-            <td align="right">  </td>
-            <td align="center">  บาท </td>
+            <td > ตัดปาล์มทั้งหมด {{ $palm }} กิโลกรัม </td>
+            <td align="right"> @php echo number_format( $palm_val , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
         </tr>
 
         @else
@@ -124,30 +129,32 @@
             <td align="center">  </td>
             <td align="center">  </td>
         </tbody>
-        {{-- <tr>
-            <td colspan="2" align="right"> ค่าแรง </td>
-            <td align="right">300 </td>
-            <td align="center">  บาท </td>
-        </tr> --}}
 
         <tr>
             <td > </td>
-            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้น </td>
-            <td align="right"> @php echo number_format( $sack , 2 ) @endphp </td>
+            <td > ค่าแรง </td>
+            <td align="right"> @php echo number_format( $powerman , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
 
         <tr>
             <td > </td>
             <td > ค่าปุ๋ยกระสอบละ</td>
-            <td align="right"> 600 </td>
+            <td align="right"> @php echo number_format( 600 , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
 
         <tr>
             <td > </td>
             <td > ค่าน้ำมันรถบรรทุก</td>
-            <td align="right"> 500 </td>
+            <td align="right"> @php echo number_format( 500 , 2 ) @endphp </td>
+            <td align="center"> บาท </td>
+        </tr>
+
+        <tr>
+            <td > </td>
+            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้น </td>
+            <td align="right"> @php echo number_format( $val_pui , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
 
