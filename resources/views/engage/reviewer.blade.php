@@ -78,7 +78,7 @@
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าน้ำมันเครื่องตัดหญ้า ( ไร่ละ 100 บาท ) </td>
+            <td > ค่าน้ำมันเครื่องตัดหญ้า  </td>
             <td align="right"> @php echo number_format( $sum_oil , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

@@ -68,7 +68,7 @@
                         <li>
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <i class="fab fa-btc" aria-hidden="true"></i> แจ้งโอนเงิน</a>
+                                <i class="fab fa-btc" aria-hidden="true"></i> แจ้งมัดจำ</a>
                                 <ul>
                                     <li>
                                         <a href="{{ route('deposit') }}">{{ __('ชำระค่ามัดจำ') }}</a>
