@@ -147,12 +147,12 @@ class AdminController extends Controller
 
                 // return $bill;
                     $palm_2 = 0 ; $palm = 0 ; $fertilizer = 0 ;
-                    $avg2 = 0 ;  $grass = 0 ; $pui = 0 ;
+                    $avg2 = 0 ; $oil_1 = 0 ; $grass = 0 ; $pui = 0 ;
                     $val_boss = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
                     $val_emp = 0 ; $palm_emp = 0 ; $pui_emp = 0 ;
                     $price_palm = 0; $service_palm = 300; $palm_val = 0;
                     $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-                    $oil_pui = 500; //ค่าน้ำมันรถ
+                    $oil_pui = 0; //ค่าน้ำมันรถ
                     $powerman = 0; $val_pui = 0;
 
                     foreach( $bill as $detail ){
@@ -165,7 +165,7 @@ class AdminController extends Controller
                                     ->where('begin_date','>=',  $request->date1  )
                                     ->where('end_date','<=',  $request->date2  )
                                     ->sum('work_details.farm_grass'); // รวมจำนวนไร่ทั้งหมด
-                                    $oil_1 = 0 ;
+
                             $grass = $sum1 * 500;
                             $oil_1 = 100 * $sum1; //ค่าน้ำมัน
 
@@ -211,6 +211,7 @@ class AdminController extends Controller
                             $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                             $pui = $fertilizer * 600;
 
+                            $oil_pui = 500; //ค่าน้ำมันรถ
                             $powerman = $service_pui * $sum3 ;
                             $val_pui = $powerman + $pui + $oil_pui ;
 
