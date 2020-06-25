@@ -28,7 +28,6 @@
         @php
             $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
             $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-            $oil_pui = 500; //ค่าน้ำมันรถ
             $palm_val = 0; $val_pui = 0;
 
             foreach( $detail as $detailes ) {
@@ -54,6 +53,7 @@
                     $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                     $sack = $sum3 * 600;
 
+                    $oil_pui = 500; //ค่าน้ำมันรถ
                     $powerman = $service_pui * $sum3 ;
                     $val_pui = $powerman + $sack + $oil_pui ;
                 }
