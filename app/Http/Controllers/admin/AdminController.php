@@ -147,7 +147,7 @@ class AdminController extends Controller
 
                 // return $bill;
                     $palm_2 = 0 ; $palm = 0 ; $fertilizer = 0 ;
-                    $avg2 = 0 ; $oil_1 = 0 ; $grass = 0 ; $pui = 0 ;
+                    $avg2 = 0 ;  $grass = 0 ; $pui = 0 ;
                     $val_boss = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
                     $val_emp = 0 ; $palm_emp = 0 ; $pui_emp = 0 ;
                     $price_palm = 0; $service_palm = 300; $palm_val = 0;
@@ -165,7 +165,7 @@ class AdminController extends Controller
                                     ->where('begin_date','>=',  $request->date1  )
                                     ->where('end_date','<=',  $request->date2  )
                                     ->sum('work_details.farm_grass'); // รวมจำนวนไร่ทั้งหมด
-
+                                    $oil_1 = 0 ;
                             $grass = $sum1 * 500;
                             $oil_1 = 100 * $sum1; //ค่าน้ำมัน
 
