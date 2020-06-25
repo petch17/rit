@@ -150,7 +150,10 @@ class AdminController extends Controller
                     $avg2 = 0 ; $oil_1 = 0 ; $grass = 0 ; $pui = 0 ;
                     $val_boss = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
                     $val_emp = 0 ; $palm_emp = 0 ; $pui_emp = 0 ;
-                    $price_palm = 0;
+                    $price_palm = 0; $service_palm = 300; $palm_val = 0;
+                    $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+                    $oil_pui = 500; //ค่าน้ำมันรถ
+                    $powerman = 0; $val_pui = 0;
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
@@ -186,7 +189,6 @@ class AdminController extends Controller
                             $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
                             $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
 
-                            $service_palm = 300; $palm_val = 0;
                             $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
                             $price_palm = $average * $service_palm ;
                             $palm_val = $palm_2 + $price_palm ;
@@ -209,9 +211,6 @@ class AdminController extends Controller
                             $fertilizer = $sum3 / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                             $pui = $fertilizer * 600;
 
-                            $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-                            $oil_pui = 500; //ค่าน้ำมันรถ
-                            $powerman = 0; $val_pui = 0;
                             $powerman = $service_pui * $sum3 ;
                             $val_pui = $powerman + $pui + $oil_pui ;
 
@@ -222,8 +221,8 @@ class AdminController extends Controller
                     }
                     $sum_oil_0 = 0 ; $result = 0 ; $sum_emp = 0 ; $boss = 0 ;
 
-                    $sum_oil_0 =  $oil_1 + $price_palm + 500; //รวมค่าน้ำมัน
-                    $result = $grass + $$palm_val + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
+                    $sum_oil_0 =  $oil_1 + $price_palm + $oil_pui; //รวมค่าน้ำมัน
+                    $result = $grass + $palm_val + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
                     $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
                     $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
 

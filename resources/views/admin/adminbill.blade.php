@@ -55,8 +55,6 @@
                     $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                     $sack = $sum3 * 600;
 
-                    $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-                    $oil_pui = 500; //ค่าน้ำมันรถ
                     $powerman = $service_pui * $sum3 ;
                     $val_pui = $powerman + $sack + $oil_pui ;
                 }
