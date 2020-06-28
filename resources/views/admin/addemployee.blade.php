@@ -43,35 +43,8 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <label for="priceparm" class="col-md-4 col-form-label text-md-right">
-            {{ __('ค่าแรงตัดปาล์ม') }}
-        </label>
 
-        <div class="col-md-4">
-            <input id="priceparm" type="text" class="form-control" name="priceparm" >
-        </div>
-    </div>
 
-    <div class="form-group row">
-        <label for="pricegrass" class="col-md-4 col-form-label text-md-right">
-            {{ __('ค่าแรงตัดหญ้า') }}
-        </label>
-
-        <div class="col-md-4">
-            <input id="pricegrass" type="text" class="form-control" name="pricegrass" >
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="pricepui" class="col-md-4 col-form-label text-md-right">
-            {{ __('ค่าแรงใส่ปุ๋ย') }}
-        </label>
-
-        <div class="col-md-4">
-            <input id="pricepui" type="text" class="form-control" name="pricepui" >
-        </div>
-    </div>
 
     <div class="form-group row">
         <label for="address" class="col-md-4 col-form-label text-md-right">

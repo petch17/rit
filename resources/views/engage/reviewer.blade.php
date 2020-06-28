@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td > </td>
-            <td > ค่าแรง + ค่าน้ำมัน </td>
+            <td >รวมค่าบริการ </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -115,7 +115,7 @@
 
         <tr>
             <td > </td>
-            <td > ตัดปาล์มทั้งหมด {{ $palm }} กิโลกรัม </td>
+            <td > รวมค่าบริการ {{ $palm }} กิโลกรัม </td>
             <td align="right"> @php echo number_format( $palm_val , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

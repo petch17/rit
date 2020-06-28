@@ -35,9 +35,6 @@
                             <th align="center">คำนำหน้า </th>
                             <th align="center"> ชื่อ </th>
                             <th align="center"> นามสกุล </th>
-                            <th align="center"> ค่าแรงตัดปาล์ม </th>
-                            <th align="center"> ค่าแรงตัดหญ้า </th>
-                            <th align="center"> ค่าแรงใส่ปุ๋ย </th>
                             <th align="center"> ที่อยู่ </th>
                             <th align="center"> เบอร์โทร </th>
                             <th align="center"> แก้ไข </th>
@@ -49,9 +46,6 @@
                                 <td align="center"> {{ $item->titlename  }} </td>
                                 <td align="center"> {{ $item->name  }} </td>
                                 <td align="right"> {{ $item->lastname  }} </td>
-                                <td align="right"> {{ $item->priceparm  }} </td>
-                                <td align="right"> {{ $item->pricegrass }} </td>
-                                <td align="right"> {{ $item->pricepui  }} </td>
                                 <td align="center"> {{ $item->address  }} </td>
                                 <td align="center"> {{ $item->phone  }} </td>
                                 <td align="center"> <a href="{{route('editemp',['id'=>$item->id])}}" > คลิก </a> </td>
