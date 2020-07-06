@@ -19,8 +19,7 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
 
-                                <th align="center"> รหัส</th>
-                                <th align="center"> รหัสงาน</th>
+
                                 <th align="center"> ชื่อ </th>
                                 <th align="center"> ค่ามัดจำ </th>
                                 <th align="center"> วันที่จ่ายค่ามัดจำ </th>
@@ -34,8 +33,7 @@
                             @foreach ( $zoombill as $index=>$item )
                             <tr>
 
-                                <td align="center"> {{ $item->id  }} </td>
-                                <td align="center"> {{ $item->work_id  }} </td>
+
                                 <td align="center"> {{ $item->name }}</td>
                                 <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td>
                                 <td align="center"> {{ $item->transfar_date  }} </td>

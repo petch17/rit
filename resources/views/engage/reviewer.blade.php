@@ -72,7 +72,7 @@
         </tbody>
         <tr>
             <td > </td>
-            <td > ค่าแรง </td>
+            <td > ค่าแรงลูกจ้าง 5 คน </td>
             <td align="right"> @php echo number_format( $sum_deposit , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

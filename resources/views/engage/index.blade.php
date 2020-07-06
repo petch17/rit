@@ -31,6 +31,7 @@
                     <center>
                         {!! Form::checkbox('work[]', 'ตัดหญ้า' ); !!}คลิกเพื่อเลือกรายการ
                         {!! Form::number('farm_grass', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนไร่'] ); !!}
+                        <font color="red">จ้างขั้นต่ำ 4 ไร่ </font>
                     </center>
                     {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
@@ -46,6 +47,7 @@
                     <center>
                         {!! Form::checkbox('work[]', 'ตัดปาล์ม' ); !!}คลิกเพื่อเลือกรายการ
                         {!! Form::number('kilo_palm', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนกิโลกรัม'] ); !!}
+                        <font color="red">จ้างขั้นต่ำ 500 กิโลกรัมขึ้นไป</font>
                     </center>
                     {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
@@ -61,6 +63,7 @@
                     <center>
                         {!! Form::checkbox('work[]', 'ใส่ปุ๋ย' ); !!}คลิกเพื่อเลือกรายการ
                         {!! Form::number('unit_fertilizer', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนต้น'] ); !!}
+                        <font color="red">จ้างขั้นต่ำ 500 ต้นขึ้นไป</font>
                     </center>
                     {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
