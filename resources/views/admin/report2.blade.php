@@ -87,7 +87,7 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าแรงงานลูกจ้าง ( ต่อคน ) </b> </td>
+                        <td height="6"> <b> ค่าแรงที่ต้องจ่ายลูกจ้าง </b> </td>
                         <td align="right"> {{ number_format( $employee , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>

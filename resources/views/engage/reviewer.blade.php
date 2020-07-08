@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td > </td>
-            <td >รวมค่าบริการ </td>
+            <td >ตัดหญ้า {{ $grass }} ไร่ รวมบริการ </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -151,7 +151,7 @@
 
         <tr>
             <td > </td>
-            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้น </td>
+            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้นรวมบริการ </td>
             <td align="right"> @php echo number_format( $val_pui , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
