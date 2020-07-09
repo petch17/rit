@@ -68,8 +68,14 @@ class EngageController extends Controller
     public function zoombill($id)
     {
         // return $id;
+        $zoombill = DB::table('bills')
+            ->join('users', 'users.id', '=', 'bills.user_id')
+            ->select('bills.*', 'users.name')
+            ->where('bills.work_id',$id )
+            ->where('users.id',Auth::user()->id )
+            ->get();
 
-        $zoombill = Bill::where('work_id',$id)->get();
+        // $zoombill = Bill::where('work_id',$id)->get();
         return view('engage.zoombill',['zoombill' => $zoombill ]);
     }
 

@@ -27,7 +27,15 @@
 
             @foreach ($bills as $index=>$item)
 
-            <input readonly type="text" class="form-control" value="{{$index+1}}. {{ $item->working }}" >
+            @if( $item->working == 'ตัดหญ้า' )
+            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->farm_grass }} ไร่" >
+            @elseif( $item->working == 'ตัดปาล์ม' )
+            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->kilo_palm }} ไร่" >
+            @elseif( $item->working == 'ใส่ปุ๋ย' )
+            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->unit_fertilizer }} ไร่" >
+            @endif
+
+            {{-- " > --}}
 
             @endforeach
 
@@ -38,12 +46,9 @@
         <label for="name" class="col-md-4 col-form-label text-md-right">
             {{ __('ค่าบริการทั้งหมด') }}
         </label>
-        @php
-            $result = $price1 + $price2 + $price3 ;
-        @endphp
 
         <div class="col-md-6">
-        <input readonly type="text" class="form-control" value="{{ number_format( $result , 2 ) }}" >
+        <input readonly type="text" class="form-control" value="{{ number_format( $price1 , 2 ) }}" >
         </div>
     </div>
 
@@ -52,7 +57,7 @@
             {{ __('ค่ามัดจำที่ต้องชำระ') }}
         </label>
         @php
-            $avg_result = $result * 0.3 ;
+            $avg_result = $price1 * 0.3 ;
         @endphp
 
         <div class="col-md-6">
@@ -79,7 +84,11 @@
             </label>
 
             <div class="col-md-6">
-                <input id="transfar_date" type="date" class="form-control" name="transfar_date" >
+                @php
+                    $date_in = $mydate ;
+                    $day1 = show_tdate($date_in) ;
+                @endphp
+                <label class="form-control" > {{ $day1 }} </label>
             </div>
         </div>
 
@@ -128,15 +137,16 @@
 
 @endsection
 
-{{-- @php
-function  show_tdate($date_in)
+@php
+function show_tdate($date_in)
 {
-$month_arr = array("มกราคม" , "กุมภาพันธ์" , "มีนาคม" , "เมษายน" , "พฤษภาคม" , "มิถุนายน" , "กรกฏาคม" , "สิงหาคม" , "กันยายน" , "ตุลาคม" ,"พฤศจิกายน" , "ธันวาคม" ) ;
+$month_arr = array("มกราคม" , "กุมภาพันธ์" , "มีนาคม" , "เมษายน" , "พฤษภาคม" , "มิถุนายน" , "กรกฏาคม" , "สิงหาคม" ,
+"กันยายน" , "ตุลาคม" ,"พฤศจิกายน" , "ธันวาคม" ) ;
 
 $tok = strtok($date_in, "-");
 $year = $tok ;
 
-$tok  = strtok("-");
+$tok = strtok("-");
 $month = $tok ;
 
 $tok = strtok("-");
@@ -146,13 +156,8 @@ $year_out = $year + 543 ;
 $cnt = $month-1 ;
 $month_out = $month_arr[$cnt] ;
 
-if ($day < 10 )
-   $day_out = "".$day;
-else
-   $day_out = $day ;
-
-   $t_date = $day_out." ".$month_out." ".$year_out ;
+if ($day < 10 ) $day_out="" .$day; else $day_out=$day ; $t_date=$day_out." ".$month_out." ".$year_out ;
 
 return $t_date ;
 }
-@endphp --}}
+@endphp

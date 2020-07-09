@@ -111,6 +111,18 @@
                     </tr>
 
                     <tr>
+                        <td height="30"> <b> ค่าน้ำมันที่นายจ้างได้คืน </b> </td>
+                        <td width="106" align="right" > {{ number_format( $oil , 2 )  }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30"> <b> เงินที่นายจ้างได้รับ </b> </td>
+                        <td width="106" align="right" > {{ number_format( $sumsults , 2 )  }} </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
                         <td height="30"> <b> กำไรสุทธิ </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $leader , 2 )  }} </b>

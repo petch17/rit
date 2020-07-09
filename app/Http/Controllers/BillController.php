@@ -40,30 +40,40 @@ class BillController extends Controller
         ->get();
         // return $bill;
 
-        $sum = 0;
-        $avg1 = 0;
-        $avg2 = 0;
-        $sack = 0;
-        foreach( $bill as $detail ){
-            if( $detail->working == "ตัดหญ้า"){
-                // return 1;
-                $grass = $detail->farm_grass ;
+        $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
+        $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+        $palm_val = 0; $val_pui = 0;
+
+        foreach( $bill as $detailes ){
+            if( $detailes->working == "ตัดหญ้า" ){
+                $grass = $detailes->farm_grass ;
                 $sum = $grass * 500;
+                $sum_oil = $grass * 100 ;
+                $sum_deposit = $sum - $sum_oil ;
             }
-            elseif($detail->working == "ตัดปาล์ม"){
-                // return 2;
-                $palm = $detail->kilo_palm ;
+            elseif( $detailes->working == "ตัดปาล์ม" ){
+                $palm = $detailes->kilo_palm ;
                 $sum2 = $palm * 3;
-                $avg1 = $sum2 * 0.3; //เงินที่เราได้จากการขาย 30 %
-                $avg2 = $sum2 - $avg1 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
+                $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+
+                $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
+                $price_palm = $average * $service_palm ;
+                $palm_val =  $avg1 + $price_palm ;
             }
             else{
-                // return 3;
-                $fertilizer = $detail->unit_fertilizer ;
+                $fertilizer = $detailes->unit_fertilizer ;
                 $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
                 $sack = $sum3 * 600;
+
+                $oil_pui = 500; //ค่าน้ำมันรถ
+                $powerman = $service_pui * $sum3 ;
+                $val_pui = $powerman + $sack + $oil_pui ;
             }
         }
+        $sumation = $sum + $palm_val + $val_pui;
+
+
 
         $code = WorkDetail::get();
 
@@ -72,24 +82,30 @@ class BillController extends Controller
         }
         // return $code_run;
 
+
+        $mytime = Carbon::now();
+        $mytime = date('Y-m-d');
+
         return view('bill.deposit',[
-            'bills' => $bill, 'price1' => $sum , 'price2' => $avg1 , 'price3' => $sack , 'code_runs' => $code_run
+            'bills' => $bill, 'price1' => $sumation , 'price2' => $avg1 ,
+            'price3' => $sack , 'code_runs' => $code_run , 'mydate' => $mytime
             ]);
 
     }
 
     public function addbillstore(Request $request)
     {
-        // return $request;
+        $mytime = Carbon::now();
+        $mytime = date('Y-m-d');
 
         $data = new Bill();
         $data->work_id = $request->work_id;
         $data->user_id = $request->user_id;
-        $data->transfar_date = $request->transfar_date;
+        $data->transfar_date = $mytime;
         // $data->transfar_monney = $request->transfar_monney;
         $data->transfar_desc = $request->transfar_desc;
 
-        // return $data;
+        // return [$data , $mytime ];
 
        if ($request->hasFile('image')) {
             $image = $request->file('image'); //ไฟล์ภาพ

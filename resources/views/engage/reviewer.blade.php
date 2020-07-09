@@ -151,7 +151,7 @@
 
         <tr>
             <td > </td>
-            <td > ใส่ปุ๋ยจำนวน {{ $fertilizer }} ต้นรวมบริการ </td>
+            <td > ใส่ปุ๋ยจำนวน {{ $sum3 }} กระสอบรวมบริการ </td>
             <td align="right"> @php echo number_format( $val_pui , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

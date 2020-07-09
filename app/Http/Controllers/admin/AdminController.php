@@ -224,12 +224,15 @@ class AdminController extends Controller
 
                     $sum_oil_0 =  $oil_1 + $price_palm + $oil_pui; //รวมค่าน้ำมัน
                     $result = $grass + $palm_val + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
-                    $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
                     $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
+                    $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
+
+                    $sumsult =  $result - ( $sum_oil_0 +  ($sum_emp*4) );
+                    // return $fff;
 
                     // return [ $val_boss , $palm_boss , $pui_boss ] ;
                     // return [   $val_emp , $palm_emp , $pui_emp ] ;
-                    // return [ $result , $boss , $sum_emp ] ;
+                    // return [ $result , $boss , $sum_emp , $grass , $palm_val , $val_pui] ;
 
 
                     $day1 = $request->date1;
@@ -237,8 +240,8 @@ class AdminController extends Controller
 
         return view('admin.report2',[
             'bills' => $bill , 'leader' => $boss , 'results' => $result , 'employee' => $sum_emp ,
-            'grass1' => $grass , 'palm1' => $palm_2 , 'fertilizer1' => $pui , 'oil' => $sum_oil_0 ,
-            'begin_date' => $day1 , 'end_date' => $day2
+            'grass1' => $grass , 'palm1' => $palm_val , 'fertilizer1' => $val_pui , 'oil' => $sum_oil_0 ,
+            'sumsults' => $sumsult , 'begin_date' => $day1 , 'end_date' => $day2
             ]);
     }
 
