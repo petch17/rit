@@ -30,9 +30,9 @@
             @if( $item->working == 'ตัดหญ้า' )
             <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->farm_grass }} ไร่" >
             @elseif( $item->working == 'ตัดปาล์ม' )
-            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->kilo_palm }} ไร่" >
+            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->kilo_palm }} กิโลกรัม" >
             @elseif( $item->working == 'ใส่ปุ๋ย' )
-            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->unit_fertilizer }} ไร่" >
+            <input readonly type="text" class="form-control" value="{{ $index+1 }}. {{ $item->working }}  {{ $item->unit_fertilizer }} ต้น" >
             @endif
 
             {{-- " > --}}

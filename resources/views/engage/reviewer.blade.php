@@ -137,8 +137,8 @@
 
         <tr>
             <td > </td>
-            <td > ค่าปุ๋ยกระสอบละ</td>
-            <td align="right"> @php echo number_format( 600 , 2 ) @endphp </td>
+            <td > ค่าปุ๋ย {{ $sum3 }} กระสอบ</td>
+            <td align="right"> @php echo number_format( $sack , 2 ) @endphp</td>
             <td align="center"> บาท </td>
         </tr>
 
@@ -151,10 +151,11 @@
 
         <tr>
             <td > </td>
-            <td > ใส่ปุ๋ยจำนวน {{ $sum3 }} กระสอบรวมบริการ </td>
+            <td > รวมบริการ </td>
             <td align="right"> @php echo number_format( $val_pui , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
+
 
         @endif
 
@@ -173,7 +174,14 @@
         </tr>
 
         <tr>
-            <td colspan="2" align="right"> ค่ามัดจำ(30%) </td>
+            <td colspan="2" align="right"> ค่ามัดจำที่ต้องจ่าย(30%) </td>
+            <td align="right"> @php echo number_format( ( $sumation ) * 0.3 , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
+            <td align="center"> บาท </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2" align="right"> ยอดค้างชำระทั้งหมด </td>
             <td align="right"> @php echo number_format( ( $sumation ) * 0.3 , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <td align="center"> บาท </td>
         </tr>

@@ -212,7 +212,7 @@ class AdminController extends Controller
                             $pui = $fertilizer * 600;
 
                             $oil_pui = 500; //ค่าน้ำมันรถ
-                            $powerman = $service_pui * $sum3 ;
+                            $powerman = $service_pui *  $fertilizer ;
                             $val_pui = $powerman + $pui + $oil_pui ;
 
                             $pui_boss = $pui + $oil_pui ; //เงินที่นายจ้างได้
@@ -228,6 +228,7 @@ class AdminController extends Controller
                     $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
 
                     $sumsult =  $result - ( $sum_oil_0 +  ($sum_emp*4) );
+
                     // return $fff;
 
                     // return [ $val_boss , $palm_boss , $pui_boss ] ;
