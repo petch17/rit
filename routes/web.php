@@ -112,6 +112,14 @@ Route::get('admin/reconfirm3/{id}', [
 ]);
 Route::resource('reconfirm3','admin\AdminController' , ['except' => 'reconfirm3']);
 
+Route::get('con4/admin/confirm4', 'admin\AdminController@confirm4')->name('confirm4');
+
+Route::get('admin/reconfirm4/{id}', [
+    'as' => 'reconfirm4',
+    'uses' => 'admin\AdminController@reconfirm4'
+]);
+Route::resource('reconfirm4','admin\AdminController' , ['except' => 'reconfirm4']);
+
 // Route::post('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
 Route::post('admin/report2', [
     'as' => 'report2',

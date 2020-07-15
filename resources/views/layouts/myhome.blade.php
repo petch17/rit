@@ -96,7 +96,9 @@
                     @else
 
                          @php
-                            $count = App\Work::where('status_work','กำลังดำเนินการ')->count();
+                            $count = App\Work::where('status_work','กำลังตรวจสอบ')->count();
+
+                            $count1 = App\Work::where('status_work','ตรวจสอบแล้ว')->count();
 
                             $count2 = App\Work::where('status_work','อยู่ระหว่างการดำเนินการ')->count();
 
@@ -115,10 +117,13 @@
                                         <a href="{{ route('confirm1') }}"> งานที่สั่งเข้ามา ( {{ $count }} ) </a>
                                     </li>
                                     <li id="con2">
-                                        <a href="{{ route('confirm2') }}"> งานที่กำลังทำ ( {{ $count2 }} ) </a>
+                                        <a href="{{ route('confirm2') }}"> งานที่รับทำ ( {{ $count1 }} ) </a>
                                     </li>
                                     <li id="con3">
-                                        <a href="{{ route('confirm3') }}"> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
+                                        <a href="{{ route('confirm3') }}"> งานที่กำลังทำ ( {{ $count2 }} ) </a>
+                                    </li>
+                                    <li id="con4">
+                                        <a href="{{ route('confirm4') }}"> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
                                     </li>
                                 </ul>
                         </li>

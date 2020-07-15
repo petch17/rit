@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> ตารางตรวจงานที่กำลังทำ </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางรับงาน </h1> </center> </div>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
@@ -25,41 +25,46 @@
                                 <th align="center">ค่ามัดจำ</th>
                                 <th align="center">คงค้างชำระ</th>
                                 <th align="center"> สถานะงาน </th>
+                                <th align="center"> รายละเอียดงาน </th>
+                                <th align="center"> รายละเอียดมัดจำ</th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
                             </thead>
 
                             <tbody>
-                                @foreach ( $work_1 as $index_1=>$item_1)
+                                @foreach ( $work_0 as $index_0=>$item_0 )
 
                                     <tr>
-                                        <td align="center"> {{ $index_1+1  }} </td>
-                                        <td align="center"> {{ $item_1->titlename }} {{ $item_1->name }} {{ $item_1->lastname }} </td>
+                                        <td align="center"> {{ $index_0+1  }} </td>
+                                        <td align="center"> {{ $item_0->titlename }} {{ $item_0->name }} {{ $item_0->lastname }} </td>
                                         <td align="center">
                                             @php
-                                                $date_in = $item_1->begin_date ;
+                                                $date_in = $item_0->begin_date ;
                                                 $date3 = show_tdate($date_in) ;
                                             @endphp
                                             {{ $date3  }} </td>
-
-                                        {{-- @if ( $item_1->end_date == null || $item_1->end_date == ' ' )
-                                            <td></td>
-                                        @else
-                                            <td align="center">
-                                                @php
-                                                    $date_in = $item_1->end_date ;
-                                                    $date3 = show_tdate($date_in) ;
-                                                @endphp
-                                                {{ $date3  }} </td>
-                                        @endif --}}
-                                        {{-- <td align="center"> {{ $item_1->address_work  }} </td> --}}
-                                        <td align="center"> {{ $item_1->status_tranfar  }} </td>
-                                        <td align="center"> {{ $item_1->status_bill  }} </td>
-                                        <td align="center"> {{ $item_1->status_work  }} </td>
-                                        <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_1->id])}}" > คลิกเมื่องานเสร็จสิ้น </a> </td>
+{{--
+                                    @if ( $item_0->end_date == null || $item_0->end_date == ' ' )
+                                        <td></td>
+                                    @else
+                                        <td align="center">
+                                            @php
+                                                $date_in = $item_0->end_date ;
+                                                $date3 = show_tdate($date_in) ;
+                                            @endphp
+                                            {{ $date3  }} </td>
+                                    @endif --}}
+{{--
+                                        <td align="center"> {{ $item_0->address_work  }} </td> --}}
+                                        <td align="center"> {{ $item_0->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item_0->status_bill  }} </td>
+                                        <td align="center"> {{ $item_0->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
+                                        <td align="center"> <a href="{{route('zoombill',['id'=>$item_0->id])}}" target="_blank"> คลิก </a> </td>
+                                        {{-- <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td> --}}
+                                        <td align="center"> <a href="{{route('reconfirm2',['id'=>$item_0->id])}}" > คลิกเพื่อเริ่มงาน </a> </td>
                                     </tr>
 
                                 @endforeach
-
 
                             </tbody>
 

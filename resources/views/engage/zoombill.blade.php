@@ -38,6 +38,7 @@
                                 <td align="center"> {{ $item->name }}</td>
                                 <td align="center"> <img src="{{asset('./images/tranfar_slip/'. $item->transfar_slip)}}" width="150" height="150">  </td>
                                 <td align="center"> {{ $item->transfar_date  }} </td>
+                                <td align="center"> {{ $item->transfar_desc  }} </td>
 
 
                                 {{-- <td align="center"> <img src="{{asset('./images/money_slip/'. $item->monney_slip)}}" width="150" height="150">  </td>

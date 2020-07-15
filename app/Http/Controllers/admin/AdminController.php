@@ -146,14 +146,13 @@ class AdminController extends Controller
                 ->get();
 
                 // return $bill;
-                    $palm_2 = 0 ; $palm = 0 ; $fertilizer = 0 ;
-                    $avg2 = 0 ; $oil_1 = 0 ; $grass = 0 ; $pui = 0 ;
-                    $val_boss = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
+                    $palm_oil = 0 ; $palm = 0 ; $fertilizer = 0 ;
+                    $equipment = 0 ; $oil_1 = 0 ; $grass = 0 ; $pui = 0 ;
+                    $val_emp = 0 ; $palm_boss = 0 ; $pui_boss = 0 ;
                     $val_emp = 0 ; $palm_emp = 0 ; $pui_emp = 0 ;
                     $price_palm = 0; $service_palm = 300; $palm_val = 0;
-                    $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-                    $oil_pui = 0; //ค่าน้ำมันรถ
-                    $powerman = 0; $val_pui = 0;
+                    $service_pui = 50; $oil_pui = 0;  $power_2 = 0;
+                    $val_pui = 0; $power_1 = 0; $palm_3 = 0;
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
@@ -170,12 +169,12 @@ class AdminController extends Controller
                             $oil_1 = 100 * $sum1; //ค่าน้ำมัน
 
                             $val = $grass - $oil_1 ;
-                            $val_boss = $val * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากหักค่าน้ำมันแล้ว )
-                            $val_emp = ( $val - $val_boss ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
+                            // $val_emp = $val * 0.2 ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากหักค่าน้ำมันแล้ว )
+                            $val_emp = $val / 5 ; //เงินที่ลูกจ้างได้ต่อคน
 
-                            // return [ $sum1 , $grass , $oil_1 , $val , $val_boss , $val_emp ];
+                            // return [ $sum1 , $grass , $oil_1 , $val  , $val_emp ];
                         }
-                        elseif($detail->working == "ตัดปาล์ม"){
+                        elseif($detail->working == "ตัดแต่งทางใบ"){
                             // return 2;
                             $sum2  = DB::table('works')
                                     ->join('work_details', 'works.id', '=', 'work_details.work_id')
@@ -183,20 +182,19 @@ class AdminController extends Controller
                                     ->where('status_bill','=',  'ชำระแล้ว'  )
                                     ->where('begin_date','>=',  $request->date1  )
                                     ->where('end_date','<=',  $request->date2  )
-                                    ->sum('work_details.kilo_palm'); // รวมจำนวนปาล์มทั้งหมด
+                                    ->sum('work_details.leaf_palm'); // รวมจำนวนปาล์มทั้งหมด
 
-                            $palm = $sum2 * 3;
-                            $palm_2 = $palm * 0.3; //เงินที่เราได้จากการขาย 30 %
-                            $avg2 = $sum2 - $palm_2 ; //เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+                            $palm_oil = 300; //ค่าน้ำมัน
+                            $equipment = 300 ; //ค่าอุปกรณ์
+                            $power_1 = 500 ;//ค่าแรง
 
-                            $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
-                            $price_palm = $average * $service_palm ;
-                            $palm_val = $palm_2 + $price_palm ;
+                            $palm = $sum2 * 20;
+                            $mmmmm = $palm / 5; //ค่าแรง
+                            $palm_2 = $mmmmm +  $equipment ;//เงินที่นายจ้างได้
+                            $palm_3 = $palm +  $palm_oil +  $equipment ;//เงินที่นายจ้างได้
 
-                            $palm_boss = ( $palm_2 * 0.2 ) + $price_palm ; //เงินที่นายจ้างได้ ( นายจ้างได้เงิน 20% หลังจากการขายหัก 30% แล้ว )
-                            $palm_emp = ( $palm_2 - ( $palm_2 * 0.2 ) ) / 4 ; //เงินที่ลูกจ้างได้ต่อคน
 
-                            // return [ $palm_2 , $palm_boss , $palm_emp ] ;
+                            // return [ $palm_oil , $palm_boss , $palm_emp ] ;
                         }
                         else{
                             // return 3;
@@ -212,26 +210,26 @@ class AdminController extends Controller
                             $pui = $fertilizer * 600;
 
                             $oil_pui = 500; //ค่าน้ำมันรถ
-                            $powerman = $service_pui *  $fertilizer ;
-                            $val_pui = $powerman + $pui + $oil_pui ;
+                            $power_2 = $service_pui *  $fertilizer ; //หาค่าแรง
+                            $pui_emp = $power_2 / 5 ; //หารค่าแรงกับลูกจ้าง
+                            $pui_boss = $pui + $pui_emp ; //เงินที่นายจ้างได้
 
-                            $pui_boss = $pui + $oil_pui ; //เงินที่นายจ้างได้
-                            $pui_emp = $powerman / 4 ;
+                            $val_pui = $power_2 + $pui + $oil_pui ; //ค่าจ้างทั้งหมด
                             // return [ $pui , $pui_boss , $pui_emp ] ;
                         }
                     }
                     $sum_oil_0 = 0 ; $result = 0 ; $sum_emp = 0 ; $boss = 0 ;
 
-                    $sum_oil_0 =  $oil_1 + $price_palm + $oil_pui; //รวมค่าน้ำมัน
-                    $result = $grass + $palm_val + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
-                    $sum_emp = ( $pui_emp +  $val_emp + $palm_emp ) ;
-                    $boss = ( $val_boss + $palm_boss + $pui_boss + $oil_1 ) ; //เงินที่นายจ้างได้ทั้งหมด
+                    $sum_oil_0 =  $oil_1 + $palm_oil + $oil_pui; //รวมค่าน้ำมัน
+                    $result = $grass + $palm_3 + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
+                    $sum_emp = ( $pui_emp +  $val_emp + $mmmmm ) ;
+                    $boss = ( $val_emp + $palm_2 + $pui_boss + $sum_oil_0 ) ; //เงินที่นายจ้างได้ทั้งหมด
 
                     $sumsult =  $result - ( $sum_oil_0 +  ($sum_emp*4) );
 
                     // return $fff;
 
-                    // return [ $val_boss , $palm_boss , $pui_boss ] ;
+                    // return [ $val_emp , $palm_boss , $pui_boss ] ;
                     // return [   $val_emp , $palm_emp , $pui_emp ] ;
                     // return [ $result , $boss , $sum_emp , $grass , $palm_val , $val_pui] ;
 
@@ -241,7 +239,7 @@ class AdminController extends Controller
 
         return view('admin.report2',[
             'bills' => $bill , 'leader' => $boss , 'results' => $result , 'employee' => $sum_emp ,
-            'grass1' => $grass , 'palm1' => $palm_val , 'fertilizer1' => $val_pui , 'oil' => $sum_oil_0 ,
+            'grass1' => $grass , 'palm1' => $palm_3 , 'fertilizer1' => $val_pui , 'oil' => $sum_oil_0 ,
             'sumsults' => $sumsult , 'begin_date' => $day1 , 'end_date' => $day2
             ]);
     }
@@ -252,7 +250,7 @@ class AdminController extends Controller
         $work_00 = DB::table('works')
                 ->join('users', 'users.id', '=', 'works.user_id')
                 ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
-                ->where('works.status_work','กำลังดำเนินการ' )
+                ->where('works.status_work','กำลังตรวจสอบ' )
                 ->get();
         // $work_00 = Work::where('works.status_work','กำลังดำเนินการ' )->get();
                 // return $prob ;
@@ -263,18 +261,32 @@ class AdminController extends Controller
 
     public function confirm2()
     {
+        $work_00 = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+                ->where('works.status_work','ตรวจสอบแล้ว' )
+                ->get();
+        // $work_00 = Work::where('works.status_work','กำลังดำเนินการ' )->get();
+                // return $prob ;
+        return view('admin.confirm2',[
+            'work_0' => $work_00
+            ]);
+    }
+
+    public function confirm3()
+    {
         $work_11 = DB::table('works')
                 ->join('users', 'users.id', '=', 'works.user_id')
                 ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
                 ->where('works.status_work','อยู่ระหว่างการดำเนินการ' )
                 ->get();
                 // return $work_1 ;
-        return view('admin.confirm2',[
+        return view('admin.confirm3',[
             'work_1' => $work_11
             ]);
     }
 
-    public function confirm3()
+    public function confirm4()
     {
         $work_22 = DB::table('works')
                 ->join('users', 'users.id', '=', 'works.user_id')
@@ -283,7 +295,7 @@ class AdminController extends Controller
                 ->where('works.status_bill','ค้างชำระ' )
                 ->get();
                 // return $work_2 ;
-        return view('admin.confirm3',[
+        return view('admin.confirm4',[
             'work_2' => $work_22
             ]);
     }
@@ -291,11 +303,18 @@ class AdminController extends Controller
     public function reconfirm($id)
     {
         // return $id;
-        Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
+        Work::where('id',$id)->update(['status_work'=>'ตรวจสอบแล้ว']);
         return Redirect()->route('home');
     }
 
     public function reconfirm2($id)
+    {
+        // return $id;
+        Work::where('id',$id)->update(['status_work'=>'อยู่ระหว่างการดำเนินการ']);
+        return Redirect()->route('home');
+    }
+
+    public function reconfirm3($id)
     {
         // return $id;
         $mytime = Carbon::now();
@@ -304,7 +323,7 @@ class AdminController extends Controller
         return Redirect()->route('home');
     }
 
-    public function reconfirm3($id)
+    public function reconfirm4($id)
     {
         // return $id;
         Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);

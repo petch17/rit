@@ -31,37 +31,37 @@
                             </thead>
 
                             <tbody>
-                                @foreach ( $work_0 as $index_0=>$item_0 )
+                                @foreach ( $work_0 as $index_00=>$item_00 )
 
                                     <tr>
-                                        <td align="center"> {{ $index_0+1  }} </td>
-                                        <td align="center"> {{ $item_0->titlename }} {{ $item_0->name }} {{ $item_0->lastname }} </td>
+                                        <td align="center"> {{ $index_00+1  }} </td>
+                                        <td align="center"> {{ $item_00->titlename }} {{ $item_00->name }} {{ $item_00->lastname }} </td>
                                         <td align="center">
                                             @php
-                                                $date_in = $item_0->begin_date ;
+                                                $date_in = $item_00->begin_date ;
                                                 $date3 = show_tdate($date_in) ;
                                             @endphp
                                             {{ $date3  }} </td>
 {{--
-                                    @if ( $item_0->end_date == null || $item_0->end_date == ' ' )
+                                    @if ( $item_00->end_date == null || $item_00->end_date == ' ' )
                                         <td></td>
                                     @else
                                         <td align="center">
                                             @php
-                                                $date_in = $item_0->end_date ;
+                                                $date_in = $item_00->end_date ;
                                                 $date3 = show_tdate($date_in) ;
                                             @endphp
                                             {{ $date3  }} </td>
                                     @endif --}}
 {{--
-                                        <td align="center"> {{ $item_0->address_work  }} </td> --}}
-                                        <td align="center"> {{ $item_0->status_tranfar  }} </td>
-                                        <td align="center"> {{ $item_0->status_bill  }} </td>
-                                        <td align="center"> {{ $item_0->status_work  }} </td>
-                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td>
-                                        <td align="center"> <a href="{{route('zoombill',['id'=>$item_0->id])}}" target="_blank"> คลิก </a> </td>
-                                        {{-- <td align="center"> <a href="{{route('adminbill',['id'=>$item_0->id])}}" > ดู </a> </td> --}}
-                                        <td align="center"> <a href="{{route('reconfirm',['id'=>$item_0->id])}}" > คลิกเพื่อรับงาน </a> </td>
+                                        <td align="center"> {{ $item_00->address_work  }} </td> --}}
+                                        <td align="center"> {{ $item_00->status_tranfar  }} </td>
+                                        <td align="center"> {{ $item_00->status_bill  }} </td>
+                                        <td align="center"> {{ $item_00->status_work  }} </td>
+                                        <td align="center"> <a href="{{route('adminbill',['id'=>$item_00->id])}}" > ดู </a> </td>
+                                        <td align="center"> <a href="{{route('zoombill',['id'=>$item_00->id])}}" target="_blank"> คลิก </a> </td>
+                                        {{-- <td align="center"> <a href="{{route('adminbill',['id'=>$item_00->id])}}" > ดู </a> </td> --}}
+                                        <td align="center"> <a href="{{route('reconfirm',['id'=>$item_00->id])}}" > คลิกเพื่อรับงาน </a> </td>
                                     </tr>
 
                                 @endforeach

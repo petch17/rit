@@ -40,14 +40,14 @@
         <li class="one_quarter">
             <article>
                 {{-- <i class="fa fa-tree fa-6x" aria-hidden="true"></i> --}}
-                <img src="{{asset('./images/palm/cutpalm.png')}}" width="150" height="150">
-                <h6 class="heading"> ตัดปาล์ม </h6>
-                {{-- <p> ตัดปาล์ม </p> --}}
+                <img src="{{asset('./images/palm/w.jpg')}}" width="150" height="150">
+                <h6 class="heading"> ตัดแต่งทางใบ </h6>
+                {{-- <p> ตัดแต่งทางใบ </p> --}}
                 <footer>
                     <center>
-                        {!! Form::checkbox('work[]', 'ตัดปาล์ม' ); !!}คลิกเพื่อเลือกรายการ
-                        {!! Form::number('kilo_palm', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนกิโลกรัม'] ); !!}
-                        <font color="red">จ้างขั้นต่ำ 500 กิโลกรัมขึ้นไป</font>
+                        {!! Form::checkbox('work[]', 'ตัดแต่งทางใบ' ); !!}คลิกเพื่อเลือกรายการ
+                        {!! Form::number('leaf_palm', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนต้น'] ); !!}
+                        <font color="red">จ้างขั้นต่ำ 300 ต้น</font>
                     </center>
                     {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>
@@ -63,7 +63,7 @@
                     <center>
                         {!! Form::checkbox('work[]', 'ใส่ปุ๋ย' ); !!}คลิกเพื่อเลือกรายการ
                         {!! Form::number('unit_fertilizer', null,['class'=>'form-control','placeholder'=>'ใส่จำนวนต้น'] ); !!}
-                        <font color="red">จ้างขั้นต่ำ 500 ต้นขึ้นไป</font>
+                        <font color="red">จ้างขั้นต่ำ 500 ต้น</font>
                     </center>
                     {{-- {!! Form::button('เลือกบริการ',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!} --}}
                 </footer>

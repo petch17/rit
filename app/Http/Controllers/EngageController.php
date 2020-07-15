@@ -72,9 +72,9 @@ class EngageController extends Controller
             ->join('users', 'users.id', '=', 'bills.user_id')
             ->select('bills.*', 'users.name')
             ->where('bills.work_id',$id )
-            ->where('users.id',Auth::user()->id )
             ->get();
 
+        // return $zoombill;
         // $zoombill = Bill::where('work_id',$id)->get();
         return view('engage.zoombill',['zoombill' => $zoombill ]);
     }
@@ -114,7 +114,7 @@ class EngageController extends Controller
         $workimg->address_work = $request->address;
         $workimg->status_bill = 'ค้างชำระ';
         $workimg->status_tranfar = 'ค้างชำระ';
-        $workimg->status_work = 'กำลังดำเนินการ';
+        $workimg->status_work = 'กำลังตรวจสอบ';
         $workimg->save();
         // return $workimg;
 
@@ -125,8 +125,8 @@ class EngageController extends Controller
             $workimg2->working = $works;
             $workimg2->save();
 
-            if ($works == 'ตัดปาล์ม'){
-                $workimg2->kilo_palm = $request->kilo_palm;
+            if ($works == 'ตัดแต่งทางใบ'){
+                $workimg2->leaf_palm = $request->leaf_palm;
                 $workimg2->save();
             }
             elseif($works == 'ใส่ปุ๋ย'){

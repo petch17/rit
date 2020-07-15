@@ -42,7 +42,7 @@ class BillController extends Controller
 
         $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
         $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
-        $palm_val = 0; $val_pui = 0;
+        $palm_val = 0; $val_pui = 0; $palm_oil = 0;$equipment = 0 ;
 
         foreach( $bill as $detailes ){
             if( $detailes->working == "ตัดหญ้า" ){
@@ -51,15 +51,16 @@ class BillController extends Controller
                 $sum_oil = $grass * 100 ;
                 $sum_deposit = $sum - $sum_oil ;
             }
-            elseif( $detailes->working == "ตัดปาล์ม" ){
-                $palm = $detailes->kilo_palm ;
-                $sum2 = $palm * 3;
-                $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
-                $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
+            elseif( $detailes->working == "ตัดแต่งทางใบ" ){
+                $palm = $detailes->leaf_palm ;
+                $palm_oil = 300; //ค่าน้ำมัน
+                $equipment = 300 ; //ค่าอุปกรณ์
+                $power_1 = 500 ;//ค่าแรง
 
-                $average = $palm / 1000 ; // แปลงค่าจาก กิโลกรัม -> ตัน
-                $price_palm = $average * $service_palm ;
-                $palm_val =  $avg1 + $price_palm ;
+                $sum2 = $palm * 20;
+                $mmmmm = $sum2 / 5; //ค่าแรง
+                $palm_2 = $mmmmm +  $equipment ;//เงินที่นายจ้างได้
+                $palm_val = $sum2 +  $equipment + $palm_oil ;//เงินที่นายจ้างได้
             }
             else{
                 $fertilizer = $detailes->unit_fertilizer ;
@@ -87,7 +88,7 @@ class BillController extends Controller
         $mytime = date('Y-m-d');
 
         return view('bill.deposit',[
-            'bills' => $bill, 'price1' => $sumation , 'price2' => $avg1 ,
+            'bills' => $bill, 'price1' => $sumation , 'price2' => $sum2 ,
             'price3' => $sack , 'code_runs' => $code_run , 'mydate' => $mytime
             ]);
 
