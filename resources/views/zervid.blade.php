@@ -23,15 +23,15 @@
         <table>
             <thead>
                 <tr>
-                    <h2>1.บริการตัดปาล์ม </h2>
+                    <h2>1.บริการตัดแต่งทางใบ </h2>
                 </tr>
 
             </thead>
          </table>
 
-    <td style="border:1px dashed white;" bgcolor="white"><img src="{{ asset('images/demo/backgrounds/a5.jpg') }}" height="400" width="400">
+    <td style="border:1px dashed white;" bgcolor="white"><img src="{{ asset('images/demo/backgrounds/w.jpg') }}" height="400" width="400">
         <br><br><br><br><br>
-        <div class="card-header" align="center"> <font color="red">  #จ้างขั้นต่ำ 500 กิโลกรัมขึ้นไป</font><h3>{{ __('1.บริการตัดปาล์ม คิดเป็นกิโลละ 3 บาท คิดค่าบรรทุก + ค่าอุปกรณ์ 300 บาท แล้วหักค่ามัดจำ 30% ') }}</h3></div>
+        <div class="card-header" align="center"> <font color="red">  #จ้างขั้นต่ำ 300 ต้น</font><h3>{{ __('1.ตัดแต่งทางใบ คิดเป็นต้นละ 20  บาท คิดค่าบรรทุก 300 ค่าอุปกรณ์ 300 บาท แล้วหักค่ามัดจำ 30% ') }}</h3></div>
         <br><br>
         <table>
             <thead>

@@ -23,7 +23,7 @@
         <li class="one_quarter">
             <article>
                 {{-- <i class="fa fa-leaf fa-6x" aria-hidden="true"></i> --}}
-                <img src="{{asset('./images/palm/cutgrass.jpg')}}" width="150" height="150">
+                <img src="{{asset('./images/palm/a7.jpg')}}" width="150" height="150">
                 <h6 class="heading"> ตัดหญ้า  </h6>
                 {{-- <h6 class="heading"> <a href="" target="_blank"> ตัดหญ้า </a> </h6> --}}
                 {{-- <p> ตัดหญ้า </p> --}}
@@ -56,7 +56,7 @@
         <li class="one_quarter">
             <article>
                 {{-- <i class="fa fa-archive fa-6x" aria-hidden="true"></i> --}}
-                <img src="{{asset('./images/palm/fertilizer.jpg')}}" width="150" height="150">
+                <img src="{{asset('./images/palm/a6.jpg')}}" width="150" height="150">
                 <h6 class="heading"> ใส่ปุ๋ย </h6>
                 {{-- <p> ใส่ปุ๋ย </p> --}}
                 <footer>

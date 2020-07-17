@@ -132,6 +132,15 @@ Route::get('admin/adminbill/{id}', [
     'uses' => 'admin\AdminController@adminbill'
 ]);
 Route::resource('admin/adminbill', 'admin\AdminController@adminbill' , ['except' => 'adminbill']); //หน้าบิลชำระเงิน
+
+Route::get('admin/reviewer2/{id}', [
+    'as' => 'reviewer2',
+    'uses' => 'admin\AdminController@reviewer2'
+]);
+Route::resource('admin/reviewer2', 'admin\AdminController@reviewer2' , ['except' => 'reviewer2']); //หน้าบิลชำระเงิน
+
+Route::get('zoombill1/admin/zoombill1', 'admin\AdminController@zoombill1')->name('zoombill1');
+
 // end admin route
 
 // 1

@@ -58,7 +58,8 @@
                                         <td align="center"> {{ $item_2->status_tranfar  }} </td>
                                         <td align="center"> {{ $item_2->status_bill  }} </td>
                                         <td align="center"> {{ $item_2->status_work  }} </td>
-                                        <td align="center"> <a href="{{route('reconfirm4',['id'=>$item_2->id])}}" > คลิกเมื่อลูกค้าชำระค่าบริการแล้ว </a> </td>
+
+                                        <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิกเมื่อลูกค้าชำระค่าบริการแล้ว </a> </td>
                                         {{-- <td align="center"> <a href="{{route('details',['id'=>$item->id])}}" > คลิก </a> </td> --}}
                                     </tr>
 

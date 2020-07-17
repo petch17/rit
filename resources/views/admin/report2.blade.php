@@ -60,22 +60,27 @@
 
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <td height="6"> <b> รายได้จากการตัดหญ้า  </b> </td>
+                        <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> คลิก รายได้จากการตัดหญ้า </a> </b>  </td>
                         <td align="right"> {{ number_format( $grass1 , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
+
+
+
 
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> รายได้จากการตัดปาล์ม </b> </td>
+                        <td height="6"> <b> ตัดแต่งทางใบ</b> </td>
                         <td align="right"> {{ number_format( $palm1 , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
+
                     </tr>
 
                     <tr>
                         <td height="6"> <b> รายได้จากการใส่ปุ๋ย </b> </td>
                         <td align="right"> {{ number_format( $fertilizer1 , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
@@ -84,18 +89,21 @@
                             <b> {{ number_format( $results , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
                         <td height="6"> <b> ค่าแรงที่ต้องจ่ายลูกจ้าง </b> </td>
                         <td align="right"> {{ number_format( $employee , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
                         <td height="6"> <b> ค่าน้ำมันทั้งหมด  </b> </td>
                         <td align="right"> {{ number_format( $oil , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     @php
@@ -108,18 +116,21 @@
                             <b> {{ number_format( $sum_price , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
                         <td height="30"> <b> ค่าน้ำมันที่นายจ้างได้คืน </b> </td>
                         <td width="106" align="right" > {{ number_format( $oil , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
                         <td height="30"> <b> เงินที่นายจ้างได้รับ </b> </td>
                         <td width="106" align="right" > {{ number_format( $sumsults , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                     <tr>
@@ -128,6 +139,7 @@
                             <b> {{ number_format( $leader , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
+                          {{-- <td align="center"> <a href="{{route('reviewer2',['id'=>$item_2->id])}}" > คลิก </a> </td> --}}
                     </tr>
 
                 </table>

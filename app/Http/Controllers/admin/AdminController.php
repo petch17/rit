@@ -345,4 +345,28 @@ class AdminController extends Controller
              ]);
     }
 
+    public function reviewer2()
+    {
+        $workimg = Work::orderByDesc('id')->limit(1)->get();
+        foreach( $workimg as $sum ){
+            $result = $sum->id;
+        }
+
+        $details =  DB::table('work_details')
+        ->select('work_details.*')
+        ->where('work_id','like',$result)
+        ->get();
+        // return $details;
+
+        return view('admin.reviewer2',[
+             'detail' => $details
+             ]);
+    }
+
+    public function zoombill1()
+    {
+        return view('admin.zoombill1');
+    }
+
+
 }

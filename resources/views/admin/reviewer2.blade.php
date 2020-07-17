@@ -215,15 +215,13 @@
     <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
         onClick="javascript:this.style.display='none';window.print()">
 
-        <a href="{{ route('home') }}">
+        {{-- <a href="{{ route('home') }}">
             {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-        </a>
+        </a> --}}
 
-        <a href="{{route('destroy',['id'=>$item->work_id])}}" class="btn btn-danger">ยกเลิกบริการ</a>
+        {{-- <a href="{{route('destroy',['id'=>$item->work_id])}}" class="btn btn-danger">ยกเลิกบริการ</a> --}}
 
-        <a href="{{ route('deposit') }}">
-            {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-        </a>
+        <a href="{{route('reconfirm4',['id'=>$item->work_id])}}" > ยืนยัน</a>
 
         <form method="post" class="delete_form" action="{{route('destroy',['id'=>$item->work_id])}}">
 
