@@ -191,11 +191,11 @@
             $TTTTT = $sumation  - $DDDDD ; // ยอดค้างชำระทั้งหมด
         @endphp
 
-        <tr>
+        {{-- <tr>
             <td colspan="2" align="right"> ยอดค้างชำระทั้งหมด </td>
             <td align="right"> @php echo number_format( $TTTTT , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
-            <td align="center"> บาท </td>
-        </tr>
+            {{-- <td align="center"> บาท </td>
+        </tr> --}}
 
     </table>
 <h5>
