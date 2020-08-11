@@ -327,7 +327,25 @@ class AdminController extends Controller
     {
         // return $id;
         Work::where('id',$id)->update(['status_bill'=>'ชำระแล้ว']);
-        return Redirect()->route('home');
+        $bill = DB::table('works')
+        ->join('work_details', 'works.id', '=', 'work_details.work_id')
+        ->join('users', 'users.id', '=', 'works.user_id')
+        ->select('works.*', 'work_details.*','users.*')
+
+
+        ->where('works.id',$id )
+        ->get();
+        //  return $bill;
+
+         $mytime = Carbon::now();
+         $mytime = date('Y-m-d');
+         // return $mytime;
+
+
+        return view('bill.monney',[
+            'bills' => $bill , 'mydate' => $mytime
+            ]);
+
     }
 
     public function adminbill($id)
@@ -345,16 +363,17 @@ class AdminController extends Controller
              ]);
     }
 
-    public function reviewer2()
+    public function reviewer2($id)
     {
-        $workimg = Work::orderByDesc('id')->limit(1)->get();
-        foreach( $workimg as $sum ){
-            $result = $sum->id;
-        }
+        // return $id;
+        // $workimg = Work::orderByDesc('id')->limit(1)->get();
+        // foreach( $workimg as $sum ){
+        //     $result = $sum->id;
+        // }
 
         $details =  DB::table('work_details')
         ->select('work_details.*')
-        ->where('work_id','like',$result)
+        ->where('work_id','like',$id)
         ->get();
         // return $details;
 

@@ -15,35 +15,41 @@
         <div class="col-md-10">
             <div class="card">
                 @php
-                    $sum = 0;
-                    $avg1 = 0;
-                    $avg2 = 0;
-                    $sack = 0;
-                    foreach( $bills as $index=>$detailes ) {
-                        if( $detailes->working == "ตัดหญ้า" ) {
-                            $grass = $detailes->farm_grass ;
-                            $sum = $grass * 500;
-                        }
-                        elseif( $detailes->working == "ตัดปาล์ม" ) {
-                            $palm = $detailes->kilo_palm ;
-                            $sum2 = $palm * 3;
-                            $avg1 = $sum2 * 0.3; // เงินที่เราได้จากการขาย 30 %
-                            $avg2 = $sum2 - $avg1 ; // เงินที่ลูกค้าได้จากการขาย และ ลบส่วนที่ต้องแบ่งให้คนจ้าง 30 %
-                        }
-                        else{
-                            $fertilizer = $detailes->unit_fertilizer ;
-                            $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
-                            $sack = $sum3 * 600;
-                        }
-                    }
-                    $sumation = $sum + $avg1 + $sack;
+            $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
+            $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
+            $palm_val = 0; $val_pui = 0;$palm_oil = 0 ; $equipment = 0 ;$power_1 = 0;
+            $palm_2 = 0; $palm_222 = 0;
 
-                    $deposit =  $sumation  * 0.3 ;
+            foreach( $bills as $detailes ) {
+                if( $detailes->working == "ตัดหญ้า" ) {
+                    $grass = $detailes->farm_grass ;
+                    $sum = $grass * 500;
+                    $sum_oil = $grass * 100 ;
+                    $sum_deposit = $sum - $sum_oil ;
+                }
+                elseif( $detailes->working == "ตัดแต่งทางใบ" ) {
+                    $palm = $detailes->leaf_palm ;
+                    $palm_oil = 300; //ค่าน้ำมัน
+                    $equipment = 300 ; //ค่าอุปกรณ์
+                    $power_1 = 500 ;//ค่าแรง
 
-                    $result = $sumation - $deposit ;
+                    $sum2 = $palm * 20;
+                    $mmmmm = $sum2 / 5; //ค่าแรง
+                    $palm_2 = $mmmmm +  $equipment ;//เงินที่นายจ้างได้
+                    $palm_222 =  $sum2 + $equipment +  $palm_oil ;
+                }
+                else{
+                    $fertilizer = $detailes->unit_fertilizer ;
+                    $sum3 = $fertilizer / 50 ; // จำนวนต้น หาร กิโลต่อถุง -> หาจำนวนกระสอบ
+                    $sack = $sum3 * 600;
 
-                @endphp
+                    $oil_pui = 500; //ค่าน้ำมันรถ
+                    $powerman = $service_pui * $sum3 ;
+                    $val_pui = $powerman + $sack + $oil_pui ;
+                }
+            }
 
+        @endphp
                 <div class="card-header"> <center> <h1> ใบเสร็จชำระค่าบริการ </h1> </center> </div>
 
                 <table class="table table-striped table-bordered">
@@ -77,28 +83,25 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ค่าบริการตัดปาล์ม </b> </td>
-                        <td align="right"> {{ number_format( $avg1 , 2 )  }} </td>
+                        <td height="6"> <b> ตัดแต่งทางใบ </b> </td>
+                        <td align="right"> {{ number_format( $palm_222 , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
                         <td height="6"> <b> ค่าบริการใส่ปุ๋ย </b> </td>
-                        <td align="right"> {{ number_format( $sack , 2 )  }} </td>
+                        <td align="right"> {{ number_format( $val_pui , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
 
                     <tr>
                         <td colspan="3"> </td>
                     </tr>
-
-                    <tr>
-                        <td height="30" align="right"> <b> ค่าใช้จ่ายทั้งหมด </b> </td>
-                        <td width="106" align="right" style="border-bottom: solid 1px #000">
-                            <b> {{ number_format( $sumation , 2 )  }} </b>
-                        </td>
-                        <td align="center"> <b> บาท </b> </td>
-                    </tr>
+                    @php
+                    $sumation = $sum + $palm_222  + $val_pui; //ยอดรวมทั้งหมด
+                    $deposit = $sumation  * 0.3 ; // ค่ามัดจำที่ต้องจ่าย(30%)
+                    $result = $sumation  - $deposit ; // ยอดค้างชำระทั้งหมด
+                @endphp
 
                     <tr>
                         <td height="30" align="right"> <b> ค่ามัดจำที่จ่ายไป </b> </td>
@@ -109,9 +112,18 @@
                     </tr>
 
                     <tr>
-                        <td height="30" align="right"> <b> จำนวนเงินที่ต้องจ่าย </b> </td>
+                        <td height="30" align="right"> <b> จำนวนเงินที่จ่ายไป </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $result , 2 )  }} </b>
+                        </td>
+                        <td align="center"> <b> บาท </b> </td>
+                    </tr>
+
+                    <tr>
+                        <td height="30" align="right"> <b> รวมค่าใช้จ่ายทั้งสิ้น</b> </td>
+                        <td width="106" align="right" style="border-bottom: solid 1px #000">
+
+                            <b> {{ number_format( $sumation , 2 )  }} </b>
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>

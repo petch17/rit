@@ -88,7 +88,7 @@ class BillController extends Controller
         $mytime = date('Y-m-d');
 
         return view('bill.deposit',[
-            'bills' => $bill, 'price1' => $sumation , 'price2' => $sum2 ,
+            'bills' => $bill, 'price1' => $sumation , 'price2' =>  $sumation ,
             'price3' => $sack , 'code_runs' => $code_run , 'mydate' => $mytime
             ]);
 

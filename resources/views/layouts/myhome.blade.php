@@ -148,20 +148,20 @@
                         <li id="activity3">
                             <a class="drop" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                                <i class="fas fa-list-ul" aria-hidden="true"></i> ตาราง</a>
+                                <i class="fas fa-list-ul" aria-hidden="true"></i> รายงาน</a>
                                 <ul>
                                     <li id="wks">
-                                        <a href="{{ route('works') }}">{{ __('ตารางงาน') }}</a>
+                                        <a href="{{ route('works') }}">{{ __('รายงานจ้างงาน') }}</a>
                                     </li>
                                     {{-- <li id="wkdetail">
                                         <a href="{{ route('details') }}">{{ __('ตารางรายละเอียดงาน') }}</a>
                                     </li> --}}
                                     <li id="probs">
-                                        <a href="{{ route('prob') }}">{{ __('ตารางแจ้งปัญหา') }}</a>
+                                        <a href="{{ route('prob') }}">{{ __('รายงานแจ้งปัญหา') }}</a>
                                     </li>
-                                    <li id="emps">
+                                    {{-- <li id="emps">
                                         <a href="{{ route('emp') }}">{{ __('ตารางพนักงาน') }}</a>
-                                    </li>
+                                    </li> --}}
                                     <li id="cus">
                                         <a href="{{ route('customers') }}">{{ __('ตารางลูกค้า') }}</a>
                                     </li>

@@ -29,7 +29,7 @@
                                 {{-- <th align="center"> วันที่สิ้นสุด </th> --}}
                                 <th align="center"> รายละเอียดงาน </th>
                                 <th align="center"> รายละเอียดมัดจำ </th>
-                                {{-- <th align="center"> สถานะงานที่จ้าง</th> --}}
+                                <th align="center"> สถานะงานที่จ้าง</th>
 
                             </tr>
                         </thead>
@@ -56,7 +56,36 @@
 
                              <td align="center"> <a href="{{route('adminbill',['id'=>$item->id])}}" > ดู </a> </td>
                                 <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> คลิก </a> </td>
-                                {{-- <td align="center"> <a href="{{route('zoombill',['id'=>$item->id])}}" target="_blank"> กำลังดำเนินการ </a> </td> --}}
+                                @php
+                                    $count = App\Work::where('status_work','กำลังตรวจสอบ') ->where('user_id',Auth::user()->id )->count();
+
+                                    $count1 = App\Work::where('status_work','ตรวจสอบแล้ว') ->where('user_id',Auth::user()->id )->count();
+
+                                    $count2 = App\Work::where('status_work','อยู่ระหว่างการดำเนินการ') ->where('user_id',Auth::user()->id )->count();
+
+                                    $count3 = App\Work::where('status_work','ดำเนินการเสร็จสิ้น')
+                                    ->where('status_bill','ค้างชำระ')
+                                    ->where('user_id',Auth::user()->id )->count();
+
+                                @endphp
+                                {{-- @if ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
+                                    <td align="center"> รอดำเนินการ </td> --}}
+                                @if ($count!='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
+                                    <td align="center"> 1 </td>
+                                @elseif ($count=='0'&& $count1!='0'&& $count2=='0'&& $count3=='0')
+                                    <td align="center"> 2 </td>
+                                @elseif ($count=='0'&& $count1=='0'&& $count2!='0'&& $count3=='0')
+                                    <td align="center"> 3 </td>
+                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3!='0')
+                                    <td align="center"> 4 </td>
+
+
+
+
+                                @else
+
+                                @endif
+
 
                             </tr>
 

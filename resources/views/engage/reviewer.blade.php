@@ -65,7 +65,7 @@
         @if( $item->working == 'ตัดหญ้า' )
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
-            <td > <b> {{ $item->working }} </b> </td>
+            <td > <b> {{ $item->working }} {{ $grass }} ไร่ </b> </td>
             <td align="center"> </td>
             <td align="center"> </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -84,7 +84,7 @@
         </tr>
         <tr>
             <td > </td>
-            <td >ตัดหญ้า {{ $grass }} ไร่ รวมบริการ </td>
+            <td >รวมบริการ </td>
             <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -92,7 +92,7 @@
         @elseif( $item->working == 'ตัดแต่งทางใบ' )
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
-            <td > <b> {{ $item->working }} </b>  </td>
+            <td > <b> {{ $item->working }} {{ $palm }} ต้น </b>  </td>
             <td align="center">  </td>
             <td align="center">  </td>
             {{-- <th align="center"> <a target="_blank" href=""> คลิก </a> </th> --}}
@@ -115,7 +115,7 @@
 
         <tr>
             <td > </td>
-            <td > รวมค่าบริการ {{ $palm }} ต้น </td>
+            <td > รวมค่าบริการ </td>
             <td align="right"> @php echo number_format( $palm_222 , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -123,7 +123,7 @@
         @else
         <tbody>
             <td align="center"> {{ $index+1 }} </td>
-            <td > <b> {{ $item->working }} </b> </td>
+            <td > <b> {{ $item->working }} {{$fertilizer}}ต้น </b> </td>
             <td align="center">  </td>
             <td align="center">  </td>
         </tbody>
