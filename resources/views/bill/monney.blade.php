@@ -56,21 +56,29 @@
                     <tr>
                         <td colspan="3"> </td>
                     </tr>
+                    <td colspan="3" height="6"> <b> ข้อมูลลูกค้า </b> </td>
 
                     <tr>
+
                         @php
                             $date_in = $mydate ;
                             $datemine = show_tdate($date_in) ;
                         @endphp
-                        <td height="6"> <b> นาม &nbsp;&nbsp; นาย ชาญณรงค์ สิทธิบุตร </b> </td>
+                            @foreach ( $bills as $index=>$item )
+                        <td  height="6"> <b> นาม &nbsp;&nbsp; {{ $item->titlename }} {{ $item->name }} {{$item->lastname }}</b> </td>
+
                         <td colspan="2" height="6"> <b> วันที่ &nbsp;&nbsp; {{ $datemine }} </b> </td>
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ที่อยู่ &nbsp;&nbsp; สวนปาล์มอินทนินท์ </b> </td>
-                        <td colspan="2" height="6"> <b> โทร. &nbsp; 095-571-6743 </b> </td>
+                        <td colspan="3"  height="6"> <b> ที่อยู่ &nbsp;&nbsp; {{ $item->address }} </b> </td>
+
                     </tr>
 
+                    <tr>
+                        <td colspan="3" height="6"> <b> โทร. &nbsp;{{ $item->phone }} </b> </td>
+                    </tr>
+                    @endforeach
                     <tr>
                         <td colspan="3"> </td>
                     </tr>
@@ -127,8 +135,13 @@
                         </td>
                         <td align="center"> <b> บาท </b> </td>
                     </tr>
+                    <tr>
+                        <td colspan="3"  height="6" style="border-bottom: solid 1px #000"> <b> ผู้รับเงิน &nbsp;&nbsp; นาง พัชรินทร์ สิทธิบุตร </b> </td>
+
+                    </tr>
 
                 </table>
+
 
 
             </div>

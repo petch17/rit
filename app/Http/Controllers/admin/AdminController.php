@@ -152,7 +152,7 @@ class AdminController extends Controller
                     $val_emp = 0 ; $palm_emp = 0 ; $pui_emp = 0 ;
                     $price_palm = 0; $service_palm = 300; $palm_val = 0;
                     $service_pui = 50; $oil_pui = 0;  $power_2 = 0;
-                    $val_pui = 0; $power_1 = 0; $palm_3 = 0;
+                    $val_pui = 0; $power_1 = 0; $palm_3 = 0;$mmmmm=0;$palm_2=0;
 
                     foreach( $bill as $detail ){
                         if( $detail->working == "ตัดหญ้า" ){
@@ -331,11 +331,12 @@ class AdminController extends Controller
         ->join('work_details', 'works.id', '=', 'work_details.work_id')
         ->join('users', 'users.id', '=', 'works.user_id')
         ->select('works.*', 'work_details.*','users.*')
-
-
         ->where('works.id',$id )
         ->get();
-        //  return $bill;
+       //  return $bill;
+
+
+
 
          $mytime = Carbon::now();
          $mytime = date('Y-m-d');

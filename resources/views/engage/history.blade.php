@@ -71,13 +71,15 @@
                                 {{-- @if ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
                                     <td align="center"> รอดำเนินการ </td> --}}
                                 @if ($count!='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
-                                    <td align="center"> 1 </td>
+                                    <td align="center"> รอรับงาน</td>
                                 @elseif ($count=='0'&& $count1!='0'&& $count2=='0'&& $count3=='0')
-                                    <td align="center"> 2 </td>
+                                    <td align="center"> รับงานแล้ว</td>
                                 @elseif ($count=='0'&& $count1=='0'&& $count2!='0'&& $count3=='0')
-                                    <td align="center"> 3 </td>
+                                    <td align="center"> กำลังดำเนินการ </td>
                                 @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3!='0')
-                                    <td align="center"> 4 </td>
+                                    <td align="center"> ดำเนินการเสร็จสิ้น </td>
+                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
+                                    <td align="center"> ดำเนินงานเสร็จสิ้น </td>
 
 
 

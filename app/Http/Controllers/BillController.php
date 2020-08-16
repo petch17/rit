@@ -130,7 +130,7 @@ class BillController extends Controller
 
     public function monney(  )
     {
-       // return 1;
+    //    return 1;
        $bill = DB::table('works')
        ->join('work_details', 'works.id', '=', 'work_details.work_id')
        ->join('users', 'users.id', '=', 'works.user_id')
@@ -139,6 +139,8 @@ class BillController extends Controller
        ->where('works.status_bill','ค้างชำระ' )
        ->get();
         // return $bill;
+        // $billlast = User::where('users.id',Auth::user()->id ) ->get();
+        // return $billlast;
 
         $mytime = Carbon::now();
         $mytime = date('Y-m-d');
