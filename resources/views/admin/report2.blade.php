@@ -60,7 +60,8 @@
 
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> คลิก รายได้จากการตัดหญ้า </a> </b>  </td>
+                        {{-- <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> ตัดหญ้า </a> </b>  </td> --}}
+                        <td height="6"> <b> ตัดหญ้า</b> </td>
                         <td align="right"> {{ number_format( $grass1 , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
 
