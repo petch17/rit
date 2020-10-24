@@ -11,7 +11,7 @@
 <div class="card">
     <div class="card-header">
 <h1 align="center">
-    ค่าใช้จ่ายทั้งหมด
+    รายละเอียดบริการ
 </h1>
     </div> </br>
     <table class="table table-striped table-bordered" style="width:100%" >
@@ -107,7 +107,7 @@
 
         <tr>
             <td > </td>
-            <td > ค่าบรรทุก + ค่าอุปกรรณ์   </td>
+            <td > ค่าบรรทุก + ค่าอุปกรณ์   </td>
             {{-- <td align="right"> @php echo number_format( $sum , 2 ) @endphp </td> --}}
             <td align="right">  @php echo number_format( ( $equipment + $palm_oil ) , 2 ) @endphp </td>
             <td align="center">  บาท </td>
