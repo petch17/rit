@@ -61,7 +61,7 @@
                 <table class="table table-striped table-bordered">
                     <tr>
                         {{-- <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> ตัดหญ้า </a> </b>  </td> --}}
-                        <td height="6"> <b> ตัดหญ้า</b> </td>
+                        <td height="6"> <b> รายได้จากตัดหญ้า</b> </td>
                         <td align="right"> {{ number_format( $grass1 , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
 
@@ -71,7 +71,7 @@
                     </tr>
 
                     <tr>
-                        <td height="6"> <b> ตัดแต่งทางใบ</b> </td>
+                        <td height="6"> <b> รายได้จากตัดแต่งทางใบ</b> </td>
                         <td align="right"> {{ number_format( $palm1 , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
 
@@ -94,6 +94,7 @@
                     </tr>
 
                     <tr>
+                        {{-- <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> ค่าแรงที่ต้องจ่ายลูกจ้าง </a> </b>  </td> --}}
                         <td height="6"> <b> ค่าแรงที่ต้องจ่ายลูกจ้าง </b> </td>
                         <td align="right"> {{ number_format( $employee , 2 ) }} </td>
                         <td align="center"> <b> บาท </b> </td>
@@ -121,6 +122,7 @@
                     </tr>
 
                     <tr>
+                        {{-- <td height="6"> <b>  <a href="{{ route('zoombill1') }}"> ค่าน้ำมันที่นายจ้างได้คืน </a> </b>  </td> --}}
                         <td height="30"> <b> ค่าน้ำมันที่นายจ้างได้คืน </b> </td>
                         <td width="106" align="right" > {{ number_format( $oil , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>
@@ -128,6 +130,7 @@
                     </tr>
 
                     <tr>
+
                         <td height="30"> <b> เงินที่นายจ้างได้รับ </b> </td>
                         <td width="106" align="right" > {{ number_format( $sumsults , 2 )  }} </td>
                         <td align="center"> <b> บาท </b> </td>

@@ -172,7 +172,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right"> ยอดรวมทั้งหมด </td>
+            <td colspan="2" align="right">รวมเงินที่ต้องจ่าย </td>
             <td align="right"> @php echo number_format( $sumation , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>
@@ -182,7 +182,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right"> ค่ามัดจำที่ต้องจ่าย(30%) </td>
+            <td colspan="2" align="right"> ค่ามัดจำที่จ่ายไปแล้ว(30%) </td>
             <td align="right"> @php echo number_format(  $DDDDD  , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <td align="center"> บาท </td>
         </tr>
@@ -192,7 +192,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right"> ยอดค้างชำระทั้งหมด </td>
+            <td colspan="2" align="right"> จำนวนเงินงเหลือชำระ </td>
             <td align="right"> @php echo number_format( $TTTTT , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <td align="center"> บาท </td>
         </tr>
@@ -204,7 +204,7 @@
     <font color="blue">
 
         ชำระเงินผ่านธนาคาร<br/>นาย ชาญณรงค์ สิทธิบุตร<br/>
-        เลขที่บัญชี : 333-33333-33-3<br/>ธนาคาร : กสิกรไทย<br/>
+        เลขที่บัญชี : 333-33333-33-3<br/>ธนาคาร : กรุงไทย<br/>
         หรือชำระเงินผ่านทางพร้อมเพย์&nbsp;099-878-4747
     </font> <br/>
     <font color="red">

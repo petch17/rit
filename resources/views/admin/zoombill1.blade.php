@@ -8,51 +8,34 @@
 <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" >
 
 @endsection
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> กำไร-ขาดทุน </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางค่าใช้จ่าย </h1> </center> </div>
+
+                        <table id="example" class="table table-striped table-bordered" style="width:100%" >
+                            <thead>
+                                <th align="center"> ต้นทุน</th>
+                                <th align="center"> ค่าจิปะถะ </th>
+                                <th align="center"> คงเหลือ </th>
+                                <th align="center">ลูกจ้างได้รับ</th>
+                                <th align="center">ผู้รับเหมาได้รับ</th>
+
+                            </thead>
 
 
-                <br/>
 
 
 
-            </div>
-            <br/>
-        <center>
-            <input class="btn btn-success" type="submit" name="Submit" value=" PRINT "
-            onClick="javascript:this.style.display='none';window.print()">
 
-            {!! Form::button('ย้อนกลับ',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+                        </table>
 
-            {{-- <a href="{{ route('home') }}">
-                {!! Form::button('หน้าหลัก',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
-            </a> --}}
-        </center>
+
         </div>
     </div>
 </div>
-
-@endsection
-
-@section('js')
-
-<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" ></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript" ></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript" ></script>
-
-<script>
-     $(document).ready(function () {
-        document.getElementById('activity3').classList.add('active');
-        document.getElementById('report').classList.add('active');
-        $('#example').DataTable();
-    });
-
-</script>
 
 @endsection
 @php
