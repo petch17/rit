@@ -8,6 +8,7 @@ use App\Problem;
 use App\User;
 use Illuminate\Http\Request;
 use App\Work;
+use App\Bookbank;
 use App\WorkDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -220,7 +221,7 @@ class AdminController extends Controller
                     }
                     $sum_oil_0 = 0 ; $result = 0 ; $sum_emp = 0 ; $boss = 0 ;
 
-                    $sum_oil_0 =  $oil_1 + $palm_oil + $oil_pui; //รวมค่าน้ำมัน
+                    $sum_oil_0 =  $oil_1 + $palm_oil + $oil_pui + $equipment; //รวมค่าน้ำมัน
                     $result = $grass + $palm_3 + $val_pui ; //เงินที่ได้จากการทำงานทั้งหมด 3 งาน
                     $sum_emp = ( $pui_emp +  $val_emp + $mmmmm ) ;
                     $boss = ( $val_emp + $palm_2 + $pui_boss + $sum_oil_0 ) ; //เงินที่นายจ้างได้ทั้งหมด
@@ -307,6 +308,14 @@ class AdminController extends Controller
         return Redirect()->route('home');
     }
 
+
+    public function reconfirmpayblack($id)
+    {
+        // return $id;
+        Work::where('id',$id)->update(['status_work'=>'งานของท่านถูกยกเลิก']);
+        return Redirect()->route('home');
+    }
+
     public function reconfirm2($id)
     {
         // return $id;
@@ -364,6 +373,21 @@ class AdminController extends Controller
              ]);
     }
 
+    public function confirmpayblack5($id)
+    {
+        // return $id;
+        $workimgs = DB::table('works')
+                ->join('work_details', 'works.id', '=', 'work_details.work_id')
+                ->select('works.*', 'work_details.*' )
+                ->where('work_details.work_id' , '=' , $id )
+                ->get();
+        // return $workimgs;
+
+        return view('admin.confirmpayblack5',[
+             'workimg_0' => $workimgs
+             ]);
+    }
+
     public function reviewer2($id)
     {
         // return $id;
@@ -388,5 +412,19 @@ class AdminController extends Controller
         return view('admin.zoombill1');
     }
 
+
+    public function upbookbank(Request $request)
+    {
+        // return 0;
+        // $bookbank = new Bookbank();
+        // $bookbank->payback = $request->bank;
+        // $bookbank->money = $request->money;
+        // // $workimg->end_date = $request->end_date;
+        // $bookbank->users_id  = $request->user_id;
+        // $bookbank->work_id  = $request->work_id;
+
+        // $bookbank->save();
+         return view('admin.dashboard');
+    }
 
 }

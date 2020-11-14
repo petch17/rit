@@ -10,7 +10,7 @@
         <style>
             html, body {
                 background-color: #FFFF66;
-                color: #636b6f;
+                color: #000000;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -46,7 +46,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #000000;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -64,9 +64,9 @@
     @section('content')
     <div class="container">
         <div class="container">
-            <marquee behavior=alternate direction=up scrollamount=2 scrolldelay=65 height=80 style="Text-align;filter:wave(add=0,phase=1, freq=1,strength=15,color=.FFFFFF)">
+
             <div class="card-header" align="center"> <font color="black"><h1>{{ __('รายละเอียดงานสวนปาล์ม') }}</h1></font></div>
-            </marquee>
+
                 <div class="row">
                     <div class="col-md-5">
                         <thead>
@@ -120,15 +120,15 @@
                             </tr>
                         </thead>
                     </div>
-                    <div class="col-md-7">
+                   <div class="col-md-7">
                         <br><br><br><br><br>
-                        {{-- <MARQUEE behavior=alternate direction=left scrollAmount=3 width="4%"><font face=Webdings>3</font></MARQUEE><MARQUEE scrollAmount=1 direction=left width="2%">| | |</MARQUEE> --}}
+                   {{-- <MARQUEE behavior=alternate direction=left scrollAmount=3 width="4%"><font face=Webdings>3</font></MARQUEE><MARQUEE scrollAmount=1 direction=left width="2%">| | |</MARQUEE> --}}
                             <h3>{{ __('3.บริการใส่ปุ๋ย ') }}</h3>
                             <h3>{{ __('คิดค่าจ้างกระสอบละ 50 บาท ') }}</h3>
                             <h3>{{ __('ปุ๋ย คิดเป็นกระสอบละ 600 บาท ปุ๋ย 1 กระสอบ 50 กิโลกรัม ') }}</h3>
                             <h3>{{ __('ปุ๋ย1 กระสอบใส่ได้ 50 ต้น ') }}</h3>
                             <h3>{{ __('ค่าน้ำมันรถบรรทุกไปซื้อปุ๋ย 500 บาท') }}</h3>
-                            {{-- <MARQUEE scrollAmount=1 direction=right width="2%">| | |</MARQUEE><MARQUEE behavior=alternate direction=right scrollAmount=3 width="4%"><font face=Webdings>4</font></MARQUEE>> --}}
+                           {{-- <MARQUEE scrollAmount=1 direction=right width="2%">| | |</MARQUEE><MARQUEE behavior=alternate direction=right scrollAmount=3 width="4%"><font face=Webdings>4</font></MARQUEE>> --}}
 
                     </div>
                 </div>
@@ -136,4 +136,8 @@
 
         </div>
     </div>
+
+
     @endsection
+
+

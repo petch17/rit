@@ -64,12 +64,15 @@ Route::get('ur/admin/customers', 'admin\AdminController@customers')->name('custo
 
 Route::get('emp/admin/employee', 'admin\AdminController@emp')->name('emp');
 
+
+
 Route::get('addemp/admin/addemployee', 'admin\AdminController@addemployee')->name('addemployee');
 Route::post('employee/addempstore', [
     'as' => 'addempstore',
     'uses' => 'admin\AdminController@addempstore'
 ]);
 Route::resource('addempstore','admin\AdminController' , ['except' => 'addempstore']);
+Route::resource('bookbank','admin\AdminController' , ['except' => 'addupbookbank']);
 
 Route::get('editemp/admin/editemp/{id}', 'admin\AdminController@editemp')->name('editemp');
 Route::post('profile/empupdatestore', [
@@ -94,6 +97,10 @@ Route::get('admin/reconfirm/{id}', [
     'as' => 'reconfirm',
     'uses' => 'admin\AdminController@reconfirm'
 ]);
+    Route::get('admin/reconfirmpayblack/{id}', [
+        'as' => 'reconfirmpayblack',
+        'uses' => 'admin\AdminController@reconfirmpayblack'
+        ]);
 Route::resource('reconfirm','admin\AdminController' , ['except' => 'reconfirm']);
 
 Route::get('con2/admin/confirm2', 'admin\AdminController@confirm2')->name('confirm2');
@@ -132,6 +139,12 @@ Route::get('admin/adminbill/{id}', [
     'uses' => 'admin\AdminController@adminbill'
 ]);
 Route::resource('admin/adminbill', 'admin\AdminController@adminbill' , ['except' => 'adminbill']); //หน้าบิลชำระเงิน
+
+Route::get('admin/confirmpayblack5/{id}', [
+    'as' => 'confirmpayblack5',
+    'uses' => 'admin\AdminController@confirmpayblack5'
+]);
+Route::resource('admin/confirmpayblack5', 'admin\AdminController@confirmpayblack5' , ['except' => 'confirmpayblack5']); //หน้าบิลชำระเงิน
 
 Route::get('admin/reviewer2/{id}', [
     'as' => 'reviewer2',
@@ -179,6 +192,12 @@ Route::post('engage/addstore', [
 ]);
 Route::resource('addstore', 'EngageController' , ['except' => 'addstore']); //หน้าเพิ่มข้อมมูลการจ้างงาน
 
+Route::post('admin/upbookbank', [
+    'as' => 'upbookbank',
+    'uses' => 'admin\AdminController@upbookbank'
+]);
+Route::resource('upbookbank', 'admin\AdminController' , ['except' => 'upbookbank']); //หน้าเพิ่มข้อมมูลการจ้างงาน
+
 Route::get('bill/deposit', 'BillController@deposit')->name('deposit');
 Route::post('bill/addbillstore', [
     'as' => 'addbillstore',
@@ -198,4 +217,8 @@ Route::get('hy/admin/history', 'EngageController@history')->name('history');
 Route::get('zoomhistory/engage/zoomhistory/{id}', 'EngageController@zoomhistory')->name('zoomhistory');
 
 Route::get('zoombill/engage/zoombill/{id}', 'EngageController@zoombill')->name('zoombill');
+
+
+
+
 // end custommer route

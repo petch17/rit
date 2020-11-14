@@ -19,16 +19,16 @@
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>
-                                <th align="center"> ลำดับ </th>
-                                <th align="center"> รหัส user </th>
+                                <th align="center"> ชื่อ</th>
+                                <th align="center"> นามสกุล</th>
                                 <th align="center"> ปัญหาที่แจ้ง </th>
 
                             </thead>
                             <tbody>
                             @foreach ( $probb as $index=>$item )
                           <tr>
-                                <td align="center"> {{ $item->id  }} </td>
-                                <td align="right"> {{ $item->user_id  }} </td>
+                                <td align="center"> {{ $item->name  }} </td>
+                                <td align="right"> {{ $item->lastname  }} </td>
                                 <td align="center"> {{ $item->desc  }} </td>
                           <tr>
                             @endforeach

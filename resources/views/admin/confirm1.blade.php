@@ -28,6 +28,8 @@
                                 <th align="center"> รายละเอียดงาน </th>
                                 <th align="center"> รายละเอียดมัดจำ</th>
                                 <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
+                                <th align="center"> <i class="fa fa-cog" aria-hidden="true"></i> </th>
+
                             </thead>
 
                             <tbody>
@@ -62,6 +64,9 @@
                                         <td align="center"> <a href="{{route('zoombill',['id'=>$item_00->id])}}" target="_blank"> คลิก </a> </td>
                                         {{-- <td align="center"> <a href="{{route('adminbill',['id'=>$item_00->id])}}" > ดู </a> </td> --}}
                                         <td align="center"> <a href="{{route('reconfirm',['id'=>$item_00->id])}}" > คลิกเพื่อรับงาน </a> </td>
+                                        <td align="center"> <a href="{{route('reconfirmpayblack',['id'=>$item_00->id])}}" > คลิกเพื่อยกเลิกงาน </a> </td>
+
+
                                     </tr>
 
                                 @endforeach

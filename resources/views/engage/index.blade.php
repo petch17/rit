@@ -86,7 +86,8 @@
         <p style="background-color: rgb(224, 95, 95)"> <font color="black"> **กรุณาตรวจสอบตารางานผู้รับเหมาก่อนเลือกวันที่เริ่มจ้างงาน**</p></font>
         <body>
 
-            <p><a href="http://127.0.0.1:8000/schedule/engage/workschedule"><font color="red">คลิกเพื่อดูตารางงาน</a> </p> </font>
+            <p><a href="http://127.0.0.1:8000/schedule/engage/workschedule"><font color="red">คลิกเพื่อดูตารางงานผู้รับเหมา</a> </p> </font>
+            <p><a href="http://127.0.0.1:8000/zervid"><font color="blue">คลิกเพื่อดูรายละเอียดงาน</a> </p> </font>
 
     {{-- </div> --}}
 

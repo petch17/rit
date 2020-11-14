@@ -30,6 +30,7 @@
                                 <th align="center"> รายละเอียดงาน </th>
                                 <th align="center"> รายละเอียดมัดจำ </th>
                                 <th align="center"> สถานะงานที่จ้าง</th>
+                                <th align="center"> ขอคืนเงินมัดจำ</th>
 
                             </tr>
                         </thead>
@@ -66,27 +67,34 @@
                                     $count3 = App\Work::where('status_work','ดำเนินการเสร็จสิ้น')
                                     ->where('status_bill','ค้างชำระ')
                                     ->where('user_id',Auth::user()->id )->count();
+                                    $count4 = App\Work::where('status_work','งานของท่านถูกยกเลิก') ->where('user_id',Auth::user()->id )->count();
+
 
                                 @endphp
                                 {{-- @if ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
                                     <td align="center"> รอดำเนินการ </td> --}}
-                                @if ($count!='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
+                                @if ($count!='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4=='0')
                                     <td align="center"> รอรับงาน</td>
-                                @elseif ($count=='0'&& $count1!='0'&& $count2=='0'&& $count3=='0')
+                                @elseif ($count=='0'&& $count1!='0'&& $count2=='0'&& $count3=='0'&& $count4=='0')
                                     <td align="center"> รับงานแล้ว</td>
-                                @elseif ($count=='0'&& $count1=='0'&& $count2!='0'&& $count3=='0')
-                                    <td align="center"> กำลังดำเนินการ </td>
-                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3!='0')
+                                @elseif ($count=='0'&& $count1=='0'&& $count2!='0'&& $count3=='0'&& $count4=='0')
+                                    <td align="center"> เริ่มงาน </td>
+                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3!='0'&& $count4=='0')
                                     <td align="center"> ดำเนินการเสร็จสิ้น </td>
-                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0')
+                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4!='0')
+                                    <td align="center"> งานของท่านถูกยกเลิก </td>
+                                @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4=='0')
                                     <td align="center"> ดำเนินงานเสร็จสิ้น </td>
-
-
-
-
                                 @else
 
                                 @endif
+                                @if ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4!='0')
+                                    <td align="center"> <a href="{{route('confirmpayblack5',['id'=>$item->id])}}" > คืนเงินมัดจำ </a> </td>
+                                @else
+                                @endif
+
+
+
 
 
                             </tr>
