@@ -27,7 +27,7 @@
 
 
         @php
-            $work_id=$item->id;
+            $work_id=$item->work_id;
             $sum = 0; $avg1 = 0; $avg2 = 0; $sack = 0; $service_palm = 300; $price_palm = 0;
             $service_pui = 50; //ค่าแรงทำงาน 50 บาทต่อกระสอบ
             $palm_val = 0; $val_pui = 0;$palm_oil = 0 ; $equipment = 0 ;$power_1 = 0;
@@ -184,7 +184,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right"> ค่ามัดจำที่ต้องจ่าย(30%) </td>
+            <td colspan="2" align="right"> ค่ามัดจำ(30%) </td>
             <td align="right"> @php echo number_format(  $DDDDD  , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <td align="center"> บาท </td>
         </tr>
@@ -206,7 +206,7 @@
     <input name="money" type="hidden" value="<?php echo $DDDDD ?>" />
 
     <div>
-        <label>กรอกข้อมูลพร้อมเพย์</label>
+        <label>เลขบัญชีผู้รับคืนมัดจำ</label>
         <input name="bank" type="text" size="20" />
 
     </div>
@@ -217,6 +217,7 @@
     <div align="center" >
         {!! Form::button('ยืนยัน',['type' => 'submit', 'class'=>'btn btn-outline-primary']); !!}
         {!! Form::button('ยกเลิก',['type' => 'reset', 'class'=>'btn btn-outline-danger', 'onclick'=>"window.history.back();"]); !!}
+
     </div>
     {!! Form::close() !!}
 </center>

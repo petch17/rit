@@ -172,7 +172,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right">รวมเงินที่ต้องจ่าย </td>
+            <td colspan="2" align="right">รวมเงินทั้งหมด </td>
             <td align="right"> @php echo number_format( $sumation , 2 ) @endphp </td>
             <td align="center"> บาท </td>
         </tr>

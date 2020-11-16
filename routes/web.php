@@ -26,6 +26,8 @@ Route::group(['prefix' => 'admin'], function(){
 // base route
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/repayback', 'AdminController@repayback')->name('repayback');
+
 Route::get('profit', 'HomeController@profit')->name('profit'); //กำไร-ขาดทุน
 
 Route::get('zervid', 'HomeController@zervid')->name('zervid');
@@ -90,6 +92,8 @@ Route::post('profile/customerupdatestore', [
 ]);
 Route::resource('customerupdatestore', 'admin\AdminController' , ['except' => 'customerupdatestore']); //ฟอร์มแก้ไข
 
+// Route::get('con5/admin/repayback', 'admin\AdminController@repayback')->name('repayback');
+// Route::resource('repayback', 'admin\AdminController' , ['except' => 'repayback']);
 
 Route::get('con1/admin/confirm1', 'admin\AdminController@confirm1')->name('confirm1');
 
@@ -127,6 +131,22 @@ Route::get('admin/reconfirm4/{id}', [
 ]);
 Route::resource('reconfirm4','admin\AdminController' , ['except' => 'reconfirm4']);
 
+Route::get('con5/admin/confirm5', 'admin\AdminController@confirm5')->name('confirm5');
+
+Route::get('admin/reconfirm5/{id}', [
+    'as' => 'reconfirm5',
+    'uses' => 'admin\AdminController@reconfirm5'
+]);
+Route::resource('reconfirm5','admin\AdminController' , ['except' => 'reconfirm5']);
+
+Route::get('con6/admin/confirm6', 'admin\AdminController@confirm6')->name('confirm6');
+
+Route::get('admin/reconfirm6/{id}', [
+    'as' => 'reconfirm6',
+    'uses' => 'admin\AdminController@reconfirm6'
+]);
+Route::resource('reconfirm6','admin\AdminController' , ['except' => 'reconfirm6']);
+
 // Route::post('report2/admin/report2', 'admin\AdminController@report2')->name('report2');
 Route::post('admin/report2', [
     'as' => 'report2',
@@ -152,7 +172,14 @@ Route::get('admin/reviewer2/{id}', [
 ]);
 Route::resource('admin/reviewer2', 'admin\AdminController@reviewer2' , ['except' => 'reviewer2']); //หน้าบิลชำระเงิน
 
+Route::get('admin/repayback/{id}', [
+    'as' => 'repayback',
+    'uses' => 'admin\AdminController@repayback'
+]);
+Route::resource('admin/repayback', 'admin\AdminController@repayback' , ['except' => 'repayback']);
+
 Route::get('zoombill1/admin/zoombill1', 'admin\AdminController@zoombill1')->name('zoombill1');
+
 
 // end admin route
 
@@ -217,6 +244,7 @@ Route::get('hy/admin/history', 'EngageController@history')->name('history');
 Route::get('zoomhistory/engage/zoomhistory/{id}', 'EngageController@zoomhistory')->name('zoomhistory');
 
 Route::get('zoombill/engage/zoombill/{id}', 'EngageController@zoombill')->name('zoombill');
+
 
 
 

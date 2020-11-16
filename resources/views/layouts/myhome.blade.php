@@ -125,6 +125,10 @@
                                     <li id="con4">
                                         <a href="{{ route('confirm4') }}"> งานที่รอชำระเงิน ( {{ $count3 }} ) </a>
                                     </li>
+                                    <li id="con5">
+                                        <a href="{{ route('confirm5') }}"> งานที่ยกเลิก  </a>
+                                    </li>
+
                                 </ul>
                         </li>
 
@@ -156,6 +160,9 @@
                                     {{-- <li id="wkdetail">
                                         <a href="{{ route('details') }}">{{ __('ตารางรายละเอียดงาน') }}</a>
                                     </li> --}}
+                                    <li id="con6">
+                                        <a href="{{ route('confirm6') }}"> รายงานการคืนเงิน </a>
+                                    </li>
                                     <li id="probs">
                                         <a href="{{ route('prob') }}">{{ __('รายงานแจ้งปัญหา') }}</a>
                                     </li>
@@ -168,6 +175,7 @@
                                     <li id="report">
                                         <a href="{{ route('report') }}">{{ __('รายงานกำไร-ขาดทุน') }}</a>
                                     </li>
+
                                 </ul>
                         </li>
 

@@ -182,7 +182,7 @@
         @endphp
 
         <tr>
-            <td colspan="2" align="right"> ค่ามัดจำที่ต้องจ่าย(30%) </td>
+            <td colspan="2" align="right"> ค่ามัดจำ(30%) </td>
             <td align="right"> @php echo number_format(  $DDDDD  , 2 ) @endphp </td> {{-- ค่ามัดจำ 10 % ของยอดรวม --}}
             <td align="center"> บาท </td>
         </tr>

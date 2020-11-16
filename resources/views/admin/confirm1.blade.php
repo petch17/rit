@@ -67,6 +67,7 @@
                                         <td align="center"> <a href="{{route('reconfirmpayblack',['id'=>$item_00->id])}}" > คลิกเพื่อยกเลิกงาน </a> </td>
 
 
+
                                     </tr>
 
                                 @endforeach

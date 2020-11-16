@@ -27,6 +27,13 @@ class AdminController extends Controller
         return view('admin.customers' ,['customers' => $customer ] );
     }
 
+    // public function repayback()
+    // {
+    //     // $repayback = User::where('type','0')->get();
+    //     // return view('admin.repayback' ,['repayback' => $repayback ] );
+    //     return view ('admin.repayback');
+    // }
+
     public function works()
     {
         $workss = DB::table('works')
@@ -301,6 +308,21 @@ class AdminController extends Controller
             ]);
     }
 
+    public function confirm5()
+    {
+        $work_55 = DB::table('works')
+                ->join('users', 'users.id', '=', 'works.user_id')
+                ->join('bookbank', 'works.id', '=', 'bookbank.work_id')
+                ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname','bookbank.payback' )
+                ->where('works.status_work','งานของท่านถูกยกเลิก' )
+                ->where('works.status_bill','ค้างชำระ' )
+                ->get();
+                // return $work_2 ;
+        return view('admin.confirm5',[
+            'work_5' => $work_55
+            ]);
+    }
+
     public function reconfirm($id)
     {
         // return $id;
@@ -388,6 +410,21 @@ class AdminController extends Controller
              ]);
     }
 
+    public function confirm6()
+    {
+        // return $id;
+        $workimgs = DB::table('bookbank')
+                ->join('works', 'works.id', '=', 'bookbank.work_id')
+                ->join('users', 'users.id', '=', 'bookbank.users_id')
+                ->select('bookbank.*', 'works.*','users.*' )
+                ->get();
+        // return $workimgs;
+
+        return view('admin.confirm6',[
+             'workimg_0' => $workimgs
+             ]);
+    }
+
     public function reviewer2($id)
     {
         // return $id;
@@ -407,6 +444,27 @@ class AdminController extends Controller
              ]);
     }
 
+    public function repayback(Request $request)
+    {
+        // return $request;
+        $book = $request->id;
+
+        Bookbank::where('work_id',$book)->update(['status'=>'คืนมัดจำเรียบร้อย']);
+        Work::where('id',$book)->update(['status_work'=>'ทำการยกเลิกสำเร็จ']);
+        $work_55 = DB::table('works')
+        ->join('users', 'users.id', '=', 'works.user_id')
+        ->select('works.*', 'users.titlename' , 'users.name' , 'users.lastname' )
+        ->where('works.status_work','งานของท่านถูกยกเลิก' )
+        ->where('works.status_bill','ค้างชำระ' )
+        ->get();
+        // return $work_2 ;
+        return view('admin.confirm5',[
+        'work_5' => $work_55
+         ]);
+
+
+    }
+
     public function zoombill1()
     {
         return view('admin.zoombill1');
@@ -415,16 +473,20 @@ class AdminController extends Controller
 
     public function upbookbank(Request $request)
     {
-        // return 0;
-        // $bookbank = new Bookbank();
-        // $bookbank->payback = $request->bank;
-        // $bookbank->money = $request->money;
-        // // $workimg->end_date = $request->end_date;
-        // $bookbank->users_id  = $request->user_id;
-        // $bookbank->work_id  = $request->work_id;
+        // return $request;
+        $bookbank = new Bookbank();
+        $bookbank->payback = $request->bank;
+        $bookbank->money = $request->money;
+        // $workimg->end_date = $request->end_date;
+        $bookbank->users_id  = $request->user_id;
+        $bookbank->work_id  = $request->work_id;
+        $bookbank->status  = "คืนมัดจำลูกค้า";
+        // return $bookbank;
+        $bookbank->save();
 
-        // $bookbank->save();
+
          return view('admin.dashboard');
+
     }
 
 }
