@@ -84,7 +84,7 @@
                                 @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4!='0')
                                     <td align="center"> งานของท่านถูกยกเลิก </td>
                                 @elseif ($count=='0'&& $count1=='0'&& $count2=='0'&& $count3=='0'&& $count4=='0')
-                                    <td align="center"> ดำเนินงานเสร็จสิ้น </td>
+                                    <td align="center"> คืนเงินมัดจำเสร็จสิ้น </td>
                                 @else
 
                                 @endif

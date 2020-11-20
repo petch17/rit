@@ -15,8 +15,9 @@ class CreateBookbankTable extends Migration
     {
         Schema::create('bookbank', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('payback',13,2,);
+            $table->string('payback');
             $table->decimal('money',10,2,);
+            $table->string('status');
 
 
         });

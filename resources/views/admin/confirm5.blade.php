@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"> <center> <h1> ตารางตรวจสอบงานที่ค้างชำระ </h1> </center> </div>
+                <div class="card-header"> <center> <h1> ตารางคืนมัดจำ </h1> </center> </div>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%" >
                             <thead>

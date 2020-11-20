@@ -1,4 +1,4 @@
-@extends('layouts.myhome')
+{{-- @extends('layouts.myhome')
 
 @section('css')
 
@@ -61,4 +61,4 @@ if ($day < 10 ) $day_out="" .$day; else $day_out=$day ; $t_date=$day_out." ".$mo
 
 return $t_date ;
 }
-@endphp
+@endphp --}}

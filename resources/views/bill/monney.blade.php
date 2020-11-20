@@ -112,7 +112,7 @@
                 @endphp
 
                     <tr>
-                        <td height="30" align="right"> <b> ค่ามัดจำที่จ่ายไป </b> </td>
+                        <td height="30" align="right"> <b> ค่ามัดจำ </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $deposit , 2 )  }} </b>
                         </td>
@@ -120,7 +120,7 @@
                     </tr>
 
                     <tr>
-                        <td height="30" align="right"> <b> จำนวนเงินที่จ่ายไป </b> </td>
+                        <td height="30" align="right"> <b> จำนวนเงินคงค้างชำระ </b> </td>
                         <td width="106" align="right" style="border-bottom: solid 1px #000">
                             <b> {{ number_format( $result , 2 )  }} </b>
                         </td>
