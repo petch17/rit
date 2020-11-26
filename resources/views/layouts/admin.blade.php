@@ -66,6 +66,9 @@
                                 <a class="dropdown-item" href="{{route('workschedule') }}" >
                                     {{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}
                                 </a>
+                                <a class="dropdown-item" href="{{route('workschedule') }}" >
+                                    {{ __('เพิ่มบริการ') }}
+                                </a>
                             </div>
                         </li>
 

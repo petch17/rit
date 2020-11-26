@@ -179,6 +179,7 @@ Route::get('admin/repayback/{id}', [
 Route::resource('admin/repayback', 'admin\AdminController@repayback' , ['except' => 'repayback']);
 
 Route::get('zoombill1/admin/zoombill1', 'admin\AdminController@zoombill1')->name('zoombill1');
+Route::resource('service','serviceController');
 
 
 // end admin route

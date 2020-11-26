@@ -146,6 +146,10 @@
                                     <li id="workschedule">
                                         <a class="workschedule" href="{{ route('workschedule') }}">{{ __('ตรวจสอบตารางงานของผู้รับเหมา') }}</a>
                                     </li>
+                                    <li id="service">
+                                        <a class="workschedule"  href="service">จัดการบริการ</a>
+                                    </li>
+
                                 </ul>
                         </li>
 
